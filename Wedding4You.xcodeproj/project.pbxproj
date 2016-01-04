@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B8F0CDA1C38193300D29D76 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CD81C38193300D29D76 /* Bolts.framework */; };
-		7B8F0CDB1C38193300D29D76 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CD91C38193300D29D76 /* Parse.framework */; };
 		7B8F0CDD1C38195E00D29D76 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CDC1C38195E00D29D76 /* AudioToolbox.framework */; };
 		7B8F0CDF1C38196B00D29D76 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CDE1C38196B00D29D76 /* CFNetwork.framework */; };
 		7B8F0CE11C38197500D29D76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CE01C38197500D29D76 /* CoreGraphics.framework */; };
@@ -21,7 +19,7 @@
 		7B8F0CEF1C3819B400D29D76 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CEE1C3819B400D29D76 /* libsqlite3.tbd */; };
 		7B8F0CF61C381F9800D29D76 /* Wedding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CF51C381F9800D29D76 /* Wedding.m */; };
 		7B8F0CF91C381FC800D29D76 /* Greeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CF81C381FC800D29D76 /* Greeting.m */; };
-		7B8F0CFC1C381FDD00D29D76 /* Photos.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CFB1C381FDD00D29D76 /* Photos.m */; };
+		7B8F0CFC1C381FDD00D29D76 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CFB1C381FDD00D29D76 /* Photo.m */; };
 		7B8F0CFF1C381FF200D29D76 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CFE1C381FF200D29D76 /* Comment.m */; };
 		7B8F0D051C38214300D29D76 /* ModelParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D041C38214300D29D76 /* ModelParse.m */; };
 		7B8F0D081C3821C000D29D76 /* LoginParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D071C3821C000D29D76 /* LoginParse.m */; };
@@ -29,15 +27,20 @@
 		7B8F0D111C382A9800D29D76 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D101C382A9800D29D76 /* LoginModel.m */; };
 		7B8F0D141C3830AD00D29D76 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D131C3830AD00D29D76 /* MainViewController.m */; };
 		7B8F0D171C38394200D29D76 /* WeddingParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D161C38394200D29D76 /* WeddingParse.m */; };
-		7B8F0D1A1C38397300D29D76 /* PhotosParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D191C38397300D29D76 /* PhotosParse.m */; };
-		7B8F0D1D1C38398700D29D76 /* GreetingsParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D1C1C38398700D29D76 /* GreetingsParse.m */; };
+		7B8F0D1A1C38397300D29D76 /* PhotoParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D191C38397300D29D76 /* PhotoParse.m */; };
+		7B8F0D1D1C38398700D29D76 /* GreetingParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D1C1C38398700D29D76 /* GreetingParse.m */; };
 		7B8F0D201C38399500D29D76 /* CommentParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D1F1C38399500D29D76 /* CommentParse.m */; };
 		7B8F0D231C383A4000D29D76 /* WeddingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D221C383A4000D29D76 /* WeddingModel.m */; };
-		7B8F0D261C383A6E00D29D76 /* PhotosModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D251C383A6E00D29D76 /* PhotosModel.m */; };
-		7B8F0D291C383A7700D29D76 /* GreetingsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D281C383A7700D29D76 /* GreetingsModel.m */; };
+		7B8F0D261C383A6E00D29D76 /* PhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D251C383A6E00D29D76 /* PhotoModel.m */; };
+		7B8F0D291C383A7700D29D76 /* GreetingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D281C383A7700D29D76 /* GreetingModel.m */; };
 		7B8F0D2C1C383A8C00D29D76 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D2B1C383A8C00D29D76 /* CommentModel.m */; };
 		7B8F0D2F1C385D2900D29D76 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D2E1C385D2900D29D76 /* User.m */; };
 		7B8F0D321C3860B800D29D76 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D311C3860B800D29D76 /* RegisterViewController.m */; };
+		8437EC351C39C389001B244F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437EC331C39C389001B244F /* Bolts.framework */; };
+		8437EC361C39C389001B244F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437EC341C39C389001B244F /* Parse.framework */; };
+		8437EC3A1C3B169E001B244F /* ashton.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8437EC371C3B169E001B244F /* ashton.jpeg */; };
+		8437EC3B1C3B169E001B244F /* superman.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8437EC381C3B169E001B244F /* superman.jpeg */; };
+		8437EC3C1C3B169E001B244F /* tmp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8437EC391C3B169E001B244F /* tmp.jpg */; };
 		84D507E81C270D020073F025 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507E71C270D020073F025 /* main.m */; };
 		84D507EB1C270D020073F025 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507EA1C270D020073F025 /* AppDelegate.m */; };
 		84D507EE1C270D020073F025 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507ED1C270D020073F025 /* ViewController.m */; };
@@ -66,8 +69,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7B8F0CD81C38193300D29D76 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Wedding4You/Bolts.framework; sourceTree = "<group>"; };
-		7B8F0CD91C38193300D29D76 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Wedding4You/Parse.framework; sourceTree = "<group>"; };
 		7B8F0CDC1C38195E00D29D76 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7B8F0CDE1C38196B00D29D76 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7B8F0CE01C38197500D29D76 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,8 +83,8 @@
 		7B8F0CF51C381F9800D29D76 /* Wedding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wedding.m; sourceTree = "<group>"; };
 		7B8F0CF71C381FC800D29D76 /* Greeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Greeting.h; sourceTree = "<group>"; };
 		7B8F0CF81C381FC800D29D76 /* Greeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Greeting.m; sourceTree = "<group>"; };
-		7B8F0CFA1C381FDD00D29D76 /* Photos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photos.h; sourceTree = "<group>"; };
-		7B8F0CFB1C381FDD00D29D76 /* Photos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photos.m; sourceTree = "<group>"; };
+		7B8F0CFA1C381FDD00D29D76 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		7B8F0CFB1C381FDD00D29D76 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		7B8F0CFD1C381FF200D29D76 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		7B8F0CFE1C381FF200D29D76 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		7B8F0D031C38214300D29D76 /* ModelParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelParse.h; sourceTree = "<group>"; };
@@ -98,24 +99,29 @@
 		7B8F0D131C3830AD00D29D76 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		7B8F0D151C38394200D29D76 /* WeddingParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingParse.h; sourceTree = "<group>"; };
 		7B8F0D161C38394200D29D76 /* WeddingParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingParse.m; sourceTree = "<group>"; };
-		7B8F0D181C38397300D29D76 /* PhotosParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosParse.h; sourceTree = "<group>"; };
-		7B8F0D191C38397300D29D76 /* PhotosParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosParse.m; sourceTree = "<group>"; };
-		7B8F0D1B1C38398700D29D76 /* GreetingsParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreetingsParse.h; sourceTree = "<group>"; };
-		7B8F0D1C1C38398700D29D76 /* GreetingsParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreetingsParse.m; sourceTree = "<group>"; };
+		7B8F0D181C38397300D29D76 /* PhotoParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoParse.h; sourceTree = "<group>"; };
+		7B8F0D191C38397300D29D76 /* PhotoParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoParse.m; sourceTree = "<group>"; };
+		7B8F0D1B1C38398700D29D76 /* GreetingParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreetingParse.h; sourceTree = "<group>"; };
+		7B8F0D1C1C38398700D29D76 /* GreetingParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreetingParse.m; sourceTree = "<group>"; };
 		7B8F0D1E1C38399500D29D76 /* CommentParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentParse.h; sourceTree = "<group>"; };
 		7B8F0D1F1C38399500D29D76 /* CommentParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentParse.m; sourceTree = "<group>"; };
 		7B8F0D211C383A4000D29D76 /* WeddingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingModel.h; sourceTree = "<group>"; };
 		7B8F0D221C383A4000D29D76 /* WeddingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingModel.m; sourceTree = "<group>"; };
-		7B8F0D241C383A6E00D29D76 /* PhotosModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosModel.h; sourceTree = "<group>"; };
-		7B8F0D251C383A6E00D29D76 /* PhotosModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosModel.m; sourceTree = "<group>"; };
-		7B8F0D271C383A7700D29D76 /* GreetingsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreetingsModel.h; sourceTree = "<group>"; };
-		7B8F0D281C383A7700D29D76 /* GreetingsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreetingsModel.m; sourceTree = "<group>"; };
+		7B8F0D241C383A6E00D29D76 /* PhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoModel.h; sourceTree = "<group>"; };
+		7B8F0D251C383A6E00D29D76 /* PhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoModel.m; sourceTree = "<group>"; };
+		7B8F0D271C383A7700D29D76 /* GreetingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreetingModel.h; sourceTree = "<group>"; };
+		7B8F0D281C383A7700D29D76 /* GreetingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreetingModel.m; sourceTree = "<group>"; };
 		7B8F0D2A1C383A8C00D29D76 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
 		7B8F0D2B1C383A8C00D29D76 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
 		7B8F0D2D1C385D2900D29D76 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		7B8F0D2E1C385D2900D29D76 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		7B8F0D301C3860B800D29D76 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		7B8F0D311C3860B800D29D76 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		8437EC331C39C389001B244F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		8437EC341C39C389001B244F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		8437EC371C3B169E001B244F /* ashton.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ashton.jpeg; path = ../ashton.jpeg; sourceTree = "<group>"; };
+		8437EC381C3B169E001B244F /* superman.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = superman.jpeg; path = ../superman.jpeg; sourceTree = "<group>"; };
+		8437EC391C3B169E001B244F /* tmp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tmp.jpg; path = ../tmp.jpg; sourceTree = "<group>"; };
 		84D507E31C270D020073F025 /* Wedding4You.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wedding4You.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D507E71C270D020073F025 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84D507E91C270D020073F025 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -146,11 +152,11 @@
 				7B8F0CE71C38199400D29D76 /* Security.framework in Frameworks */,
 				7B8F0CE51C38198A00D29D76 /* QuartzCore.framework in Frameworks */,
 				7B8F0CE31C38198000D29D76 /* CoreLocation.framework in Frameworks */,
+				8437EC351C39C389001B244F /* Bolts.framework in Frameworks */,
 				7B8F0CE11C38197500D29D76 /* CoreGraphics.framework in Frameworks */,
 				7B8F0CDF1C38196B00D29D76 /* CFNetwork.framework in Frameworks */,
+				8437EC361C39C389001B244F /* Parse.framework in Frameworks */,
 				7B8F0CDD1C38195E00D29D76 /* AudioToolbox.framework in Frameworks */,
-				7B8F0CDB1C38193300D29D76 /* Parse.framework in Frameworks */,
-				7B8F0CDA1C38193300D29D76 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,10 +180,10 @@
 		7B8F0CF11C381A4F00D29D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8437EC331C39C389001B244F /* Bolts.framework */,
+				8437EC341C39C389001B244F /* Parse.framework */,
 				7B8F0CEE1C3819B400D29D76 /* libsqlite3.tbd */,
 				7B8F0CEC1C3819AD00D29D76 /* libz.tbd */,
-				7B8F0CD91C38193300D29D76 /* Parse.framework */,
-				7B8F0CD81C38193300D29D76 /* Bolts.framework */,
 				7B8F0CEA1C3819A400D29D76 /* SystemConfiguration.framework */,
 				7B8F0CE81C38199D00D29D76 /* StoreKit.framework */,
 				7B8F0CE61C38199400D29D76 /* Security.framework */,
@@ -208,8 +214,8 @@
 				7B8F0CF51C381F9800D29D76 /* Wedding.m */,
 				7B8F0CF71C381FC800D29D76 /* Greeting.h */,
 				7B8F0CF81C381FC800D29D76 /* Greeting.m */,
-				7B8F0CFA1C381FDD00D29D76 /* Photos.h */,
-				7B8F0CFB1C381FDD00D29D76 /* Photos.m */,
+				7B8F0CFA1C381FDD00D29D76 /* Photo.h */,
+				7B8F0CFB1C381FDD00D29D76 /* Photo.m */,
 				7B8F0CFD1C381FF200D29D76 /* Comment.h */,
 				7B8F0CFE1C381FF200D29D76 /* Comment.m */,
 				7B8F0D2D1C385D2900D29D76 /* User.h */,
@@ -225,10 +231,10 @@
 				7B8F0D101C382A9800D29D76 /* LoginModel.m */,
 				7B8F0D211C383A4000D29D76 /* WeddingModel.h */,
 				7B8F0D221C383A4000D29D76 /* WeddingModel.m */,
-				7B8F0D241C383A6E00D29D76 /* PhotosModel.h */,
-				7B8F0D251C383A6E00D29D76 /* PhotosModel.m */,
-				7B8F0D271C383A7700D29D76 /* GreetingsModel.h */,
-				7B8F0D281C383A7700D29D76 /* GreetingsModel.m */,
+				7B8F0D241C383A6E00D29D76 /* PhotoModel.h */,
+				7B8F0D251C383A6E00D29D76 /* PhotoModel.m */,
+				7B8F0D271C383A7700D29D76 /* GreetingModel.h */,
+				7B8F0D281C383A7700D29D76 /* GreetingModel.m */,
 				7B8F0D2A1C383A8C00D29D76 /* CommentModel.h */,
 				7B8F0D2B1C383A8C00D29D76 /* CommentModel.m */,
 			);
@@ -251,10 +257,10 @@
 				7B8F0D071C3821C000D29D76 /* LoginParse.m */,
 				7B8F0D151C38394200D29D76 /* WeddingParse.h */,
 				7B8F0D161C38394200D29D76 /* WeddingParse.m */,
-				7B8F0D181C38397300D29D76 /* PhotosParse.h */,
-				7B8F0D191C38397300D29D76 /* PhotosParse.m */,
-				7B8F0D1B1C38398700D29D76 /* GreetingsParse.h */,
-				7B8F0D1C1C38398700D29D76 /* GreetingsParse.m */,
+				7B8F0D181C38397300D29D76 /* PhotoParse.h */,
+				7B8F0D191C38397300D29D76 /* PhotoParse.m */,
+				7B8F0D1B1C38398700D29D76 /* GreetingParse.h */,
+				7B8F0D1C1C38398700D29D76 /* GreetingParse.m */,
 				7B8F0D1E1C38399500D29D76 /* CommentParse.h */,
 				7B8F0D1F1C38399500D29D76 /* CommentParse.m */,
 			);
@@ -285,6 +291,9 @@
 		84D507E51C270D020073F025 /* Wedding4You */ = {
 			isa = PBXGroup;
 			children = (
+				8437EC371C3B169E001B244F /* ashton.jpeg */,
+				8437EC381C3B169E001B244F /* superman.jpeg */,
+				8437EC391C3B169E001B244F /* tmp.jpg */,
 				7B8F0CF21C381A7000D29D76 /* Model */,
 				84D507E91C270D020073F025 /* AppDelegate.h */,
 				84D507EA1C270D020073F025 /* AppDelegate.m */,
@@ -434,9 +443,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8437EC3A1C3B169E001B244F /* ashton.jpeg in Resources */,
 				84D507F61C270D020073F025 /* LaunchScreen.storyboard in Resources */,
 				84D507F31C270D020073F025 /* Assets.xcassets in Resources */,
+				8437EC3C1C3B169E001B244F /* tmp.jpg in Resources */,
 				84D507F11C270D020073F025 /* Main.storyboard in Resources */,
+				8437EC3B1C3B169E001B244F /* superman.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +478,7 @@
 				84D507EE1C270D020073F025 /* ViewController.m in Sources */,
 				7B8F0D081C3821C000D29D76 /* LoginParse.m in Sources */,
 				7B8F0D111C382A9800D29D76 /* LoginModel.m in Sources */,
-				7B8F0D1A1C38397300D29D76 /* PhotosParse.m in Sources */,
+				7B8F0D1A1C38397300D29D76 /* PhotoParse.m in Sources */,
 				84D507EB1C270D020073F025 /* AppDelegate.m in Sources */,
 				7B8F0D171C38394200D29D76 /* WeddingParse.m in Sources */,
 				7B8F0D2F1C385D2900D29D76 /* User.m in Sources */,
@@ -476,12 +488,12 @@
 				7B8F0D051C38214300D29D76 /* ModelParse.m in Sources */,
 				7B8F0D141C3830AD00D29D76 /* MainViewController.m in Sources */,
 				7B8F0CF61C381F9800D29D76 /* Wedding.m in Sources */,
-				7B8F0D291C383A7700D29D76 /* GreetingsModel.m in Sources */,
-				7B8F0D261C383A6E00D29D76 /* PhotosModel.m in Sources */,
-				7B8F0D1D1C38398700D29D76 /* GreetingsParse.m in Sources */,
+				7B8F0D291C383A7700D29D76 /* GreetingModel.m in Sources */,
+				7B8F0D261C383A6E00D29D76 /* PhotoModel.m in Sources */,
+				7B8F0D1D1C38398700D29D76 /* GreetingParse.m in Sources */,
 				7B8F0D231C383A4000D29D76 /* WeddingModel.m in Sources */,
 				7B8F0CF91C381FC800D29D76 /* Greeting.m in Sources */,
-				7B8F0CFC1C381FDD00D29D76 /* Photos.m in Sources */,
+				7B8F0CFC1C381FDD00D29D76 /* Photo.m in Sources */,
 				84D507E81C270D020073F025 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,6 +638,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Wedding4You",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Wedding4You/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -641,6 +654,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Wedding4You",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Wedding4You/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

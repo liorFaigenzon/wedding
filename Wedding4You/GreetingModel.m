@@ -1,13 +1,13 @@
 //
-//  GreetingsParse.m
+//  GreetingsModel.m
 //  Wedding4You
 //
 //  Created by Alon Geffen on 02/01/2016.
 //  Copyright © 2016 Faigenzon. All rights reserved.
 //
 
-#import "GreetingsParse.h"
+#import "GreetingModel.h"
 
-@implementation GreetingsParse
+@implementation GreetingModel: NSObject
 
 @end

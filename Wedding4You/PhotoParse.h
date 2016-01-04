@@ -1,5 +1,5 @@
 //
-//  GreetingsParse.h
+//  PhotosParse.h
 //  Wedding4You
 //
 //  Created by Alon Geffen on 02/01/2016.
@@ -7,7 +7,8 @@
 //
 
 #import "ModelParse.h"
+#import "PhotoModel.h"
 
-@interface GreetingsParse : ModelParse
+@interface PhotoParse : ModelParse <PhotoProtocol>
 
 @end

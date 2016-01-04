@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 #import "LoginModel.h"
+#import "Photo.h"
+#import "PhotoModel.h"
 
 @interface LoginViewController ()
 
@@ -19,6 +21,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.activityIndic.hidden = YES;
+    NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+    
+    
+     Photo* xxx = [[Photo alloc] init:@"XXX" title:@"Tile" date:[NSDate date] descriptionPt:@"des" imageName:@"img"];
+    
+        Photo* yyy = [[Photo alloc] init:@"X" title:@"Tile" date:[NSDate date] descriptionPt:@"des" imageName:@"img"];
+        Photo* zzz = [[Photo alloc] init:@"XXX" title:@"Tile" date:[NSDate date] descriptionPt:@"des" imageName:@"img"];
+    
+    [[PhotoModel instance] addPhoto:(Photo *)xxx];
+    [[PhotoModel instance] addPhoto:(Photo *)yyy];
+    [[PhotoModel instance] addPhoto:(Photo *)zzz];
+    [[PhotoModel instance] delete:(Photo *)yyy ];
+    [[PhotoModel instance] getPhotos];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
