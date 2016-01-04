@@ -35,7 +35,10 @@
 
 +(PhotoModel*)instance;
 
--(void)addPhoto:(Photo*)Pto;
+-(void)addPhoto:(Photo*)pto;
+-(void)deletePhoto:(Photo*)pto;
+-(Photo*)getPhoto:(NSString*)ptoId;
+-(NSArray*)getPhotos;
 
 -(void)getAsynch:(void(^)(NSArray*))blockListener;
 -(void)getImage:(Photo*)pto block:(void(^)(UIImage*))block;
