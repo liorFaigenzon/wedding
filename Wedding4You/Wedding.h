@@ -14,4 +14,6 @@
 @property NSString* wdId;
 @property User* usCouple;
 
+-(id)init: (NSString*)wdId usCouple:(User*)couple;
+
 @end
