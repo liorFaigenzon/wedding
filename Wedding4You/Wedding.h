@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "User.h"
+#import "User.h"
 
 @interface Wedding : NSObject
 

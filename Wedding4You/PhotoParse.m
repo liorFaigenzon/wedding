@@ -23,7 +23,7 @@
 
 -(void)deletePhoto:(Photo*)pto{
     PFQuery* query = [PFQuery queryWithClassName:@"Photos"];
-    [query whereKey:@"ptoId" equalTo:pto.ptoId];
+    [query whereKey:@"objectId" equalTo:pto.ptoId];
     NSArray* res = [query findObjects];
     if (res.count == 1) {
         PFObject* obj = [res objectAtIndex:0];
@@ -34,7 +34,7 @@
 -(Photo*)getPhoto:(NSString*)ptoId{
     Photo* photo = nil;
     PFQuery* query = [PFQuery queryWithClassName:@"Photos"];
-    [query whereKey:@"ptoId" equalTo:ptoId];
+    [query whereKey:@"objectId" equalTo:ptoId];
     NSArray* res = [query findObjects];
     if (res.count == 1) {
         PFObject* obj = [res objectAtIndex:0];

@@ -10,9 +10,10 @@
 
 @implementation User
 
--(id)init: (NSString *)fName lName:(NSString *)lName phone:(NSString *)phone {
+-(id)init: (NSString*)usId fname:(NSString*)fName lName:(NSString*)lName phone:(NSString*)phone {
     self = [super init];
     if (self) {
+        _usId = usId;
         _fName = fName;
         _lName = lName;
         _phone = phone;

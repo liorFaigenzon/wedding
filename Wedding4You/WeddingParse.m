@@ -12,38 +12,53 @@
 
 @implementation WeddingParse
 
--(void)addWeddingGuest:(NSString*)usId toWedding:(NSString*)wdId {
+-(NSArray*)getWeddingsHostGuest:(NSString*)usId {
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    PFQuery* query = [PFQuery queryWithClassName:@"Weddings"];
+    [query whereKey:@"guests" equalTo:[PFQuery getUserObjectWithId:usId]];
+    NSArray* res = [query findObjects];
+    for (PFObject* obj in res) {
+        PFUser* pfusr = [[obj objectForKey:@"couple"] fetch];
+        User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
+        Wedding* wedding = [[Wedding alloc] init:obj[@"wdId"] usCouple:usr];
+        [array addObject:wedding];
+    }
+    
+    return array;
+}
+
+-(void)addWedding:(Wedding*)wd {
+    PFObject* obj = [PFObject objectWithClassName:@"Weddings"];
+    obj[@"wdId"] = wd.wdId;
+    [obj setObject:[PFUser currentUser] forKey:@"couple"];
+    [obj save];
+}
+
+-(void)addWeddingGuests:(NSArray*)usIds toWedding:(NSString*)wdId {
     PFQuery* query = [PFQuery queryWithClassName:@"Weddings"];
     [query whereKey:@"wdId" equalTo:wdId];
     
     NSArray* res = [query findObjects];
     if (res.count == 1) {
         PFObject* obj = [res objectAtIndex:0];
-        PFUser* usr = [PFQuery getUserObjectWithId:usId];
+        PFRelation* rel = [obj relationForKey:@"guests"];
         
-        if (usr != nil) {
-            [obj addObject:[PFQuery getUserObjectWithId:usId] forKey: @"guests"];
+        for (NSString* usId in usIds) {
+            [rel addObject:[PFQuery getUserObjectWithId:usId]];
         }
+        
+        [obj save];
     }
 }
 
--(void)addWedding:(Wedding*)wedding {
-    PFObject* obj = [PFObject objectWithClassName:@"Weddings"];
-    obj[@"CoupleId"] = wedding.usCouple;
-    [obj save];
-}
-
--(NSArray*)getWeddingsHostGuest:(NSString*)usId {
-    NSMutableArray* array = [[NSMutableArray alloc] init];
+-(void)deleteWedding:(Wedding *)wd {
     PFQuery* query = [PFQuery queryWithClassName:@"Weddings"];
-    [query whereKey:@"guests" equalTo:usId];
+    [query whereKey:@"wdId" equalTo:wd.wdId];
     NSArray* res = [query findObjects];
-    for (PFObject* obj in res) {
-        Wedding* wedding = [[Wedding alloc] init:obj[@"wdId"] usCouple:obj[@"CoupleId"]];
-        [array addObject:wedding];
+    if (res.count == 1) {
+        PFObject* obj = [res objectAtIndex:0];
+        [obj delete];
     }
-    
-    return array;
 }
 
 @end

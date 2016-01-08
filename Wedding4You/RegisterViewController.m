@@ -41,7 +41,7 @@
     [self.activityIndic startAnimating];
     self.activityIndic.hidden = NO;
     
-    User* usDetails = [[User alloc] init:self.fNameF.text lName:self.lNameF.text phone:self.phoneF.text];
+    User* usDetails = [[User alloc] init:nil fname:self.fNameF.text lName:self.lNameF.text phone:self.phoneF.text];
     
     [[LoginModel instance] signup:self.UserNameF.text pwd:self.PasswordF.text usDetails:usDetails block:^(BOOL res) {
         self.activityIndic.hidden = YES;

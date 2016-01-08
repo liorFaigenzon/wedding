@@ -39,8 +39,6 @@
 		8437EC351C39C389001B244F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437EC331C39C389001B244F /* Bolts.framework */; };
 		8437EC361C39C389001B244F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437EC341C39C389001B244F /* Parse.framework */; };
 		8437EC3A1C3B169E001B244F /* ashton.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8437EC371C3B169E001B244F /* ashton.jpeg */; };
-		8437EC3B1C3B169E001B244F /* superman.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8437EC381C3B169E001B244F /* superman.jpeg */; };
-		8437EC3C1C3B169E001B244F /* tmp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8437EC391C3B169E001B244F /* tmp.jpg */; };
 		84D507E81C270D020073F025 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507E71C270D020073F025 /* main.m */; };
 		84D507EB1C270D020073F025 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507EA1C270D020073F025 /* AppDelegate.m */; };
 		84D507EE1C270D020073F025 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507ED1C270D020073F025 /* ViewController.m */; };
@@ -120,8 +118,6 @@
 		8437EC331C39C389001B244F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		8437EC341C39C389001B244F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8437EC371C3B169E001B244F /* ashton.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ashton.jpeg; path = ../ashton.jpeg; sourceTree = "<group>"; };
-		8437EC381C3B169E001B244F /* superman.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = superman.jpeg; path = ../superman.jpeg; sourceTree = "<group>"; };
-		8437EC391C3B169E001B244F /* tmp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tmp.jpg; path = ../tmp.jpg; sourceTree = "<group>"; };
 		84D507E31C270D020073F025 /* Wedding4You.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wedding4You.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D507E71C270D020073F025 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84D507E91C270D020073F025 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -177,6 +173,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B357E311C3B111600A452FF /* images */ = {
+			isa = PBXGroup;
+			children = (
+				8437EC371C3B169E001B244F /* ashton.jpeg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		7B8F0CF11C381A4F00D29D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,9 +295,7 @@
 		84D507E51C270D020073F025 /* Wedding4You */ = {
 			isa = PBXGroup;
 			children = (
-				8437EC371C3B169E001B244F /* ashton.jpeg */,
-				8437EC381C3B169E001B244F /* superman.jpeg */,
-				8437EC391C3B169E001B244F /* tmp.jpg */,
+				7B357E311C3B111600A452FF /* images */,
 				7B8F0CF21C381A7000D29D76 /* Model */,
 				84D507E91C270D020073F025 /* AppDelegate.h */,
 				84D507EA1C270D020073F025 /* AppDelegate.m */,
@@ -446,9 +448,7 @@
 				8437EC3A1C3B169E001B244F /* ashton.jpeg in Resources */,
 				84D507F61C270D020073F025 /* LaunchScreen.storyboard in Resources */,
 				84D507F31C270D020073F025 /* Assets.xcassets in Resources */,
-				8437EC3C1C3B169E001B244F /* tmp.jpg in Resources */,
 				84D507F11C270D020073F025 /* Main.storyboard in Resources */,
-				8437EC3B1C3B169E001B244F /* superman.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -59,6 +59,10 @@
                                 <rect key="frame" x="247" y="219" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sWN-Zm-N6d">
+                                <rect key="frame" x="40" y="300" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -66,6 +70,7 @@
                         <outlet property="PasswordF" destination="H6s-Hw-aQW" id="lzE-gL-Bz8"/>
                         <outlet property="UserNameF" destination="2Fd-Ih-TVL" id="ADw-gD-VCY"/>
                         <outlet property="activityIndic" destination="K3M-h5-T4R" id="hsP-8x-Dmh"/>
+                        <outlet property="testImage" destination="sWN-Zm-N6d" id="MeP-Zx-ZKI"/>
                         <segue destination="fpg-dX-I3G" kind="modal" identifier="LoginSegue" id="cEM-dp-eLJ"/>
                     </connections>
                 </viewController>

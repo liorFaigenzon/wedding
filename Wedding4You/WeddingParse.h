@@ -9,11 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "ModelParse.h"
 #import "Wedding.h"
+#import "WeddingModel.h"
 
-@interface WeddingParse : ModelParse
-
--(void)addWeddingGuest:(NSString*)usId toWedding:(NSString*)wdId;
--(void)addWedding:(Wedding*)wedding;
--(NSArray*)getWeddingsHostGuest:(NSString*)usId;
+@interface WeddingParse : ModelParse<WeddingModelProtocol>
 
 @end

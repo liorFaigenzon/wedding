@@ -8,6 +8,8 @@
 
 #import "MainViewController.h"
 #import "LoginModel.h"
+#import "WeddingModel.h"
+
 
 @interface MainViewController ()
 
@@ -19,6 +21,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.activityIndic.hidden = YES;
+    
+    
+    //User* usr = [[User alloc] init:@"Alon" lName:@"Geffen" phone:@"0526833684"];
+    //Wedding* wd = [[Wedding alloc] init:@"12" usCouple:[LoginModel user]];
+    /*[[WeddingModel instance] addWedding:@"1" block:^(NSError * err) {
+        NSLog(@"Success");
+    }];
+    [[WeddingModel instance] addWedding:@"2" block:^(NSError * err) {
+        NSLog(@"Success");
+    }];
+    [[WeddingModel instance] addWedding:@"3" block:^(NSError * err) {
+        NSLog(@"Success");
+    }];
+    [[WeddingModel instance] addWeddingGuest:@"NwxVBoV8wJ" toWedding:@"1" block:^(NSError* err) {
+        NSLog(@"Success");
+    }];
+    [[WeddingModel instance] addWeddingGuest:@"NwxVBoV8wJ" toWedding:@"2" block:^(NSError* err) {
+        NSLog(@"Success");
+    }];*/
+    [[WeddingModel instance] getWeddingsHostGuest:@"NwxVBoV8wJ" block:^(NSArray* guests) {
+        NSLog(@"Success");
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

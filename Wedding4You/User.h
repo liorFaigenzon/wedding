@@ -15,6 +15,6 @@
 @property NSString* lName;
 @property NSString* phone;
 
--(id)init: (NSString*)fName lName:(NSString*)lName phone:(NSString*)phone;
+-(id)init: (NSString*)usId fname:(NSString*)fName lName:(NSString*)lName phone:(NSString*)phone;
 
 @end

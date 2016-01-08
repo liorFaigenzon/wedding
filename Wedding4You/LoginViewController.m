@@ -10,6 +10,8 @@
 #import "LoginModel.h"
 #import "Photo.h"
 #import "PhotoModel.h"
+#import "WeddingModel.h"
+#import "User.h"
 
 @interface LoginViewController ()
 
@@ -24,18 +26,25 @@
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
     
-    
-     Photo* xxx = [[Photo alloc] init:@"XXX" title:@"Tile" date:[NSDate date] descriptionPt:@"des" imageName:@"img"];
+    /*
+    UIImage* image = [UIImage imageNamed:@"ashton.jpeg"];
+    Photo* xxx = [[Photo alloc] init:@"XXX2" title:@"Tile" date:[NSDate date] descriptionPt:@"des" imageName:@"ashton.jpeg"];
     
         Photo* yyy = [[Photo alloc] init:@"X" title:@"Tile" date:[NSDate date] descriptionPt:@"des" imageName:@"img"];
         Photo* zzz = [[Photo alloc] init:@"XXX" title:@"Tile" date:[NSDate date] descriptionPt:@"des" imageName:@"img"];
     
     [[PhotoModel instance] addPhoto:(Photo *)xxx];
+    [[PhotoModel instance] saveImage:xxx image:image block:^(NSError* err) {
+        NSLog([err localizedDescription]);
+    }];
     [[PhotoModel instance] addPhoto:(Photo *)yyy];
     [[PhotoModel instance] addPhoto:(Photo *)zzz];
     [[PhotoModel instance] delete:(Photo *)yyy ];
-    [[PhotoModel instance] getPhotos];
-    
+    [[PhotoModel instance] getPhoto:(NSString *)];
+    [[PhotoModel instance] getImage:[[PhotoModel instance] getPhoto:@"PS8R716WtH"] block:^(UIImage* img) {
+        [self.testImage initWithImage:img];
+    }];
+     */
 }
 
 -(void)viewDidAppear:(BOOL)animated{

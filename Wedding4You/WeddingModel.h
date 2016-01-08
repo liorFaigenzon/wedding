@@ -7,7 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Wedding.h"
 
-@interface WeddingModel : NSObject
+@protocol WeddingModelProtocol <NSObject>
+
+-(NSArray*)getWeddingsHostGuest:(NSString*)usId;
+-(void)addWedding:(Wedding*)wd;
+-(void)addWeddingGuests:(NSArray*)usIds toWedding:(NSString*)wdId;
+-(void)deleteWedding:(Wedding*)wd;
+
+@end
+
+@interface WeddingModel : NSObject {
+    id<WeddingModelProtocol> modelImpl;
+}
+
++(WeddingModel*)instance;
+
+-(void)getWeddingsHostGuest:(NSString*)usId block:(void(^)(NSArray*))block;
+-(void)addWedding:(Wedding*)wd block:(void(^)(NSError*))block;
+-(void)addWeddingGuests:(NSArray*)usIds toWedding:(NSString*)wdId block:(void(^)(NSError*))block;
+-(void)deleteWedding:(Wedding*)wd block:(void(^)(NSError*))block;
 
 @end

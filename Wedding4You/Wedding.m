@@ -10,11 +10,11 @@
 
 @implementation Wedding
 
--(id)init: (NSString*)wdId usCouple:(User*)couple {
+-(id)init: (NSString*)wdId usCouple:(User*)usCoupleId {
     self = [super init];
     if (self) {
         _wdId = wdId;
-        _usCouple = couple;
+        _usCouple = usCoupleId;
     }
     return self;
 }
