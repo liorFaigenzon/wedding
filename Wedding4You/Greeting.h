@@ -10,4 +10,11 @@
 
 @interface Greeting : NSObject
 
+@property NSString* grtId;
+@property NSString* title;
+@property NSDate* date;
+@property NSString* greeting;
+
+-(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting;
+
 @end
