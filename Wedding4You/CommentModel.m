@@ -31,35 +31,72 @@ static CommentModel* instance = nil;
     return self;
 }
 
--(void)addComment:(Comment*)cmt{
-    [commentImpl addComment:cmt];
+-(void)addComment:(Comment*)cmt block:(void(^)(NSError*))block{
+    dispatch_queue_t myQueue =    dispatch_queue_create("myQueueName", NULL);
+    
+    dispatch_async(myQueue, ^{
+        // Add comment
+        [commentImpl addComment:cmt];
+        
+        // Do logic in the main Q after adding this comment
+        dispatch_queue_t mainQ = dispatch_get_main_queue();
+        dispatch_async(mainQ, ^{
+            block(nil);
+        });
+    } );
 }
--(void)deleteComment:(Comment*)cmt{
-    [commentImpl deleteComment:cmt];
+
+-(void)deleteComment:(Comment*)cmt block:(void(^)(NSError*))block{
+    dispatch_queue_t myQueue =    dispatch_queue_create("myQueueName", NULL);
+    
+    dispatch_async(myQueue, ^{
+        // Delete comment
+        [commentImpl deleteComment:cmt];
+        
+        // Do logic in the main Q after deleting this comment
+        dispatch_queue_t mainQ = dispatch_get_main_queue();
+        dispatch_async(mainQ, ^{
+            block(nil);
+        });
+    } );
 }
--(Comment*)getComment:(NSString*)cmtId{
-    return [commentImpl getComment:cmtId];
+
+-(void)getComment:(NSString*)cmtId block:(void(^)(Comment*))block{
+    dispatch_queue_t myQueue =    dispatch_queue_create("myQueueName", NULL);
+    
+    dispatch_async(myQueue, ^{
+        // Get comment
+        Comment* cmt = [commentImpl getComment:cmtId];
+        
+        // Do logic in the main Q after getting this comment
+        dispatch_queue_t mainQ = dispatch_get_main_queue();
+        dispatch_async(mainQ, ^{
+            block(cmt);
+        });
+    } );
 }
--(NSArray*)getComments{
-    return [commentImpl getComments];
+
+-(NSArray*)getCommentsForGreeting:(NSString *)grtId {
+    return [commentImpl getCommentsForGreeting:grtId];
 }
 
 
 //Block Asynch implementation
--(void)getAsynch:(void(^)(NSArray*))blockLicmtener{
+-(void)getAsynch:(NSString *)grtId block:(void(^)(NSArray*))block{
     dispatch_queue_t myQueue =    dispatch_queue_create("myQueueName", NULL);
     
     dispatch_async(myQueue, ^{
         //long operation
-        NSArray* data = [commentImpl getComments];
+        NSArray* data = [commentImpl getCommentsForGreeting:grtId];
         
         //end of long operation - update display in the main Q
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            blockLicmtener(data);
+            block(data);
         });
     } );
 }
+
 @end
 
 

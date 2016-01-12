@@ -15,9 +15,9 @@
 -(void)addPhoto:(Photo*)pto;
 -(void)deletePhoto:(Photo*)pto;
 -(Photo*)getPhoto:(NSString*)ptoId;
--(NSArray*)getPhotos;
--(void)savePto:(UIImage*)image withName:(NSString*)imageName;
--(UIImage*)getPto:(NSString*)imageName;
+-(NSArray*)getPhotosForWedding:(NSString*)wdId;
+-(UIImage*)getImage:(NSString*)imageName;
+-(void)saveImage:(UIImage*)image withName:(NSString*)imageName;
 
 @end
 
@@ -35,12 +35,12 @@
 
 +(PhotoModel*)instance;
 
--(void)addPhoto:(Photo*)pto;
--(void)deletePhoto:(Photo*)pto;
--(Photo*)getPhoto:(NSString*)ptoId;
--(NSArray*)getPhotos;
+-(void)addPhoto:(Photo*)pto block:(void(^)(NSError*))block;
+-(void)deletePhoto:(Photo*)pto block:(void(^)(NSError*))block;
+-(void)getPhoto:(NSString*)ptoId block:(void(^)(Photo*))block;
+-(NSArray*)getPhotosForWedding:(NSString*)wdId;
 
--(void)getAsynch:(void(^)(NSArray*))blockListener;
+-(void)getAsynch:(NSString*)wdId block:(void(^)(NSArray*))block;
 -(void)getImage:(Photo*)pto block:(void(^)(UIImage*))block;
 -(void)saveImage:(Photo*)pto image:(UIImage*)image block:(void(^)(NSError*))block;
 @end

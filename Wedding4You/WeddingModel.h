@@ -12,8 +12,9 @@
 @protocol WeddingModelProtocol <NSObject>
 
 -(NSArray*)getWeddingsHostGuest:(NSString*)usId;
+-(Wedding*)getWedding:(NSString*)wdId;
 -(void)addWedding:(Wedding*)wd;
--(void)addWeddingGuests:(NSArray*)usIds toWedding:(NSString*)wdId;
+-(void)addWeddingGuests:(NSArray*)usIds toWedding:(Wedding*)wd;
 -(void)deleteWedding:(Wedding*)wd;
 
 @end
@@ -25,8 +26,9 @@
 +(WeddingModel*)instance;
 
 -(void)getWeddingsHostGuest:(NSString*)usId block:(void(^)(NSArray*))block;
+-(void)getWedding:(NSString*)wdId block:(void(^)(Wedding*))block;
 -(void)addWedding:(Wedding*)wd block:(void(^)(NSError*))block;
--(void)addWeddingGuests:(NSArray*)usIds toWedding:(NSString*)wdId block:(void(^)(NSError*))block;
+-(void)addWeddingGuests:(NSArray*)usIds toWedding:(Wedding*)wd block:(void(^)(NSError*))block;
 -(void)deleteWedding:(Wedding*)wd block:(void(^)(NSError*))block;
 
 @end
