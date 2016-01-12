@@ -14,7 +14,8 @@
 @property NSString* title;
 @property NSDate* date;
 @property NSString* greeting;
+@property NSString* wdId;
 
--(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting;
+-(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting wdId:(NSString*)wdId;
 
 @end

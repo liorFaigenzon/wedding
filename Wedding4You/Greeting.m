@@ -10,13 +10,14 @@
 
 @implementation Greeting
 
--(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting{
+-(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting wdId:(NSString*)wdId;{
     self = [super init];
     if (self){
         _grtId = grtId;
         _title = title;
         _date = date;
         _greeting = greeting;
+        _wdId = wdId;
     }
     return self;
 }
