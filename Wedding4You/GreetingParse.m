@@ -12,10 +12,11 @@
 @implementation GreetingParse
 
 -(void)addGreeting:(Greeting*)grt{
+    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+    [dateformate setDateFormat:@"yyyy"];
     PFObject* obj = [PFObject objectWithClassName:@"Greetings"];
-    obj[@"grtId"] = grt.grtId;
     obj[@"title"] = grt.title;
-    obj[@"date"] = grt.date;
+    //obj[@"date"] = [[dateformate stringFromDate]];
     obj[@"greeting"] = grt.greeting;
     [obj save];
 }

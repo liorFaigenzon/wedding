@@ -13,7 +13,6 @@
 
 -(void)addPhoto:(Photo*)pto{
     PFObject* obj = [PFObject objectWithClassName:@"Photos"];
-    obj[@"ptoId"] = pto.ptoId;
     obj[@"title"] = pto.title;
     obj[@"date"] = pto.date;
     obj[@"descriptionPt"] = pto.descriptionPt;

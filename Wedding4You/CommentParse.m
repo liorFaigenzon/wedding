@@ -13,9 +13,8 @@
 
 -(void)addComment:(Comment*)cmt{
     PFObject* obj = [PFObject objectWithClassName:@"Comments"];
-    obj[@"cmtId"] = cmt.cmtId;
     obj[@"title"] = cmt.title;
-    obj[@"date"] = cmt.date;
+    //obj[@"date"] = cmt.date;
     obj[@"comment"] = cmt.comment;
     obj[@"grtId"] = cmt.grtId;
     [obj save];
