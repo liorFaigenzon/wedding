@@ -10,4 +10,12 @@
 
 @interface Comment : NSObject
 
+@property NSString* cmtId;
+@property NSString* title;
+@property NSDate* date;
+@property NSString* comment;
+@property NSString* grtId;
+
+-(id)init:(NSString*)cmtId title:(NSString*)title date:(NSDate*)date comment:(NSString*)comment grtId:(NSString*)grtId;
+
 @end
