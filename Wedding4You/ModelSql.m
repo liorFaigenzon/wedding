@@ -32,15 +32,12 @@
         
         if(res != SQLITE_OK){
             NSLog(@"ERROR: fail to open db");
-            sqlite3_close(database);
             database = nil;
         }
         
-        //[StudentSql createTable:database];
-        
-        //[ModelSql dropTable:database tableName:@"LAST_UPDATE"];
-        //[ModelSql dropTable:database tableName:@"USERS"];
-        //[ModelSql dropTable:database tableName:@"GREETINGS"];
+        [ModelSql dropTable:database tableName:@"LAST_UPDATE"];
+        [ModelSql dropTable:database tableName:@"USERS"];
+        [ModelSql dropTable:database tableName:@"GREETINGS"];
         [LastUpdateSql createTable:database];
         [UserSql createTable:database];
         [UserSql getUsers:database];
@@ -81,6 +78,7 @@
         [UserSql addUser:database usr:usr];
     }*/
 }
+
 -(void)deleteGreeting:(Greeting*)grt {
     [GreetingSql deleteGreeting:database grt:grt];
 }

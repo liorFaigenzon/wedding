@@ -13,9 +13,9 @@
 
 -(NSArray*)getWeddingsHostGuest:(NSString*)usId;
 -(Wedding*)getWedding:(NSString*)wdId;
--(void)addWedding:(Wedding*)wd;
--(void)addWeddingGuests:(NSArray*)usIds toWedding:(Wedding*)wd;
--(void)deleteWedding:(Wedding*)wd;
+-(NSError*)addWedding:(Wedding*)wd;
+-(NSError*)addWeddingGuests:(NSArray*)usIds toWedding:(Wedding*)wd;
+-(NSError*)deleteWedding:(Wedding*)wd;
 
 @end
 

@@ -12,7 +12,7 @@
 @implementation GreetingParse
 
 -(NSError*)addGreeting:(Greeting*)grt{
-    NSError* err;
+    NSError* err = nil;
     PFObject* obj = [PFObject objectWithClassName:@"Greetings"];
     //obj[@"grtId"] = grt.grtId;
     obj[@"title"] = grt.title;
@@ -27,8 +27,7 @@
         
         // Get user id
         PFUser* userObj = [obj objectForKey:@"createdBy"];
-        grt.usCreatedBy = [[User alloc] init];
-        grt.usCreatedBy.usId = userObj.objectId;
+        grt.usId = userObj.objectId;
     }
     
     return err;
@@ -60,12 +59,11 @@
         // Get wedding details
         PFObject* weddingObj = [obj objectForKey:@"wedding"];
         
-        // Fetch user details
-        PFUser* pfusr = [[obj objectForKey:@"createdBy"] fetch];
-        User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
+        // Get user details
+        PFUser* userObj = [obj objectForKey:@"createdBy"];
         
         // Create greeting object
-        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId usCreatedBy:usr];
+        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId usId:userObj.objectId];
     }
     
     return greeting;
@@ -82,11 +80,10 @@
     
     for (PFObject* obj in res) {
         // Fetch user details
-        PFUser* pfusr = [[obj objectForKey:@"couple"] fetch];
-        User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
+        PFUser* userObj = [obj objectForKey:@"createdBy"];
         
         // Create wedding object
-        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:wdId usCreatedBy:usr];
+        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:wdId usId:userObj.objectId];
         [array addObject:greeting];
     }
     return array;
@@ -109,11 +106,10 @@
         PFObject* weddingObj = [obj objectForKey:@"wedding"];
         
         // Fetch user details
-        PFUser* pfusr = [[obj objectForKey:@"couple"] fetch];
-        User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
+        PFUser* pfusr = [obj objectForKey:@"createdBy"];
         
         // Create wedding object
-        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId usCreatedBy:usr];
+        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId usId:pfusr.objectId];
         [array addObject:greeting];
     }
     return array;
