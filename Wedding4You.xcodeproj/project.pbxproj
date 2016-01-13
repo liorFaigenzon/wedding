@@ -13,6 +13,10 @@
 		7B357E411C45333900A452FF /* PhotoSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E401C45333900A452FF /* PhotoSql.m */; };
 		7B357E441C45335E00A452FF /* ModelSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E431C45335E00A452FF /* ModelSql.m */; };
 		7B357E4A1C453F6C00A452FF /* LastUpdateSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E491C453F6C00A452FF /* LastUpdateSql.m */; };
+		7B357E4D1C458AE000A452FF /* UserSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E4C1C458AE000A452FF /* UserSql.m */; };
+		7B357E4F1C46B54700A452FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E4E1C46B54700A452FF /* Bolts.framework */; };
+		7B357E511C46B54C00A452FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E501C46B54C00A452FF /* Parse.framework */; };
+		7B357E531C46B5B100A452FF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E521C46B5B100A452FF /* libsqlite3.tbd */; };
 		7B8F0CDD1C38195E00D29D76 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CDC1C38195E00D29D76 /* AudioToolbox.framework */; };
 		7B8F0CDF1C38196B00D29D76 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CDE1C38196B00D29D76 /* CFNetwork.framework */; };
 		7B8F0CE11C38197500D29D76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CE01C38197500D29D76 /* CoreGraphics.framework */; };
@@ -21,8 +25,6 @@
 		7B8F0CE71C38199400D29D76 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CE61C38199400D29D76 /* Security.framework */; };
 		7B8F0CE91C38199D00D29D76 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CE81C38199D00D29D76 /* StoreKit.framework */; };
 		7B8F0CEB1C3819A400D29D76 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CEA1C3819A400D29D76 /* SystemConfiguration.framework */; };
-		7B8F0CED1C3819AD00D29D76 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CEC1C3819AD00D29D76 /* libz.tbd */; };
-		7B8F0CEF1C3819B400D29D76 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CEE1C3819B400D29D76 /* libsqlite3.tbd */; };
 		7B8F0CF61C381F9800D29D76 /* Wedding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CF51C381F9800D29D76 /* Wedding.m */; };
 		7B8F0CF91C381FC800D29D76 /* Greeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CF81C381FC800D29D76 /* Greeting.m */; };
 		7B8F0CFC1C381FDD00D29D76 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CFB1C381FDD00D29D76 /* Photo.m */; };
@@ -42,8 +44,6 @@
 		7B8F0D2C1C383A8C00D29D76 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D2B1C383A8C00D29D76 /* CommentModel.m */; };
 		7B8F0D2F1C385D2900D29D76 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D2E1C385D2900D29D76 /* User.m */; };
 		7B8F0D321C3860B800D29D76 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D311C3860B800D29D76 /* RegisterViewController.m */; };
-		8437EC351C39C389001B244F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437EC331C39C389001B244F /* Bolts.framework */; };
-		8437EC361C39C389001B244F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437EC341C39C389001B244F /* Parse.framework */; };
 		8437EC3A1C3B169E001B244F /* ashton.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8437EC371C3B169E001B244F /* ashton.jpeg */; };
 		84D507E81C270D020073F025 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507E71C270D020073F025 /* main.m */; };
 		84D507EB1C270D020073F025 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507EA1C270D020073F025 /* AppDelegate.m */; };
@@ -85,6 +85,11 @@
 		7B357E431C45335E00A452FF /* ModelSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelSql.m; sourceTree = "<group>"; };
 		7B357E481C453F6C00A452FF /* LastUpdateSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastUpdateSql.h; sourceTree = "<group>"; };
 		7B357E491C453F6C00A452FF /* LastUpdateSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastUpdateSql.m; sourceTree = "<group>"; };
+		7B357E4B1C458AE000A452FF /* UserSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSql.h; sourceTree = "<group>"; };
+		7B357E4C1C458AE000A452FF /* UserSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSql.m; sourceTree = "<group>"; };
+		7B357E4E1C46B54700A452FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		7B357E501C46B54C00A452FF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		7B357E521C46B5B100A452FF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7B8F0CDC1C38195E00D29D76 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7B8F0CDE1C38196B00D29D76 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7B8F0CE01C38197500D29D76 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,8 +98,6 @@
 		7B8F0CE61C38199400D29D76 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7B8F0CE81C38199D00D29D76 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7B8F0CEA1C3819A400D29D76 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		7B8F0CEC1C3819AD00D29D76 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		7B8F0CEE1C3819B400D29D76 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7B8F0CF41C381F9800D29D76 /* Wedding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wedding.h; sourceTree = "<group>"; };
 		7B8F0CF51C381F9800D29D76 /* Wedding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wedding.m; sourceTree = "<group>"; };
 		7B8F0CF71C381FC800D29D76 /* Greeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Greeting.h; sourceTree = "<group>"; };
@@ -133,8 +136,6 @@
 		7B8F0D2E1C385D2900D29D76 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		7B8F0D301C3860B800D29D76 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		7B8F0D311C3860B800D29D76 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		8437EC331C39C389001B244F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		8437EC341C39C389001B244F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8437EC371C3B169E001B244F /* ashton.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ashton.jpeg; path = ../ashton.jpeg; sourceTree = "<group>"; };
 		84D507E31C270D020073F025 /* Wedding4You.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wedding4You.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D507E71C270D020073F025 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -159,17 +160,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B8F0CEF1C3819B400D29D76 /* libsqlite3.tbd in Frameworks */,
-				7B8F0CED1C3819AD00D29D76 /* libz.tbd in Frameworks */,
+				7B357E531C46B5B100A452FF /* libsqlite3.tbd in Frameworks */,
 				7B8F0CEB1C3819A400D29D76 /* SystemConfiguration.framework in Frameworks */,
 				7B8F0CE91C38199D00D29D76 /* StoreKit.framework in Frameworks */,
 				7B8F0CE71C38199400D29D76 /* Security.framework in Frameworks */,
 				7B8F0CE51C38198A00D29D76 /* QuartzCore.framework in Frameworks */,
+				7B357E4F1C46B54700A452FF /* Bolts.framework in Frameworks */,
+				7B357E511C46B54C00A452FF /* Parse.framework in Frameworks */,
 				7B8F0CE31C38198000D29D76 /* CoreLocation.framework in Frameworks */,
-				8437EC351C39C389001B244F /* Bolts.framework in Frameworks */,
 				7B8F0CE11C38197500D29D76 /* CoreGraphics.framework in Frameworks */,
 				7B8F0CDF1C38196B00D29D76 /* CFNetwork.framework in Frameworks */,
-				8437EC361C39C389001B244F /* Parse.framework in Frameworks */,
 				7B8F0CDD1C38195E00D29D76 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,10 +202,9 @@
 		7B8F0CF11C381A4F00D29D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8437EC331C39C389001B244F /* Bolts.framework */,
-				8437EC341C39C389001B244F /* Parse.framework */,
-				7B8F0CEE1C3819B400D29D76 /* libsqlite3.tbd */,
-				7B8F0CEC1C3819AD00D29D76 /* libz.tbd */,
+				7B357E521C46B5B100A452FF /* libsqlite3.tbd */,
+				7B357E501C46B54C00A452FF /* Parse.framework */,
+				7B357E4E1C46B54700A452FF /* Bolts.framework */,
 				7B8F0CEA1C3819A400D29D76 /* SystemConfiguration.framework */,
 				7B8F0CE81C38199D00D29D76 /* StoreKit.framework */,
 				7B8F0CE61C38199400D29D76 /* Security.framework */,
@@ -278,6 +277,8 @@
 				7B357E431C45335E00A452FF /* ModelSql.m */,
 				7B357E481C453F6C00A452FF /* LastUpdateSql.h */,
 				7B357E491C453F6C00A452FF /* LastUpdateSql.m */,
+				7B357E4B1C458AE000A452FF /* UserSql.h */,
+				7B357E4C1C458AE000A452FF /* UserSql.m */,
 			);
 			name = SQLMethods;
 			sourceTree = "<group>";
@@ -519,6 +520,7 @@
 				7B8F0D201C38399500D29D76 /* CommentParse.m in Sources */,
 				7B8F0D0B1C38230900D29D76 /* LoginViewController.m in Sources */,
 				7B8F0D321C3860B800D29D76 /* RegisterViewController.m in Sources */,
+				7B357E4D1C458AE000A452FF /* UserSql.m in Sources */,
 				7B8F0D051C38214300D29D76 /* ModelParse.m in Sources */,
 				7B8F0D141C3830AD00D29D76 /* MainViewController.m in Sources */,
 				7B8F0CF61C381F9800D29D76 /* Wedding.m in Sources */,

@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "LoginModel.h"
 #import "WeddingModel.h"
-
+#import "GreetingModel.h"
 
 @interface MainViewController ()
 
@@ -42,6 +42,14 @@
     }];*/
     /*[[WeddingModel instance] getWeddingsHostGuest:@"NwxVBoV8wJ" block:^(NSArray* guests) {
         NSLog(@"Success");
+    }];*/
+    
+    /*
+    [[GreetingModel instance] getAsynch:@"QMJWlc1QI7" block:^(NSArray * arr) {
+        NSLog(@"After adding gretting");
+        for (Greeting* grt in arr) {
+            NSLog(grt.grtId);
+        }
     }];*/
 }
 

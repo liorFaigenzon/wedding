@@ -7,6 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import "Greeting.h"
+#import "GreetingSql.h"
 #import <UIKit/UIKit.h>
 
 @protocol GreetingProtocol <NSObject>
@@ -15,9 +16,9 @@
 -(NSError*)deleteGreeting:(Greeting*)grt;
 -(Greeting*)getGreeting:(NSString*)grtId;
 -(NSArray*)getGreetingsforWedding:(NSString*)wdId;
+-(NSArray*)getGreetingsFromDate:(NSString*)date forWedding:(NSString*)wdId;
 
 @end
-
 
 @protocol GetGreetingsListener <NSObject>
 
@@ -28,7 +29,7 @@
 @interface GreetingModel : NSObject
 {
     id<GreetingProtocol> greetingParseImpl;
-    id<GreetingProtocol> SqlImpl;
+    ModelSql<ModelSqlProtocol>* SqlImpl;
 }
 
 +(GreetingModel*)instance;
