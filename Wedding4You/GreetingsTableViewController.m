@@ -15,7 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.data = [[GreetingModel instance] getGreetings];
+    //self.data = [[GreetingModel instance] getGreetings];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -36,10 +36,10 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If row is deleted, remove it from the list.
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [[greetingImpl instance] deleteGreeting:(Greeting*)[self.data objectAtIndex:indexPath.row]];
-        [self.tableView reloadData];
-    }
+   // if (editingStyle == UITableViewCellEditingStyleDelete) {
+     //   [[greetingImpl instance] deleteGreeting:(Greeting*)[self.data objectAtIndex:indexPath.row]];
+      //  [self.tableView reloadData];
+    //}
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,31 +71,31 @@
     GreetingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GreetingCell" forIndexPath:indexPath];
     Greeting* st = [self.data objectAtIndex:indexPath.row];
     
-    cell.Id = st.stId;
-    cell.fname.text = st.fname;
-    cell.lname.text = st.lname;
+    //cell.Id = st.stId;
+    //cell.fname.text = st.fname;
+    //cell.lname.text = st.lname;
     
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"NewGreetingSegue"]) {
-        NewGreetingController* newSVC = segue.destinationViewController;
-        newSVC.delegate = self;
+       // NewGreetingController* newSVC = segue.destinationViewController;
+       // newSVC.delegate = self;
     }
     
     if ([segue.identifier isEqualToString:@"detailGreetingSegue"]) {
-        DetailsGreetingController* DetailSVC = segue.destinationViewController;
-        GreetingTableViewCell *cell = (GreetingTableViewCell*)sender;
+        //DetailsGreetingController* DetailSVC = segue.destinationViewController;
+        //GreetingTableViewCell *cell = (GreetingTableViewCell*)sender;
         
-        Greeting* st = [[greetingImpl instance] getGreeting:cell.Id];
+        //Greeting* st = [[greetingImpl instance] getGreeting:cell.Id];
 
-        DetailSVC.DetailGreeting = st;
+        //DetailSVC.DetailGreeting = st;
     }
 }
 
 -(void)onSave:(Greeting *)std{
-    [[greetingImpl instance] addGreeting:std];
+    //[[greetingImpl instance] addGreeting:std];
     [self.tableView reloadData];
 }
 -(void)onCancel{

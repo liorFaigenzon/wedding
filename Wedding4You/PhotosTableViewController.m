@@ -15,7 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.data = [[PhotoModel instance] getPhotos];
+    self.data = [[PhotoModel instance] getPhotosForWedding:@"dfdf"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -37,7 +37,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If row is deleted, remove it from the list.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [[photoImpl instance] deletePhoto:(Photo*)[self.data objectAtIndex:indexPath.row]];
+        //[[PhotoModel instance] deletePhoto:(Photo*)[self.data objectAtIndex:indexPath.row]];
         [self.tableView reloadData];
     }
 }
@@ -71,31 +71,31 @@
     PhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhotoCell" forIndexPath:indexPath];
     Photo* st = [self.data objectAtIndex:indexPath.row];
     
-    cell.Id = st.stId;
-    cell.fname.text = st.fname;
-    cell.lname.text = st.lname;
+    //cell.Id = st.stId;
+    //cell.fname.text = st.fname;
+    //cell.lname.text = st.lname;
     
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"NewPhotoSegue"]) {
-        NewPhotoController* newSVC = segue.destinationViewController;
-        newSVC.delegate = self;
+        //NewPhotoController* newSVC = segue.destinationViewController;
+        ///newSVC.delegate = self;
     }
     
     if ([segue.identifier isEqualToString:@"detailPhotoSegue"]) {
-        DetailsPhotoController* DetailSVC = segue.destinationViewController;
-        PhotoTableViewCell *cell = (PhotoTableViewCell*)sender;
+       // DetailsPhotoController* DetailSVC = segue.destinationViewController;
+        //PhotoTableViewCell *cell = (PhotoTableViewCell*)sender;
         
-        Photo* st = [[photoImpl instance] getPhoto:cell.Id];
+       // Photo* st = [[photoImpl instance] getPhoto:cell.Id];
 
-        DetailSVC.DetailPhoto = st;
+        //DetailSVC.DetailPhoto = st;
     }
 }
 
 -(void)onSave:(Photo *)std{
-    [[photoImpl instance] addPhoto:std];
+    //[[photoImpl instance] addPhoto:std];
     [self.tableView reloadData];
 }
 -(void)onCancel{

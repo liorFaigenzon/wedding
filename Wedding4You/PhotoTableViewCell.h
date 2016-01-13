@@ -12,11 +12,12 @@
 
 @interface PhotoTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel title;
-@property (weak, nonatomic) IBOutlet UILabel date;
-@property (weak, nonatomic) IBOutlet UILabel descriptionPt;
-@property (weak, nonatomic) IBOutlet UILabel imageName;
+@property (weak, nonatomic) IBOutlet UILabel* title;
+@property (weak, nonatomic) IBOutlet UILabel*date;
+@property (weak, nonatomic) IBOutlet UILabel* descriptionPt;
+@property (weak, nonatomic) IBOutlet UILabel* imageName;
 
-@property (weak, nonatomic) IBOutlet UILabel ptoId;
+@property (weak, nonatomic) IBOutlet UILabel* ptoId;;
+@property (weak, nonatomic) IBOutlet UILabel* wdId;
 
 @end

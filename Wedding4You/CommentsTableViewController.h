@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface CommentsTableViewController :UIViewController <NewCommentDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface CommentsTableViewController :UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray* data;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end

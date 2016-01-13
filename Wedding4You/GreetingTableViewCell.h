@@ -12,10 +12,11 @@
 
 @interface GreetingTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel title;
-@property (weak, nonatomic) IBOutlet UILabel date;
-@property (weak, nonatomic) IBOutlet UILabel greeting;
+@property (weak, nonatomic) IBOutlet UILabel* title;
+@property (weak, nonatomic) IBOutlet UILabel* date;
+@property (weak, nonatomic) IBOutlet UILabel* greeting;
 
-@property (weak, nonatomic) IBOutlet UILabel grtId;
+@property (weak, nonatomic) IBOutlet UILabel* wdId;
+@property (weak, nonatomic) IBOutlet UILabel* grtId;
 
 @end

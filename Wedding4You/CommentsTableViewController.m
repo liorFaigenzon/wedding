@@ -10,12 +10,13 @@
 #import "CommentModel.h"
 #import "CommentTableViewCell.h"
 
+
 @implementation CommentsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.data = [[CommentModel instance] getComments];
+    self.data = [[CommentModel instance] getCommentsForGreeting:@"L1ZYdKr4NP"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -37,7 +38,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If row is deleted, remove it from the list.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [[CommentModel instance] deleteComment:(Comment*)[self.data objectAtIndex:indexPath.row]];
+        //[[CommentModel instance] deleteComment:(Comment*)[self.data objectAtIndex:indexPath.row]];
         [self.tableView reloadData];
     }
 }
@@ -71,31 +72,30 @@
     CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
     Comment* st = [self.data objectAtIndex:indexPath.row];
     
-    cell.Id = st.stId;
-    cell.fname.text = st.fname;
-    cell.lname.text = st.lname;
+
+    cell.title.text = st.title;
     
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"NewCommentSegue"]) {
-        NewCommentController* newSVC = segue.destinationViewController;
-        newSVC.delegate = self;
+        //NewCommentController* newSVC = segue.destinationViewController;
+        //newSVC.delegate = self;
     }
     
     if ([segue.identifier isEqualToString:@"detailCommentSegue"]) {
-        DetailsCommentController* DetailSVC = segue.destinationViewController;
-        CommentTableViewCell *cell = (CommentTableViewCell*)sender;
+        //DetailsCommentController* DetailSVC = segue.destinationViewController;
+        //CommentTableViewCell *cell = (CommentTableViewCell*)sender;
         
-        Comment* st = [[CommentModel instance] getComment:cell.Id];
+        //Comment* st = [[CommentModel instance] getComment:cell.Id];
 
-        DetailSVC.DetailComment = st;
+        //DetailSVC.DetailComment = st;
     }
 }
 
 -(void)onSave:(Comment *)std{
-    [[CommentModel instance] addComment:std];
+    //[[CommentModel instance] addComment:std];
     [self.tableView reloadData];
 }
 -(void)onCancel{

@@ -48,13 +48,13 @@
     self.titlestr = comment.title;
     self.date = comment.date;
     self.comment = comment.comment;
-    self.iGrtId = comment.grtId;
+    //self.iGrtId = comment.grtId;
 }
 
 - (IBAction)save:(id)sender {
-    CommentModel* xxx = [[CommentModel alloc]init];
-    Comment* comment = [[Comment alloc] init:@"new" title:self.iTitle.text date:self.iDate.date comment:self.iComment.text grtId:self.iGrtId.text];
-    [xxx addComment:(Comment *)xxx];
+    //CommentModel* xxx = [[CommentModel alloc]init];
+    //Comment* comment = [[Comment alloc] init:@"new" title:self.iTitle.text date:self.iDate.date comment:self.iComment.text grtId:self.iGrtId.text];
+    //[xxx addComment:(Comment *)xxx];
     //[self.delegate onSave:comment];
     [self.navigationController popViewControllerAnimated:YES];
 }
