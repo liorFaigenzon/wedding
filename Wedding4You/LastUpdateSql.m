@@ -31,7 +31,6 @@ static NSString* LAST_UPDATE_DATE = @"LAST_UPDATE_DATE";
     
     NSString* query = [NSString stringWithFormat:@"SELECT %@ from %@ where %@ = ?;",LAST_UPDATE_DATE,LAST_UPDATE,TABLE_NAME];
     
-    
     if (sqlite3_prepare_v2(database,[query UTF8String], -1,&statment,nil) == SQLITE_OK){
         sqlite3_bind_text(statment, 1, [table UTF8String],-1,NULL);
         while(sqlite3_step(statment) == SQLITE_ROW){

@@ -8,6 +8,7 @@
 
 #import "GreetingSql.h"
 #import "LastUpdateSql.h"
+#import "UserSql.h"
 
 @implementation GreetingSql
 
@@ -17,11 +18,12 @@ static NSString* GREETING_TITLE = @"TITLE";
 static NSString* GREETING_DATE = @"DATE";
 static NSString* GREETING_GREETING = @"GREETING";
 static NSString* GREETING_WD_ID = @"WD_ID";
+static NSString* GREETING_US_ID = @"US_ID";
 
 +(BOOL)createTable:(sqlite3*)database{
     char* errormsg;
     
-    NSString* sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (%@ TEXT PRIMARY KEY, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT)",GREETING_TABLE,GREETING_GRT_ID,GREETING_TITLE,GREETING_DATE,GREETING_GREETING,GREETING_WD_ID];
+    NSString* sql = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (%@ TEXT PRIMARY KEY, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT, %@ TEXT)",GREETING_TABLE,GREETING_GRT_ID,GREETING_TITLE,GREETING_DATE,GREETING_GREETING,GREETING_WD_ID,GREETING_US_ID];
     int res = sqlite3_exec(database, [sql UTF8String], NULL, NULL, &errormsg);
     if(res != SQLITE_OK){
         NSLog(@"ERROR: failed creating GREETINGS table");
@@ -33,14 +35,17 @@ static NSString* GREETING_WD_ID = @"WD_ID";
 +(void)addGreeting:(sqlite3*)database grt:(Greeting*)grt {
     sqlite3_stmt *statment;
     
-    NSString* query = [NSString stringWithFormat:@"INSERT OR REPLACE INTO %@ (%@,%@,%@,%@,%@) values (?,?,?,?,?);",GREETING_TABLE,GREETING_GRT_ID,GREETING_TITLE,GREETING_DATE,GREETING_GREETING,GREETING_WD_ID];
+    NSString* query = [NSString stringWithFormat:@"INSERT OR REPLACE INTO %@ (%@,%@,%@,%@,%@,%@) values (?,?,?,?,?,?);",GREETING_TABLE,GREETING_GRT_ID,GREETING_TITLE,GREETING_DATE,GREETING_GREETING,GREETING_WD_ID,GREETING_US_ID];
     
     if (sqlite3_prepare_v2(database,[query UTF8String],-1,&statment,nil) == SQLITE_OK){
+        // Bind all greeting attributes
         sqlite3_bind_text(statment, 1, [grt.grtId UTF8String],-1,NULL);
         sqlite3_bind_text(statment, 2, [grt.title UTF8String],-1,NULL);
         sqlite3_bind_text(statment, 3, [[self getStringFromDate:grt.date] UTF8String],-1,NULL);
         sqlite3_bind_text(statment, 4, [grt.greeting UTF8String],-1,NULL);
         sqlite3_bind_text(statment, 5, [grt.wdId UTF8String],-1,NULL);
+        sqlite3_bind_text(statment, 6, [grt.usId UTF8String],-1,NULL);
+        
         if(sqlite3_step(statment) == SQLITE_DONE){
             return;
         }
@@ -68,11 +73,11 @@ static NSString* GREETING_WD_ID = @"WD_ID";
     Greeting* grt = nil;
     sqlite3_stmt *statment;
     
-    NSString* query = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ = ?;", GREETING_TABLE, GREETING_GRT_ID];
+    NSString* query = [NSString stringWithFormat:@"SELECT * FROM %@;", GREETING_TABLE];
     
     if (sqlite3_prepare_v2(database,[query UTF8String], -1,&statment,nil) == SQLITE_OK){
         // Bind greeting id to the statement
-        sqlite3_bind_text(statment, 1, [grt.grtId UTF8String],-1,NULL);
+        sqlite3_bind_text(statment, 1, [grtId UTF8String],-1,NULL);
         
         if(sqlite3_step(statment) == SQLITE_ROW){
             // Get greeting details
@@ -81,11 +86,12 @@ static NSString* GREETING_WD_ID = @"WD_ID";
             NSDate* date = [self getDateFromString:[NSString stringWithFormat:@"%s",sqlite3_column_text(statment,2)]];
             NSString* greeting = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,3)];
             NSString* wdId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,4)];
+            NSString* usId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,5)];
             
-            grt = [[Greeting alloc] init:grtId title:title date:date greeting:greeting wdId:wdId];
+            grt = [[Greeting alloc] init:grtId title:title date:date greeting:greeting wdId:wdId usId:usId];
         }
     }else{
-        NSLog(@"ERROR: getGreetings failed %s",sqlite3_errmsg(database));
+        NSLog(@"ERROR: getGreeting failed %s",sqlite3_errmsg(database));
         return nil;
     }
     
@@ -96,17 +102,19 @@ static NSString* GREETING_WD_ID = @"WD_ID";
     NSMutableArray* data = [[NSMutableArray alloc] init];
     sqlite3_stmt *statment;
     
-    NSString* query = [NSString stringWithFormat:@"SELECT * from %@;", GREETING_TABLE];
+    NSString* query = [NSString stringWithFormat:@"SELECT * FROM %@;", GREETING_TABLE];
     
     if (sqlite3_prepare_v2(database,[query UTF8String], -1,&statment,nil) == SQLITE_OK){
         while(sqlite3_step(statment) == SQLITE_ROW){
+            // Get greeting details
             NSString* grtId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,0)];
             NSString* title = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,1)];
             NSDate* date = [self getDateFromString:[NSString stringWithFormat:@"%s",sqlite3_column_text(statment,2)]];
             NSString* greeting = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,3)];
             NSString* wdId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,4)];
+            NSString* usId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,5)];
             
-            Greeting* grt = [[Greeting alloc] init:grtId title:title date:date greeting:greeting wdId:wdId];
+            Greeting* grt = [[Greeting alloc] init:grtId title:title date:date greeting:greeting wdId:wdId usId:usId];
             [data addObject:grt];
         }
     }else{

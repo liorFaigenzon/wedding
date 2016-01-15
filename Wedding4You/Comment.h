@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#include "User.h"
 
 @interface Comment : NSObject
 
@@ -15,7 +16,8 @@
 @property NSDate* date;
 @property NSString* comment;
 @property NSString* grtId;
+@property NSString* usId;
 
--(id)init:(NSString*)cmtId title:(NSString*)title date:(NSDate*)date comment:(NSString*)comment grtId:(NSString*)grtId;
+-(id)init:(NSString*)cmtId title:(NSString*)title date:(NSDate*)date comment:(NSString*)comment grtId:(NSString*)grtId usId:(NSString*)usId;
 
 @end

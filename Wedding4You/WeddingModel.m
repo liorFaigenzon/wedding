@@ -65,12 +65,12 @@ static WeddingModel* instance = nil;
     
     dispatch_async(myQueue, ^{
         //long operation
-        [modelImpl addWedding:wd];
+        NSError* err = [modelImpl addWedding:wd];
         
         //end of long operation - update display in the main Q
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }
@@ -80,12 +80,12 @@ static WeddingModel* instance = nil;
     
     dispatch_async(myQueue, ^{
         //long operation
-        [modelImpl addWeddingGuests:usIds toWedding:wd];
+        NSError* err = [modelImpl addWeddingGuests:usIds toWedding:wd];
         
         //end of long operation - update display in the main Q
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }
@@ -94,10 +94,10 @@ static WeddingModel* instance = nil;
     dispatch_queue_t myQueue =    dispatch_queue_create("myQueueName", NULL);
     
     dispatch_async(myQueue, ^{
-        [modelImpl deleteWedding:wd];
+        NSError* err = [modelImpl deleteWedding:wd];
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }

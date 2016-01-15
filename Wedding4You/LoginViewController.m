@@ -54,13 +54,11 @@
         [[GreetingModel instance] getGreeting:@"m376FXBY9u" block:^(Greeting* outerGrt) {
             NSLog(outerGrt.wdId);
         }];
-        
-        [[GreetingModel instance] getAsynch:@"QMJWlc1QI7" block:^(NSArray * arr) {
-            for (Greeting* grt in arr) {
-                NSLog(grt.grtId);
-            }
-        }];
     }];*/
+    
+    //[[GreetingModel instance] getGreeting:@"m376FXBY9u" block:^(Greeting* outerGrt) {
+    //    NSLog(outerGrt.wdId);
+    //}];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

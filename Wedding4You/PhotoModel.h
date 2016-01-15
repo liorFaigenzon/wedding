@@ -12,8 +12,8 @@
 
 @protocol PhotoProtocol <NSObject>
 
--(void)addPhoto:(Photo*)pto;
--(void)deletePhoto:(Photo*)pto;
+-(NSError*)addPhoto:(Photo*)pto;
+-(NSError*)deletePhoto:(Photo*)pto;
 -(Photo*)getPhoto:(NSString*)ptoId;
 -(NSArray*)getPhotosForWedding:(NSString*)wdId;
 -(UIImage*)getImage:(NSString*)imageName;

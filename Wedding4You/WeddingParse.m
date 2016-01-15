@@ -12,14 +12,27 @@
 
 @implementation WeddingParse
 
--(void)addWedding:(Wedding*)wd {
+-(NSError*)addWedding:(Wedding*)wd {
+    NSError* err = nil;
     PFObject* obj = [PFObject objectWithClassName:@"Weddings"];
     //obj[@"wdId"] = wd.wdId;
     [obj setObject:[PFUser currentUser] forKey:@"couple"];
-    [obj save];
+    
+    // If saved successfully
+    if ([obj save:&err] == YES) {
+        wd.wdId = obj.objectId;
+        
+        // Get user id
+        PFUser* userObj = [obj objectForKey:@"couple"];
+        wd.usCouple = [[User alloc] init];
+        wd.usCouple.usId = userObj.objectId;
+    }
+    
+    return err;
 }
 
--(void)addWeddingGuests:(NSArray*)usIds toWedding:(Wedding*)wd {
+-(NSError*)addWeddingGuests:(NSArray*)usIds toWedding:(Wedding*)wd {
+    NSError* err;
     PFQuery* query = [PFQuery queryWithClassName:@"Weddings"];
     [query whereKey:@"objectId" equalTo:wd.wdId];
     NSArray* res = [query findObjects];
@@ -32,8 +45,10 @@
             [rel addObject:[PFQuery getUserObjectWithId:usId]];
         }
         
-        [obj save];
+        [obj save:&err];
     }
+    
+    return err;
 }
 
 -(NSArray*)getWeddingsHostGuest:(NSString*)usId {

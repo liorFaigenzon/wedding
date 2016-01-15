@@ -36,12 +36,17 @@ static CommentModel* instance = nil;
     
     dispatch_async(myQueue, ^{
         // Add comment
-        [commentImpl addComment:cmt];
+        NSError* err = [commentImpl addComment:cmt];
+        
+        // If created in parse, add local
+        if (err == nil) {
+            //[SqlImpl addComment:cmt];
+        }
         
         // Do logic in the main Q after adding this comment
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }
@@ -51,12 +56,17 @@ static CommentModel* instance = nil;
     
     dispatch_async(myQueue, ^{
         // Delete comment
-        [commentImpl deleteComment:cmt];
+        NSError* err = [commentImpl deleteComment:cmt];
+        
+        // If created in parse, add local
+        if (err == nil) {
+            //[SqlImpl deleteComment:cmt];
+        }
         
         // Do logic in the main Q after deleting this comment
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }

@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "LoginModel.h"
 #import "WeddingModel.h"
-
+#import "GreetingModel.h"
 
 @interface MainViewController ()
 

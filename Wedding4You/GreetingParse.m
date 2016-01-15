@@ -12,17 +12,22 @@
 @implementation GreetingParse
 
 -(NSError*)addGreeting:(Greeting*)grt{
-    NSError* err;
+    NSError* err = nil;
     PFObject* obj = [PFObject objectWithClassName:@"Greetings"];
     //obj[@"grtId"] = grt.grtId;
     obj[@"title"] = grt.title;
     //obj[@"date"] = [[dateformate stringFromDate]];
     obj[@"greeting"] = grt.greeting;
     [obj setObject:[[PFQuery queryWithClassName:@"Weddings"] getObjectWithId:grt.wdId] forKey:@"wedding"];
+    [obj setObject:[PFUser currentUser] forKey:@"createdBy"];
     
     // If saved successfully
     if ([obj save:&err] == YES) {
         grt.grtId = obj.objectId;
+        
+        // Get user id
+        PFUser* userObj = [obj objectForKey:@"createdBy"];
+        grt.usId = userObj.objectId;
     }
     
     return err;
@@ -54,8 +59,11 @@
         // Get wedding details
         PFObject* weddingObj = [obj objectForKey:@"wedding"];
         
+        // Get user details
+        PFUser* userObj = [obj objectForKey:@"createdBy"];
+        
         // Create greeting object
-        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId];
+        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId usId:userObj.objectId];
     }
     
     return greeting;
@@ -71,8 +79,37 @@
     NSArray* res = [query findObjects];
     
     for (PFObject* obj in res) {
+        // Fetch user details
+        PFUser* userObj = [obj objectForKey:@"createdBy"];
+        
         // Create wedding object
-        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:obj[@"wedding"]];
+        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:wdId usId:userObj.objectId];
+        [array addObject:greeting];
+    }
+    return array;
+}
+
+-(NSArray*)getGreetingsFromDate:(NSString*)date forWedding:(NSString*)wdId{
+    Greeting*  greeting;
+    NSMutableArray* array = [[NSMutableArray alloc] init];
+    
+    // Get greetings for specific wedding from date
+    PFQuery* query = [PFQuery queryWithClassName:@"Greetings"];
+    [query whereKey:@"wedding" equalTo:[[PFQuery queryWithClassName:@"Weddings"] getObjectWithId:wdId]];
+    NSDate* dated = [NSDate dateWithTimeIntervalSince1970:[date doubleValue]];
+    [query whereKey:@"updatedAt" greaterThanOrEqualTo:dated];
+    
+    NSArray* res = [query findObjects];
+    
+    for (PFObject* obj in res) {
+        // Get wedding details
+        PFObject* weddingObj = [obj objectForKey:@"wedding"];
+        
+        // Fetch user details
+        PFUser* pfusr = [obj objectForKey:@"createdBy"];
+        
+        // Create wedding object
+        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId usId:pfusr.objectId];
         [array addObject:greeting];
     }
     return array;

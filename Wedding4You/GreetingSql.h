@@ -6,7 +6,6 @@
 //  Copyright © 2016 Faigenzon. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "ModelSql.h"
 #import "Greeting.h"

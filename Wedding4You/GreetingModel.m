@@ -27,7 +27,7 @@ static GreetingModel* instance = nil;
     self = [super init];
     if (self) {
         greetingParseImpl = [[GreetingParse alloc] init];
-        SqlImpl = [[ModelSql alloc] init];
+        SqlImpl = [[ModelSql<ModelSqlProtocol> alloc] init];
     }
     return self;
 }
@@ -58,6 +58,11 @@ static GreetingModel* instance = nil;
     dispatch_async(myQueue, ^{
         // Delete greeting
         NSError* err = [greetingParseImpl deleteGreeting:grt];
+        
+        // If created in parse, add local
+        if (err == nil) {
+            [SqlImpl deleteGreeting:grt];
+        }
         
         // Do logic in the main Q after deleting this greeting
         dispatch_queue_t mainQ = dispatch_get_main_queue();
@@ -92,8 +97,24 @@ static GreetingModel* instance = nil;
     dispatch_queue_t myQueue =    dispatch_queue_create("myQueueName", NULL);
     
     dispatch_async(myQueue, ^{
-        //long operation
-        NSArray* data = [greetingParseImpl getGreetingsforWedding:wdId];
+        // Get grettings for this wedding from local db
+        NSArray* data = [SqlImpl getGreetingsforWedding:wdId];
+        NSString* lastUpdate = [SqlImpl getGreetingsLastUpdateDate];
+        
+        // Get updated data from remote db
+        NSMutableArray* updatedData;
+        if (lastUpdate != nil){
+            updatedData = (NSMutableArray*)[greetingParseImpl getGreetingsFromDate:lastUpdate forWedding:wdId];
+        } else{
+            updatedData = (NSMutableArray*)[greetingParseImpl getGreetingsforWedding:wdId];
+        }
+        
+        // Update the local db with the new data
+        if (updatedData.count > 0) {
+            [SqlImpl updateGreetings:updatedData];
+            [SqlImpl setGreetingsLastUpdateDate:[NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]]];
+            data = (NSMutableArray*)[SqlImpl getGreetingsforWedding:wdId];
+        }
         
         //end of long operation - update display in the main Q
         dispatch_queue_t mainQ = dispatch_get_main_queue();

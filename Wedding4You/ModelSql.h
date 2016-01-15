@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
-#import "GreetingModel.h"
 #import "Greeting.h"
 
 @protocol ModelSqlProtocol <NSObject>
@@ -21,9 +20,19 @@
 
 @end
 
-@interface ModelSql : NSObject<GreetingProtocol> {
+@interface ModelSql : NSObject {
     sqlite3* database;
 }
+
++(BOOL)dropTable:(sqlite3*)database tableName:(NSString*)tblName;
+
+-(void)addGreeting:(Greeting*)grt;
+-(void)deleteGreeting:(Greeting*)grt;
+-(Greeting*)getGreeting:(NSString*)grtId;
+-(NSArray*)getGreetingsforWedding:(NSString*)wdId;
+-(void)setGreetingsLastUpdateDate:(NSString*)date;
+-(NSString*)getGreetingsLastUpdateDate;
+-(void)updateGreetings:(NSArray*)greetings;
 
 +(NSString*)getStringFromDate:(NSDate*)date;
 +(NSDate*)getDateFromString:(NSString*)date;
