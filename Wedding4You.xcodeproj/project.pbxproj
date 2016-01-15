@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		7B357E381C45330700A452FF /* WeddingSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E371C45330700A452FF /* WeddingSql.m */; };
 		7B357E411C45333900A452FF /* PhotoSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E401C45333900A452FF /* PhotoSql.m */; };
+		7B357E441C45335E00A452FF /* ModelSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E431C45335E00A452FF /* ModelSql.m */; };
+		7B357E4A1C453F6C00A452FF /* LastUpdateSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E491C453F6C00A452FF /* LastUpdateSql.m */; };
+		7B357E4D1C458AE000A452FF /* UserSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E4C1C458AE000A452FF /* UserSql.m */; };
+		7B357E4F1C46B54700A452FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E4E1C46B54700A452FF /* Bolts.framework */; };
+		7B357E511C46B54C00A452FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E501C46B54C00A452FF /* Parse.framework */; };
+		7B357E531C46B5B100A452FF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E521C46B5B100A452FF /* libsqlite3.tbd */; };
 		7B8F0CDD1C38195E00D29D76 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CDC1C38195E00D29D76 /* AudioToolbox.framework */; };
 		7B8F0CDF1C38196B00D29D76 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CDE1C38196B00D29D76 /* CFNetwork.framework */; };
 		7B8F0CE11C38197500D29D76 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CE01C38197500D29D76 /* CoreGraphics.framework */; };
@@ -200,8 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842988EA1C45A8FE00A964EA /* libsqlite3.tbd in Frameworks */,
-				7B8F0CED1C3819AD00D29D76 /* libz.tbd in Frameworks */,
+				7B357E531C46B5B100A452FF /* libsqlite3.tbd in Frameworks */,
 				7B8F0CEB1C3819A400D29D76 /* SystemConfiguration.framework in Frameworks */,
 				7B8F0CE91C38199D00D29D76 /* StoreKit.framework in Frameworks */,
 				7B8F0CE71C38199400D29D76 /* Security.framework in Frameworks */,
