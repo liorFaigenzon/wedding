@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PhotosTableViewController :UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface PhotosCollectionViewController :UICollectionViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) NSArray* data;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+//@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end

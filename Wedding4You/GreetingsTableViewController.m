@@ -14,8 +14,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    //self.data = [[GreetingModel instance] getGreetings];
+    //uiac1YRCiz
+    self.data = [[GreetingModel instance] getGreetingsforWedding:@"QMJWlc1QI7"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -68,12 +68,12 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    GreetingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GreetingCell" forIndexPath:indexPath];
-    Greeting* st = [self.data objectAtIndex:indexPath.row];
+    GreetingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"greetingCell" forIndexPath:indexPath];
+    Greeting* grt = [self.data objectAtIndex:indexPath.row];
     
-    //cell.Id = st.stId;
-    //cell.fname.text = st.fname;
-    //cell.lname.text = st.lname;
+    cell.title.text = grt.title;
+    //cell.date.text =grt.date;
+    cell.greeting.text = grt.greeting;
     
     return cell;
 }

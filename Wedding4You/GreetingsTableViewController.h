@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface GreetingsTableViewController :UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface GreetingsTableViewController :UITableViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) NSArray* data;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+//@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end

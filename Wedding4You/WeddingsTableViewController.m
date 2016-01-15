@@ -1,34 +1,38 @@
 //
-//  PhotosTableViewController.m
-//  Class4Demo2
+//  WeddingTableViewController.m
+//  Wedding4You
 //
-//  Created by Admin on 11/18/15.
-//  Copyright (c) 2015 menachi. All rights reserved.
+//  Created by Admin on 1/14/16.
+//  Copyright © 2016 Faigenzon. All rights reserved.
 //
 
-#import "PhotosTableViewController.h"
-#import "PhotoModel.h"
-#import "PhotoTableViewCell.h"
+#import "WeddingsTableViewController.h"
+#import "WeddingModel.h"
+#import "WeddingTableViewCell.h"
 
-@implementation PhotosTableViewController
+@implementation WeddingsTableViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.data = [[PhotoModel instance] getPhotosForWedding:@"dfdf"];
+    [[WeddingModel instance] getWeddingsHostGuest:@"uiac1YRCiz" block:^(NSArray * stArray) {
+        self.data = stArray;
+    }];
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    [super setEditing:editing animated:animated];
-    [self.tableView setEditing:editing animated:animated];
+    //[super setEditing:editing animated:animated];
+    //[self.tableView setEditing:editing animated:animated];
     if (editing) {
-       // addButton.enabled = NO;
+        // addButton.enabled = NO;
     } else {
         //addButton.enabled = YES;
     }
@@ -37,8 +41,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If row is deleted, remove it from the list.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //[[PhotoModel instance] deletePhoto:(Photo*)[self.data objectAtIndex:indexPath.row]];
-        [self.tableView reloadData];
+        //[[WeddingModel instance] deleteWedding:(Wedding*)[self.data objectAtIndex:indexPath.row]];
+        //[self.tableView reloadData];
     }
 }
 
@@ -56,8 +60,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //PhotoTableViewCell *cell = (PhotoTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
-
+    //WeddingTableViewCell *cell = (WeddingTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    
 }
 
 
@@ -68,8 +72,8 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhotoCell" forIndexPath:indexPath];
-    Photo* st = [self.data objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WeddingCell" forIndexPath:indexPath];
+    Wedding* st = [self.data objectAtIndex:indexPath.row];
     
     //cell.Id = st.stId;
     //cell.fname.text = st.fname;
@@ -79,24 +83,24 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"NewPhotoSegue"]) {
-        //NewPhotoController* newSVC = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"NewWeddingSegue"]) {
+        //NewWeddingController* newSVC = segue.destinationViewController;
         ///newSVC.delegate = self;
     }
     
-    if ([segue.identifier isEqualToString:@"detailPhotoSegue"]) {
-       // DetailsPhotoController* DetailSVC = segue.destinationViewController;
-        //PhotoTableViewCell *cell = (PhotoTableViewCell*)sender;
+    if ([segue.identifier isEqualToString:@"detailWeddingSegue"]) {
+        // DetailsWeddingController* DetailSVC = segue.destinationViewController;
+        //WeddingTableViewCell *cell = (WeddingTableViewCell*)sender;
         
-       // Photo* st = [[photoImpl instance] getPhoto:cell.Id];
-
-        //DetailSVC.DetailPhoto = st;
+        // Wedding* st = [[weddingImpl instance] getWedding:cell.Id];
+        
+        //DetailSVC.DetailWedding = st;
     }
 }
 
--(void)onSave:(Photo *)std{
-    //[[photoImpl instance] addPhoto:std];
-    [self.tableView reloadData];
+-(void)onSave:(Wedding *)std{
+    //[[weddingImpl instance] addWedding:std];
+    //[self.tableView reloadData];
 }
 -(void)onCancel{
     //self.myLabel.text = @"cancel";

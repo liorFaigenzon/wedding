@@ -14,7 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel* title;
 @property (weak, nonatomic) IBOutlet UILabel* date;
-@property (weak, nonatomic) IBOutlet UILabel* greeting;
+@property (weak, nonatomic) IBOutlet UITextView* greeting;
 
 @property (weak, nonatomic) IBOutlet UILabel* wdId;
 @property (weak, nonatomic) IBOutlet UILabel* grtId;
