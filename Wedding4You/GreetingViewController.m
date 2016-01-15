@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //GreetingModel* xxx = [[GreetingModel alloc]init];
+    // NSArray* yyy =[xxx getGreetings];
+    // [self GreetingToField:[yyy objectAtIndex:0]];
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +30,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)cancel:(id)sender {
+    [self.delegate onCancel];
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
+-(IBAction)GreetingToField:(Greeting*)Greeting{
+    //self.Grtitlestr = Greeting.title;
+    //self.date = Greeting.date;
+    //self.Greeting = Greeting.Greeting;
+    //self.iGrtId = Greeting.grtId;
+}
+
+//-(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting wdId:(NSString*)wdId usId:(NSString *)usId;{
+   
+
+- (IBAction)OnSave:(id)sender {
+    Greeting* greeting = [[Greeting alloc] init:@"new" title:self.iTitle.text date:[NSDate date] greeting:self.iGreeting.text wdId:@"QMJWlc1QI7" usId:@"uiac1YRCiz"];
+
+    [self.delegate onSave:greeting];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+- (IBAction)clear:(id)sender {
+    self.iTitle.text = @"";
+    self.iGreeting.text = @"";
+
+}
 
 @end

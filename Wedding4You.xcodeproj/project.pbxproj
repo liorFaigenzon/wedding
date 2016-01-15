@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		7B357E381C45330700A452FF /* WeddingSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E371C45330700A452FF /* WeddingSql.m */; };
 		7B357E411C45333900A452FF /* PhotoSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E401C45333900A452FF /* PhotoSql.m */; };
-		7B357E441C45335E00A452FF /* ModelSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E431C45335E00A452FF /* ModelSql.m */; };
-		7B357E4A1C453F6C00A452FF /* LastUpdateSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E491C453F6C00A452FF /* LastUpdateSql.m */; };
-		7B357E4D1C458AE000A452FF /* UserSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E4C1C458AE000A452FF /* UserSql.m */; };
 		7B357E4F1C46B54700A452FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E4E1C46B54700A452FF /* Bolts.framework */; };
 		7B357E511C46B54C00A452FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E501C46B54C00A452FF /* Parse.framework */; };
 		7B357E531C46B5B100A452FF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E521C46B5B100A452FF /* libsqlite3.tbd */; };
@@ -23,7 +20,6 @@
 		7B8F0CE71C38199400D29D76 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CE61C38199400D29D76 /* Security.framework */; };
 		7B8F0CE91C38199D00D29D76 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CE81C38199D00D29D76 /* StoreKit.framework */; };
 		7B8F0CEB1C3819A400D29D76 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CEA1C3819A400D29D76 /* SystemConfiguration.framework */; };
-		7B8F0CED1C3819AD00D29D76 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CEC1C3819AD00D29D76 /* libz.tbd */; };
 		7B8F0CF61C381F9800D29D76 /* Wedding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CF51C381F9800D29D76 /* Wedding.m */; };
 		7B8F0CF91C381FC800D29D76 /* Greeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CF81C381FC800D29D76 /* Greeting.m */; };
 		7B8F0CFC1C381FDD00D29D76 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0CFB1C381FDD00D29D76 /* Photo.m */; };
@@ -53,7 +49,6 @@
 		842988E21C456CE000A964EA /* PhotoCollectionViewCell .m in Sources */ = {isa = PBXBuildFile; fileRef = 842988DF1C456CE000A964EA /* PhotoCollectionViewCell .m */; };
 		842988E71C456D0900A964EA /* CommentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842988E31C456D0900A964EA /* CommentsTableViewController.m */; };
 		842988E81C456D0900A964EA /* PhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842988E61C456D0900A964EA /* PhotosCollectionViewController.m */; };
-		842988EA1C45A8FE00A964EA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 842988E91C45A8FE00A964EA /* libsqlite3.tbd */; };
 		842988EB1C45AB6500A964EA /* WeddingSql.h in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E361C45330700A452FF /* WeddingSql.h */; };
 		842988EC1C45AB6500A964EA /* GreetingSql.h in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E391C45332100A452FF /* GreetingSql.h */; };
 		842988ED1C45AB6500A964EA /* GreetingSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E3A1C45332100A452FF /* GreetingSql.m */; };
@@ -64,9 +59,9 @@
 		842988F21C45AB6500A964EA /* ModelSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E431C45335E00A452FF /* ModelSql.m */; };
 		842988F31C45AB6500A964EA /* LastUpdateSql.h in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E481C453F6C00A452FF /* LastUpdateSql.h */; };
 		842988F41C45AB6500A964EA /* LastUpdateSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E491C453F6C00A452FF /* LastUpdateSql.m */; };
-		8437EC351C39C389001B244F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437EC331C39C389001B244F /* Bolts.framework */; };
-		8437EC361C39C389001B244F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8437EC341C39C389001B244F /* Parse.framework */; };
 		8437EC3A1C3B169E001B244F /* ashton.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8437EC371C3B169E001B244F /* ashton.jpeg */; };
+		8487DE171C496DEF0011E530 /* UserSql.h in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E4B1C458AE000A452FF /* UserSql.h */; };
+		8487DE181C496DEF0011E530 /* UserSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E4C1C458AE000A452FF /* UserSql.m */; };
 		84D507E81C270D020073F025 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507E71C270D020073F025 /* main.m */; };
 		84D507EB1C270D020073F025 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507EA1C270D020073F025 /* AppDelegate.m */; };
 		84D507EE1C270D020073F025 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507ED1C270D020073F025 /* ViewController.m */; };
@@ -595,6 +590,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8487DE171C496DEF0011E530 /* UserSql.h in Sources */,
+				8487DE181C496DEF0011E530 /* UserSql.m in Sources */,
 				842988EB1C45AB6500A964EA /* WeddingSql.h in Sources */,
 				842988EC1C45AB6500A964EA /* GreetingSql.h in Sources */,
 				842988ED1C45AB6500A964EA /* GreetingSql.m in Sources */,

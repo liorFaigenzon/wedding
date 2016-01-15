@@ -9,6 +9,7 @@
 #import "GreetingsTableViewController.h"
 #import "GreetingModel.h"
 #import "GreetingTableViewCell.h"
+#import "GreetingViewController.h"
 
 @implementation GreetingsTableViewController
 
@@ -80,8 +81,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"NewGreetingSegue"]) {
-       // NewGreetingController* newSVC = segue.destinationViewController;
-       // newSVC.delegate = self;
+       GreetingViewController* newSVC = segue.destinationViewController;
+        newSVC.delegate = self;
     }
     
     if ([segue.identifier isEqualToString:@"detailGreetingSegue"]) {
@@ -95,8 +96,11 @@
 }
 
 -(void)onSave:(Greeting *)std{
-    //[[greetingImpl instance] addGreeting:std];
-    [self.tableView reloadData];
+    NSError* xxx  = nil;;
+    [[GreetingModel instance] addGreeting:std block:^(NSError *xxx)
+    {
+        [self.tableView reloadData];
+    }];
 }
 -(void)onCancel{
     //self.myLabel.text = @"cancel";

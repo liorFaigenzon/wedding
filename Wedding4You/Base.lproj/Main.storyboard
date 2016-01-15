@@ -193,6 +193,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
+                                    <action selector="onSave:" destination="PsR-Mf-9pk" eventType="touchUpInside" id="8pr-2H-n34"/>
                                     <action selector="save:" destination="PsR-Mf-9pk" eventType="touchUpInside" id="k6w-UV-sQ9"/>
                                 </connections>
                             </button>
@@ -239,11 +240,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zDy-Q5-y74">
-                                <rect key="frame" x="230" y="253" width="66" height="30"/>
+                                <rect key="frame" x="234" y="300" width="66" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
-                                    <action selector="save:" destination="PsR-Mf-9pk" eventType="touchUpInside" id="Aor-uV-evC"/>
+                                    <action selector="OnSave:" destination="hgk-Md-rtj" eventType="touchUpInside" id="2z6-hx-udq"/>
+                                    <action selector="onSave:" destination="hgk-Md-rtj" eventType="touchUpInside" id="TVO-Uz-4Qf"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nv4-cH-8vZ">
@@ -268,10 +270,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tPc-hx-ZDm" userLabel="Clear">
+                                <rect key="frame" x="180" y="300" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Clear"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.54509806630000002" green="0.52941179279999995" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.89019614458084106" green="0.090196080505847931" blue="0.92941182851791382" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="7UX-FH-i2j"/>
+                    <connections>
+                        <outlet property="iGreeting" destination="Rqq-Aq-Fqj" id="DT5-ln-l6k"/>
+                        <outlet property="iTitle" destination="tDc-Ei-W89" id="MLF-oN-qrK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WEd-pD-uCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -566,7 +577,7 @@
                     <navigationItem key="navigationItem" title="Greetings" id="uJn-ud-dbi">
                         <barButtonItem key="rightBarButtonItem" title="+" id="XPT-eP-i2L" userLabel="add">
                             <connections>
-                                <segue destination="hgk-Md-rtj" kind="push" id="ekI-BQ-xVZ"/>
+                                <segue destination="hgk-Md-rtj" kind="push" identifier="NewGreetingSegue" id="ekI-BQ-xVZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -14,10 +14,10 @@
 -(NSError*)addGreeting:(Greeting*)grt{
     NSError* err = nil;
     PFObject* obj = [PFObject objectWithClassName:@"Greetings"];
-    //obj[@"grtId"] = grt.grtId;
+    obj[@"grtId"] = grt.grtId;
     obj[@"title"] = grt.title;
     //obj[@"date"] = [[dateformate stringFromDate]];
-    obj[@"greeting"] = grt.greeting;
+    //obj[@"greeting"] = grt.greeting;
     [obj setObject:[[PFQuery queryWithClassName:@"Weddings"] getObjectWithId:grt.wdId] forKey:@"wedding"];
     [obj setObject:[PFUser currentUser] forKey:@"createdBy"];
     

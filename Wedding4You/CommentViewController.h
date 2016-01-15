@@ -36,7 +36,7 @@
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
-//- (IBAction)onSave:(id)sender;
+- (IBAction)onSave:(id)sender;
 - (IBAction)clear:(id)sender;
 - (IBAction)commentToField:(Comment*)comment;
 

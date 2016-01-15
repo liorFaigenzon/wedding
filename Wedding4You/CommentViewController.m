@@ -51,7 +51,7 @@
     //self.iGrtId = comment.grtId;
 }
 
-- (IBAction)save:(id)sender {
+- (IBAction)OnSave:(id)sender {
     //CommentModel* xxx = [[CommentModel alloc]init];
     //Comment* comment = [[Comment alloc] init:@"new" title:self.iTitle.text date:self.iDate.date comment:self.iComment.text grtId:self.iGrtId.text];
     //[xxx addComment:(Comment *)xxx];
