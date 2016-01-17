@@ -10,6 +10,7 @@
 #import "GreetingModel.h"
 #import "GreetingTableViewCell.h"
 #import "GreetingViewController.h"
+#import "CommentsTableViewController.h"
 
 @implementation GreetingsTableViewController
 
@@ -66,6 +67,7 @@
     [formatter setTimeStyle:NSDateFormatterNoStyle];
     NSString *result = [formatter stringFromDate:(NSDate *)grt.date];
     
+    cell.grtId = grt.grtId;
     cell.title.text = [NSString stringWithFormat:@"%@ by /%@", grt.title, grt.usId];
     cell.date.text = result;
     cell.greeting.text = grt.greeting;
@@ -87,10 +89,16 @@
 
         //DetailSVC.DetailGreeting = st;
     }
+    
+    if ([segue.identifier isEqualToString:@"showComments"]) {
+        CommentsTableViewController* commentsVC = segue.destinationViewController;
+        
+        GreetingTableViewCell *cell = (GreetingTableViewCell*)sender;
+        commentsVC.grtId = cell.grtId;
+    }
 }
 
 -(void)onSave:(Greeting *)std{
-    NSError* xxx  = nil;
     [[GreetingModel instance] addGreeting:std block:^(NSError *xxx)
     {
         self.data = [[GreetingModel instance] getGreetingsforWedding:@"96smXQDaUo"];

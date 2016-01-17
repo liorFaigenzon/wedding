@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //GreetingDetailViewController* parent = self.sourceViewController;
-    
+    /*
     UIScrollView* scrollView = [[UIScrollView alloc] init];
     
     CommentsTableViewController* child = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CommentTableViewController"];
@@ -36,7 +36,7 @@
     [self addChildViewController:child];
    [self.ViewContainer addSubview:scrollView];
    [scrollView addSubview:child.view];
-    
+    */
 
 }
 

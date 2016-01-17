@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Greeting.h"
 
 
 
 @interface GreetingTableViewCell : UITableViewCell
 
+@property NSString* grtId;
 @property (weak, nonatomic) IBOutlet UILabel* title;
 @property (weak, nonatomic) IBOutlet UILabel* date;
 @property (weak, nonatomic) IBOutlet UITextView* greeting;

@@ -15,8 +15,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.activityIndic startAnimating];
 
-    self.data = [[CommentModel instance] getCommentsForGreeting:@"A65KUSpgEE"];
+    [[CommentModel instance] getAsynch:[self grtId] block:^(NSArray * comments) {
+        self.data = comments;
+        [self.tableView reloadData];
+        [self.activityIndic stopAnimating];
+        self.activityIndic.hidden = YES;
+    }];
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
@@ -27,13 +33,10 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If row is deleted, remove it from the list.
-    NSError* xxx = nil;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[CommentModel instance] deleteComment:(Comment*)[self.data objectAtIndex:indexPath.row] block:^(NSError *xxx)
          {
-             self.data = [[CommentModel instance] getCommentsForGreeting:@"A65KUSpgEE"];
-             
-            
+             self.data = [[CommentModel instance] getCommentsForGreeting:[self grtId]];
              [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
              
          }];
@@ -52,14 +55,10 @@
     return 1;
 }
 
-
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return self.data.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
@@ -95,16 +94,13 @@
 }
 
 -(void)onSave:(Comment *)std{
-    NSError* xxx  = nil;
     [[CommentModel instance] addComment:std block:^(NSError *xxx)
      {
-         self.data = [[CommentModel instance] getCommentsForGreeting:@"A65KUSpgEE"];
+         self.data = [[CommentModel instance] getCommentsForGreeting:[self grtId]];
          
          NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([self.data count] - 1) inSection:0];
          [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
      }];
-    
-    
 }
 -(void)onCancel{
     //self.myLabel.text = @"cancel";
