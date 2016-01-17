@@ -9,38 +9,34 @@
 #import "CommentsTableViewController.h"
 #import "CommentModel.h"
 #import "CommentTableViewCell.h"
-
+#import "CommentViewController.h"
 
 @implementation CommentsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.data = [[CommentModel instance] getCommentsForGreeting:@"L1ZYdKr4NP"];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
+    self.data = [[CommentModel instance] getCommentsForGreeting:@"A65KUSpgEE"];
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:animated];
-    if (editing) {
-       // addButton.enabled = NO;
-    } else {
-        //addButton.enabled = YES;
-    }
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If row is deleted, remove it from the list.
+    NSError* xxx = nil;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        //[[CommentModel instance] deleteComment:(Comment*)[self.data objectAtIndex:indexPath.row]];
-        [self.tableView reloadData];
+        [[CommentModel instance] deleteComment:(Comment*)[self.data objectAtIndex:indexPath.row] block:^(NSError *xxx)
+         {
+             self.data = [[CommentModel instance] getCommentsForGreeting:@"A65KUSpgEE"];
+             
+            
+             [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+             
+         }];
     }
 }
 
@@ -56,11 +52,7 @@
     return 1;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    //CommentTableViewCell *cell = (CommentTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
 
-}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -71,80 +63,51 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell" forIndexPath:indexPath];
-    Comment* st = [self.data objectAtIndex:indexPath.row];
+    Comment* com = [self.data objectAtIndex:indexPath.row];
     
-
-    cell.title.text = st.title;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle:NSDateFormatterNoStyle];
+    NSString *result = [formatter stringFromDate:(NSDate *)com.date];
+    
+    cell.title.text = [NSString stringWithFormat:@"%@ by /%@", com.title, com.usId];
+    cell.date.text = result;
+    cell.comment.text = com.comment;
     
     return cell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"NewCommentSegue"]) {
-        //NewCommentController* newSVC = segue.destinationViewController;
-        //newSVC.delegate = self;
+        CommentViewController* newSVC = segue.destinationViewController;
+        newSVC.delegate = self;
     }
     
     if ([segue.identifier isEqualToString:@"detailCommentSegue"]) {
         //DetailsCommentController* DetailSVC = segue.destinationViewController;
         //CommentTableViewCell *cell = (CommentTableViewCell*)sender;
         
-        //Comment* st = [[CommentModel instance] getComment:cell.Id];
-
+        //Comment* st = [[CommentImpl instance] getComment:cell.Id];
+        
         //DetailSVC.DetailComment = st;
     }
 }
 
 -(void)onSave:(Comment *)std{
-    //[[CommentModel instance] addComment:std];
-    [self.tableView reloadData];
+    NSError* xxx  = nil;
+    [[CommentModel instance] addComment:std block:^(NSError *xxx)
+     {
+         self.data = [[CommentModel instance] getCommentsForGreeting:@"A65KUSpgEE"];
+         
+         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([self.data count] - 1) inSection:0];
+         [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+     }];
+    
+    
 }
 -(void)onCancel{
     //self.myLabel.text = @"cancel";
 }
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

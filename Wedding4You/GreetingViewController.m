@@ -32,7 +32,7 @@
 
 
 - (IBAction)cancel:(id)sender {
-    [self.delegate onCancel];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 -(IBAction)GreetingToField:(Greeting*)Greeting{
@@ -45,8 +45,8 @@
 //-(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting wdId:(NSString*)wdId usId:(NSString *)usId;{
    
 
-- (IBAction)OnSave:(id)sender {
-    Greeting* greeting = [[Greeting alloc] init:@"new" title:self.iTitle.text date:[NSDate date] greeting:self.iGreeting.text wdId:@"QMJWlc1QI7" usId:@"uiac1YRCiz"];
+- (IBAction)onSave:(id)sender {
+    Greeting* greeting = [[Greeting alloc] init:@"new" title:self.iTitle.text date:[NSDate date] greeting:self.iGreeting.text wdId:@"96smXQDaUo" usId:@"0dT4ALBdYJ"];
 
     [self.delegate onSave:greeting];
     [self.navigationController popViewControllerAnimated:YES];

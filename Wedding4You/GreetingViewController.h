@@ -12,8 +12,6 @@
 @protocol NewGreetingDelegate <NSObject>
 
 -(void)onSave:(Greeting*)newCom;
--(void)onUpdate:(Greeting*)newCom;
--(void)onCancel;
 
 @end
 

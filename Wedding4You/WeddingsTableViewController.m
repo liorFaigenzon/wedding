@@ -31,11 +31,6 @@
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     //[super setEditing:editing animated:animated];
     //[self.tableView setEditing:editing animated:animated];
-    if (editing) {
-        // addButton.enabled = NO;
-    } else {
-        //addButton.enabled = YES;
-    }
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

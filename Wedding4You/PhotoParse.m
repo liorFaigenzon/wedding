@@ -62,7 +62,7 @@
         PFUser* userObj = [obj objectForKey:@"createdBy"];
         
         // Create photo object
-        photo = [[Photo alloc] init:obj[@"ptoId"] title:obj[@"title"] date:obj[@"date"] descriptionPt:obj[@"descriptionPt"] imageName:obj[@"imageName"] wdId:weddingObj.objectId usId:userObj.objectId];
+        photo = [[Photo alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] descriptionPt:obj[@"descriptionPt"] imageName:obj[@"imageName"] wdId:weddingObj.objectId usId:userObj.objectId];
     }
     return photo;
 }
@@ -80,7 +80,7 @@
         PFUser* userObj = [obj objectForKey:@"createdBy"];
         
         // Create photo object
-        Photo*  photo = [[Photo alloc] init:obj[@"ptoId"] title:obj[@"title"] date:obj[@"date"] descriptionPt:obj[@"descriptionPt"] imageName:obj[@"imageName"] wdId:wdId usId:userObj.objectId];
+        Photo*  photo = [[Photo alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] descriptionPt:obj[@"descriptionPt"] imageName:obj[@"imageName"] wdId:wdId usId:userObj.objectId];
         [array addObject:photo];
     }
     return array;

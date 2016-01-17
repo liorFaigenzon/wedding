@@ -6,8 +6,9 @@
 //  Copyright (c) 2015 menachi. All rights reserved.
 //
 
-#import "PhotomODEL.h"
+#import "PhotoModel.h"
 #import "PhotoParse.h"
+#import "ModelSql.h"
 
 @implementation PhotoModel  
 
@@ -138,7 +139,7 @@ static PhotoModel* instance = nil;
     
     dispatch_async(myQueue, ^{
         //save the image to parse
-        [photoImpl saveImage:image withName:pto.imageName];
+        //[photoImpl saveImage:image withName:pto.imageName];
         
         //save the image local
         [self savingImageToFile:image fileName:pto.imageName];

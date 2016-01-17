@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Photo.h"
+#import "PhotoSql.h"
 #import <UIKit/UIKit.h>
 
 @protocol PhotoProtocol <NSObject>

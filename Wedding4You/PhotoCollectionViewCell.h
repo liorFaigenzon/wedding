@@ -12,14 +12,10 @@
 
 @interface PhotoCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel* title;
-@property (weak, nonatomic) IBOutlet UILabel*date;
-@property (weak, nonatomic) IBOutlet UILabel* descriptionPt;
-@property (weak, nonatomic) IBOutlet UILabel* imageName;
-
 @property (weak, nonatomic) IBOutlet UIImageView* image;
 
-@property (weak, nonatomic) IBOutlet UILabel* ptoId;;
-@property (weak, nonatomic) IBOutlet UILabel* wdId;
+@property NSString* ptoId;
+@property NSString* wdId;
+
 
 @end
