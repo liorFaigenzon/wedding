@@ -7,17 +7,18 @@
 //
 #import <Foundation/Foundation.h>
 #import "Greeting.h"
+#import "GreetingSql.h"
 #import <UIKit/UIKit.h>
 
 @protocol GreetingProtocol <NSObject>
 
--(void)addGreeting:(Greeting*)grt;
--(void)deleteGreeting:(Greeting*)grt;
+-(NSError*)addGreeting:(Greeting*)grt;
+-(NSError*)deleteGreeting:(Greeting*)grt;
 -(Greeting*)getGreeting:(NSString*)grtId;
--(NSArray*)getGreetings;
+-(NSArray*)getGreetingsforWedding:(NSString*)wdId;
+-(NSArray*)getGreetingsFromDate:(NSString*)date forWedding:(NSString*)wdId;
 
 @end
-
 
 @protocol GetGreetingsListener <NSObject>
 
@@ -27,16 +28,17 @@
 
 @interface GreetingModel : NSObject
 {
-    id<GreetingProtocol> greetingImpl;
+    id<GreetingProtocol> greetingParseImpl;
+    ModelSql<ModelSqlProtocol>* SqlImpl;
 }
 
 +(GreetingModel*)instance;
 
--(void)addGreeting:(Greeting*)grt;
--(void)deleteGreeting:(Greeting*)grt;
--(Greeting*)getGreeting:(NSString*)grtId;
--(NSArray*)getGreetings;
--(void)getAsynch:(void(^)(NSArray*))blockListener;
+-(void)addGreeting:(Greeting*)grt block:(void(^)(NSError*))block;
+-(void)deleteGreeting:(Greeting*)grt block:(void(^)(NSError*))block;
+-(void)getGreeting:(NSString*)grtId block:(void(^)(Greeting*))block;
+-(NSArray*)getGreetingsforWedding:(NSString*)wdId;
+-(void)getAsynch:(NSString*)wdId block:(void(^)(NSArray*))block;
 
 @end
 

@@ -30,6 +30,21 @@ static WeddingModel* instance = nil;
     return self;
 }
 
+-(void)getWedding:(NSString*)wdId block:(void(^)(Wedding*))block {
+    dispatch_queue_t myQueue =    dispatch_queue_create("myQueue", NULL);
+    
+    dispatch_async(myQueue, ^{
+        //long operation
+        Wedding* wd = [modelImpl getWedding:wdId];
+        
+        //end of long operation - update display in the main Q
+        dispatch_queue_t mainQ = dispatch_get_main_queue();
+        dispatch_async(mainQ, ^{
+            block(wd);
+        });
+    } );
+}
+
 -(void)getWeddingsHostGuest:(NSString*)usId block:(void(^)(NSArray*))block {
     dispatch_queue_t myQueue =    dispatch_queue_create("myQueue", NULL);
     
@@ -50,27 +65,27 @@ static WeddingModel* instance = nil;
     
     dispatch_async(myQueue, ^{
         //long operation
-        [modelImpl addWedding:wd];
+        NSError* err = [modelImpl addWedding:wd];
         
         //end of long operation - update display in the main Q
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }
 
--(void)addWeddingGuests:(NSArray*)usIds toWedding:(NSString*)wdId block:(void(^)(NSError*))block {
+-(void)addWeddingGuests:(NSArray*)usIds toWedding:(Wedding*)wd block:(void(^)(NSError*))block {
     dispatch_queue_t myQueue =    dispatch_queue_create("myQueue", NULL);
     
     dispatch_async(myQueue, ^{
         //long operation
-        [modelImpl addWeddingGuests:usIds toWedding:wdId];
+        NSError* err = [modelImpl addWeddingGuests:usIds toWedding:wd];
         
         //end of long operation - update display in the main Q
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }
@@ -79,10 +94,10 @@ static WeddingModel* instance = nil;
     dispatch_queue_t myQueue =    dispatch_queue_create("myQueueName", NULL);
     
     dispatch_async(myQueue, ^{
-        [modelImpl deleteWedding:wd];
+        NSError* err = [modelImpl deleteWedding:wd];
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }

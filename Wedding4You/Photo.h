@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface Photo : NSObject
 
@@ -15,7 +16,9 @@
 @property NSDate* date;
 @property NSString* descriptionPt;
 @property NSString* imageName;
+@property NSString* wdId;
+@property NSString* usId;
 
--(id)init:(NSString*)ptoId title:(NSString*)title date:(NSDate*)date descriptionPt:(NSString*)descriptionPt imageName:(NSString*)imageName;
+-(id)init:(NSString*)ptoId title:(NSString*)title date:(NSDate*)date descriptionPt:(NSString*)descriptionPt imageName:(NSString*)imageName wdId:(NSString*)wdId usId:(NSString*)usId;
 
 @end

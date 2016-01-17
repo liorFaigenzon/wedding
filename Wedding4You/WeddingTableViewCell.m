@@ -1,14 +1,14 @@
 //
-//  PhotoTableViewCell.m
-//  Class4Demo2
+//  WeddingTableViewCell.m
+//  Wedding4You
 //
-//  Created by Admin on 11/18/15.
-//  Copyright (c) 2015 menachi. All rights reserved.
+//  Created by Admin on 1/14/16.
+//  Copyright © 2016 Faigenzon. All rights reserved.
 //
 
-#import "PhotoTableViewCell.h"
+#import "WeddingTableViewCell.h"
 
-@implementation PhotoTableViewCell
+@implementation WeddingTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -19,6 +19,5 @@
 
     // Configure the view for the selected state
 }
-
 
 @end

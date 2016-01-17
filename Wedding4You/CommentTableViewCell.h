@@ -12,11 +12,10 @@
 
 @interface CommentTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel title;
-@property (weak, nonatomic) IBOutlet UILabel date;
-@property (weak, nonatomic) IBOutlet UILabel Comment;
+@property (weak, nonatomic) IBOutlet UILabel* title;
+@property (weak, nonatomic) IBOutlet UILabel* date;
+@property (weak, nonatomic) IBOutlet UITextView* comment;
 
-@property (weak, nonatomic) IBOutlet UILabel cmtId;
-@property (weak, nonatomic) IBOutlet UILabel grtId;
+
 
 @end

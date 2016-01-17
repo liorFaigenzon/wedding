@@ -13,8 +13,6 @@
 @protocol NewCommentDelegate <NSObject>
 
 -(void)onSave:(Comment*)newCom;
--(void)onUpdate:(Comment*)newCom;
--(void)onCancel;
 
 @end
 
@@ -22,22 +20,14 @@
 
 @property id<NewCommentDelegate> delegate;
 
-@property NSString* cmtId;
-@property NSString* titlestr;
-@property NSDate* date;
-@property NSString* comment;
-@property NSString* grtId;
 @property Comment* workComment;
 
 @property (weak, nonatomic) IBOutlet UITextField *iTitle;
-@property (weak, nonatomic) IBOutlet UIDatePicker *iDate;
-@property (weak, nonatomic) IBOutlet UITextField *iComment;
-@property (weak, nonatomic) IBOutlet UITextField *iGrtId;
+@property (weak, nonatomic) IBOutlet UITextView *iComment;
 
 - (IBAction)cancel:(id)sender;
-- (IBAction)save:(id)sender;
-//- (IBAction)onSave:(id)sender;
+- (IBAction)onSave:(id)sender;
 - (IBAction)clear:(id)sender;
-- (IBAction)commentToField:(Comment*)comment;
+//- (IBAction)commentToField:(Comment*)comment;
 
 @end

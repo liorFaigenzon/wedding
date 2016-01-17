@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "LoginModel.h"
 #import "WeddingModel.h"
-
+#import "GreetingModel.h"
 
 @interface MainViewController ()
 
@@ -40,9 +40,9 @@
     [[WeddingModel instance] addWeddingGuest:@"NwxVBoV8wJ" toWedding:@"2" block:^(NSError* err) {
         NSLog(@"Success");
     }];*/
-    [[WeddingModel instance] getWeddingsHostGuest:@"NwxVBoV8wJ" block:^(NSArray* guests) {
+    /*[[WeddingModel instance] getWeddingsHostGuest:@"NwxVBoV8wJ" block:^(NSArray* guests) {
         NSLog(@"Success");
-    }];
+    }];*/
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,10 +11,10 @@
 
 @protocol CommentProtocol <NSObject>
 
--(void)addComment:(Comment*)cmt;
--(void)deleteComment:(Comment*)cmt;
+-(NSError*)addComment:(Comment*)cmt;
+-(NSError*)deleteComment:(Comment*)cmt;
 -(Comment*)getComment:(NSString*)cmtId;
--(NSArray*)getComments;
+-(NSArray*)getCommentsForGreeting:(NSString*)grtId;
 
 @end
 
@@ -32,11 +32,11 @@
 
 +(CommentModel*)instance;
 
--(void)addComment:(Comment*)cmt;
--(void)deleteComment:(Comment*)cmt;
--(Comment*)getComment:(NSString*)cmtId;
--(NSArray*)getComments;
--(void)getAsynch:(void(^)(NSArray*))blockListener;
+-(void)addComment:(Comment*)cmt block:(void(^)(NSError*))block;
+-(void)deleteComment:(Comment*)cmt block:(void(^)(NSError*))block;
+-(void)getComment:(NSString*)cmtId block:(void(^)(Comment*))block;
+-(NSArray*)getCommentsForGreeting:(NSString*)grtId;
+-(void)getAsynch:(NSString*)grtId block:(void(^)(NSArray*))block;
 
 @end
 
