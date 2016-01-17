@@ -32,15 +32,12 @@
         
         if(res != SQLITE_OK){
             NSLog(@"ERROR: fail to open db");
-            sqlite3_close(database);
             database = nil;
         }
         
-        //[StudentSql createTable:database];
-        
-        //[ModelSql dropTable:database tableName:@"LAST_UPDATE"];
-        //[ModelSql dropTable:database tableName:@"USERS"];
-        //[ModelSql dropTable:database tableName:@"GREETINGS"];
+        [ModelSql dropTable:database tableName:@"LAST_UPDATE"];
+        [ModelSql dropTable:database tableName:@"USERS"];
+        [ModelSql dropTable:database tableName:@"GREETINGS"];
         [LastUpdateSql createTable:database];
         [UserSql createTable:database];
         [UserSql getUsers:database];
@@ -61,18 +58,6 @@
     return YES;
 }
 
-+(NSString*)getStringFromDate:(NSDate*)date {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-     return [formatter stringFromDate:[NSDate date]];
-}
-
-+(NSDate*)getDateFromString:(NSString*)date {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    return [formatter dateFromString:date];
-}
-
 -(void)addGreeting:(Greeting*)grt {
     [GreetingSql addGreeting:database grt:grt];
     
@@ -81,6 +66,7 @@
         [UserSql addUser:database usr:usr];
     }*/
 }
+
 -(void)deleteGreeting:(Greeting*)grt {
     [GreetingSql deleteGreeting:database grt:grt];
 }

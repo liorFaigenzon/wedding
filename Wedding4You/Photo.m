@@ -10,7 +10,7 @@
 
 @implementation Photo
 
--(id)init:(NSString*)ptoId title:(NSString*)title date:(NSDate*)date descriptionPt:(NSString*)descriptionPt imageName:(NSString*)imageName wdId:(NSString*)wdId{
+-(id)init:(NSString*)ptoId title:(NSString*)title date:(NSDate*)date descriptionPt:(NSString*)descriptionPt imageName:(NSString*)imageName wdId:(NSString*)wdId usId:(NSString*)usId{
     self = [super init];
     if (self){
         _ptoId = ptoId;
@@ -19,6 +19,7 @@
         _descriptionPt = descriptionPt;
         _imageName = imageName;
         _wdId = wdId;
+        _usId = usId;
     }
     return self;
 }

@@ -12,14 +12,31 @@
 
 @implementation WeddingParse
 
--(void)addWedding:(Wedding*)wd {
+-(NSError*)addWedding:(Wedding*)wd {
+    NSError* err = nil;
     PFObject* obj = [PFObject objectWithClassName:@"Weddings"];
     //obj[@"wdId"] = wd.wdId;
     [obj setObject:[PFUser currentUser] forKey:@"couple"];
-    [obj save];
+    obj[@"date"] = wd.date;
+    if (wd.imageName != nil) {
+        obj[@"imageName"] = wd.imageName;
+    }
+    
+    // If saved successfully
+    if ([obj save:&err] == YES) {
+        wd.wdId = obj.objectId;
+        
+        // Get user id
+        PFUser* userObj = [obj objectForKey:@"couple"];
+        wd.usCouple = [[User alloc] init];
+        wd.usCouple.usId = userObj.objectId;
+    }
+    
+    return err;
 }
 
--(void)addWeddingGuests:(NSArray*)usIds toWedding:(Wedding*)wd {
+-(NSError*)addWeddingGuests:(NSArray*)usIds toWedding:(Wedding*)wd {
+    NSError* err;
     PFQuery* query = [PFQuery queryWithClassName:@"Weddings"];
     [query whereKey:@"objectId" equalTo:wd.wdId];
     NSArray* res = [query findObjects];
@@ -32,16 +49,18 @@
             [rel addObject:[PFQuery getUserObjectWithId:usId]];
         }
         
-        [obj save];
+        [obj save:&err];
     }
+    
+    return err;
 }
 
--(NSArray*)getWeddingsHostGuest:(NSString*)usId {
+-(NSArray*)getWeddingsHostGuest {
     NSMutableArray* array = [[NSMutableArray alloc] init];
     
     // Get weddings for this specific guest
     PFQuery* query = [PFQuery queryWithClassName:@"Weddings"];
-    [query whereKey:@"guests" equalTo:[PFQuery getUserObjectWithId:usId]];
+    [query whereKey:@"guests" equalTo:[PFUser currentUser]];
     NSArray* res = [query findObjects];
     
     for (PFObject* obj in res) {
@@ -50,7 +69,7 @@
         User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
         
         //  Create wedding object
-        Wedding* wedding = [[Wedding alloc] init:obj[@"wdId"] usCouple:usr];
+        Wedding* wedding = [[Wedding alloc] init:obj[@"wdId"] usCouple:usr date:obj[@"date"] imageName:obj[@"imageName"]];
         [array addObject:wedding];
     }
     
@@ -72,12 +91,13 @@
         User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
         
         // Creating wedding object with this user
-        wedding = [[Wedding alloc] init:obj[@"wdId"] usCouple:usr];
+        wedding = [[Wedding alloc] init:obj[@"wdId"] usCouple:usr date:obj[@"date"] imageName:obj[@"imageName"]];
     }
     return wedding;
 }
 
--(void)deleteWedding:(Wedding *)wd {
+-(NSError*)deleteWedding:(Wedding *)wd {
+    NSError* err = nil;
     PFQuery* query = [PFQuery queryWithClassName:@"Weddings"];
     
     // Get wedding with id parameter
@@ -85,8 +105,10 @@
     NSArray* res = [query findObjects];
     if (res.count == 1) {
         PFObject* obj = [res objectAtIndex:0];
-        [obj delete];
+        [obj delete:&err];
     }
+    
+    return err;
 }
 
 @end

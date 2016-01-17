@@ -7,12 +7,13 @@
 //
 #import <Foundation/Foundation.h>
 #import "Comment.h"
+#import "Model.h"
 #import <UIKit/UIKit.h>
 
 @protocol CommentProtocol <NSObject>
 
--(void)addComment:(Comment*)cmt;
--(void)deleteComment:(Comment*)cmt;
+-(NSError*)addComment:(Comment*)cmt;
+-(NSError*)deleteComment:(Comment*)cmt;
 -(Comment*)getComment:(NSString*)cmtId;
 -(NSArray*)getCommentsForGreeting:(NSString*)grtId;
 
@@ -25,7 +26,7 @@
 
 @end
 
-@interface CommentModel : NSObject
+@interface CommentModel : Model
 {
     id<CommentProtocol> commentImpl;
 }

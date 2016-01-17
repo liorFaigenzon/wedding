@@ -46,7 +46,7 @@
     [[LoginModel instance] signup:self.UserNameF.text pwd:self.PasswordF.text usDetails:usDetails block:^(BOOL res) {
         self.activityIndic.hidden = YES;
         if (res) {
-            [self performSegueWithIdentifier:@"RegisterSegue" sender:self];
+            [self.navigationController popViewControllerAnimated:YES];
         }
     }];
 }

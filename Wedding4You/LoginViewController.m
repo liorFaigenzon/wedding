@@ -47,15 +47,6 @@
     }];
      */
     
-    /*Greeting* grt = [[Greeting alloc] init:nil title:@"test" date:[NSDate date] greeting:@"this is a test" wdId:@"QMJWlc1QI7"];
-    [[GreetingModel instance] addGreeting:grt block:^(NSError * err) {
-        NSLog(@"added");
-        
-        [[GreetingModel instance] getGreeting:@"m376FXBY9u" block:^(Greeting* outerGrt) {
-            NSLog(outerGrt.wdId);
-        }];
-    }];*/
-    
     //[[GreetingModel instance] getGreeting:@"m376FXBY9u" block:^(Greeting* outerGrt) {
     //    NSLog(outerGrt.wdId);
     //}];
@@ -83,17 +74,6 @@
 }
 */
 
-- (IBAction)Login:(id)sender {
-    [self.activityIndic startAnimating];
-    self.activityIndic.hidden = NO;
-    [[LoginModel instance] login:self.UserNameF.text pwd:self.PasswordF.text block:^(BOOL res) {
-        self.activityIndic.hidden = YES;
-        if (res) {
-            [self performSegueWithIdentifier:@"LoginSegue" sender:self];
-        }
-    }];
-}
-
 /*
 - (IBAction)Register:(id)sender {
     [self.activityIndic startAnimating];
@@ -106,4 +86,15 @@
     }];
 }*/
 
+- (IBAction)login:(id)sender {
+    [self.activityIndic startAnimating];
+    self.activityIndic.hidden = NO;
+    [[LoginModel instance] login:self.UserNameF.text pwd:self.PasswordF.text block:^(BOOL res) {
+        self.activityIndic.hidden = YES;
+        if (res) {
+            //[self.navigationController pushViewController:self animated:YES];
+            [self performSegueWithIdentifier:@"LoginSegue" sender:self];
+        }
+    }];
+}
 @end

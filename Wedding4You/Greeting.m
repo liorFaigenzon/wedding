@@ -10,7 +10,7 @@
 
 @implementation Greeting
 
--(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting wdId:(NSString*)wdId usCreatedBy:(User *)usCreatedBy;{
+-(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting wdId:(NSString*)wdId usId:(NSString *)usId;{
     self = [super init];
     if (self){
         _grtId = grtId;
@@ -18,7 +18,7 @@
         _date = date;
         _greeting = greeting;
         _wdId = wdId;
-        _usCreatedBy = usCreatedBy;
+        _usId = usId;
     }
     return self;
 }

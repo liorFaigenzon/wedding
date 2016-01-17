@@ -16,8 +16,8 @@
 @property NSDate* date;
 @property NSString* greeting;
 @property NSString* wdId;
-@property User* usCreatedBy;
+@property NSString* usId;
 
--(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting wdId:(NSString*)wdId usCreatedBy:(User*)usCreatedBy;
+-(id)init:(NSString*)grtId title:(NSString*)title date:(NSDate*)date greeting:(NSString*)greeting wdId:(NSString*)wdId usId:(NSString*)usId;
 
 @end

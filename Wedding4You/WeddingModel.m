@@ -45,12 +45,12 @@ static WeddingModel* instance = nil;
     } );
 }
 
--(void)getWeddingsHostGuest:(NSString*)usId block:(void(^)(NSArray*))block {
+-(void)getWeddingsHostGuest:(void(^)(NSArray*))block {
     dispatch_queue_t myQueue =    dispatch_queue_create("myQueue", NULL);
     
     dispatch_async(myQueue, ^{
         //long operation
-        NSArray* data = [modelImpl getWeddingsHostGuest:usId];
+        NSArray* data = [modelImpl getWeddingsHostGuest];
         
         //end of long operation - update display in the main Q
         dispatch_queue_t mainQ = dispatch_get_main_queue();
@@ -65,12 +65,12 @@ static WeddingModel* instance = nil;
     
     dispatch_async(myQueue, ^{
         //long operation
-        [modelImpl addWedding:wd];
+        NSError* err = [modelImpl addWedding:wd];
         
         //end of long operation - update display in the main Q
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }
@@ -80,12 +80,12 @@ static WeddingModel* instance = nil;
     
     dispatch_async(myQueue, ^{
         //long operation
-        [modelImpl addWeddingGuests:usIds toWedding:wd];
+        NSError* err = [modelImpl addWeddingGuests:usIds toWedding:wd];
         
         //end of long operation - update display in the main Q
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }
@@ -94,10 +94,53 @@ static WeddingModel* instance = nil;
     dispatch_queue_t myQueue =    dispatch_queue_create("myQueueName", NULL);
     
     dispatch_async(myQueue, ^{
-        [modelImpl deleteWedding:wd];
+        NSError* err = [modelImpl deleteWedding:wd];
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
+        });
+    } );
+}
+
+-(void)getImage:(Wedding*)wd block:(void(^)(UIImage*))block{
+    dispatch_queue_t myQueue =    dispatch_queue_create("myQueueName", NULL);
+    
+    dispatch_async(myQueue, ^{
+        //first try to get the image from local file
+        UIImage* image = [self readingImageFromFile:wd.imageName];
+        
+        //if failed to get image from file try to get it from parse
+        if(image == nil){
+            image = [modelImpl getImage:wd.imageName];
+            
+            //once the image is loaded save it local
+            if(image != nil){
+                [self savingImageToFile:image fileName:wd.imageName];
+            }
+        }
+        
+        // Do block operations in main Q after image is loaded
+        dispatch_queue_t mainQ = dispatch_get_main_queue();
+        dispatch_async(mainQ, ^{
+            block(image);
+        });
+    } );
+}
+
+
+-(void)saveImage:(Wedding*)wd image:(UIImage*)image block:(void(^)(NSError*))block{
+    dispatch_queue_t myQueue =    dispatch_queue_create("myQueueName", NULL);
+    
+    dispatch_async(myQueue, ^{
+        //save the image to parse
+        NSError* err = [modelImpl saveImage:image withName:wd.imageName];
+        
+        //save the image local
+        [self savingImageToFile:image fileName:wd.imageName];
+        
+        dispatch_queue_t mainQ = dispatch_get_main_queue();
+        dispatch_async(mainQ, ^{
+            block(err);
         });
     } );
 }

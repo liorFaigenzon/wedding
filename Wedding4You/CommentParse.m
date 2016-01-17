@@ -11,26 +11,42 @@
 
 @implementation CommentParse
 
--(void)addComment:(Comment*)cmt{
+-(NSError*)addComment:(Comment*)cmt{
+    NSError* err = nil;
     PFObject* obj = [PFObject objectWithClassName:@"Comments"];
-    //obj[@"cmtId"] = cmt.cmtId;
     obj[@"title"] = cmt.title;
     obj[@"date"] = cmt.date;
     obj[@"comment"] = cmt.comment;
+    obj[@"createdBy"] = cmt.usId;
+    obj[@"greeting"] = cmt.grtId;
     [obj setObject:[[PFQuery queryWithClassName:@"Greetings"] getObjectWithId:cmt.grtId] forKey:@"greeting"];
-    [obj save];
+    [obj setObject:[PFUser currentUser] forKey:@"createdBy"];
+    
+    // If saved successfully
+    if ([obj save:&err] == YES) {
+        cmt.cmtId = obj.objectId;
+        
+        // Get user id
+        PFUser* userObj = [obj objectForKey:@"createdBy"];
+        cmt.usId = userObj.objectId;
+    }
+    
+    return err;
 }
 
--(void)deleteComment:(Comment*)cmt{
+-(NSError*)deleteComment:(Comment *)cmt{
+    NSError* err;
     PFQuery* query = [PFQuery queryWithClassName:@"Comments"];
     
     // Get comment with id parameter
-    [query whereKey:@"objectId" equalTo:cmt.cmtId];
-    NSArray* res = [query findObjects];
-    if (res.count == 1) {
-        PFObject* obj = [res objectAtIndex:0];
-        [obj delete];
+    PFObject* obj = [query getObjectWithId:cmt.cmtId error:&err];
+    
+    // Delete the object if found
+    if (obj != nil) {
+        [obj delete:&err];
     }
+    
+    return err;
 }
 
 -(Comment*)getComment:(NSString*)cmtId{
@@ -44,10 +60,13 @@
         PFObject* obj = [res objectAtIndex:0];
         
         // Fetch greeting details
-        PFObject* greetingObj = [[obj objectForKey:@"greeting"] fetch];
+        PFObject* greetingObj = [obj objectForKey:@"greeting"];
+        
+        // Fetch user details
+        PFUser* pfusr = [obj objectForKey:@"createdBy"];
         
         // Create comment object
-        comment = [[Comment alloc] init:obj[@"objectId"] title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:greetingObj[@"objectId"]];
+        comment = [[Comment alloc] init:obj[@"objectId"] title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:greetingObj.objectId usId:pfusr.objectId];
     }
     return comment;
 }
@@ -61,8 +80,11 @@
     [query whereKey:@"greeting" equalTo:[[PFQuery queryWithClassName:@"Greetings"] getObjectWithId:grtId]];
     NSArray* res = [query findObjects];
     for (PFObject* obj in res) {
+        // Fetch user details
+        PFUser* pfusr = [obj objectForKey:@"createdBy"];
+        
         // Create comment object
-        comment = [[Comment alloc] init:obj[@"objectId"] title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:grtId];
+        comment = [[Comment alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:grtId usId:pfusr.objectId];
         [array addObject:comment];
     }
     return array;
