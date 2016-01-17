@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "Model.h"
 
-@interface LoginModel : NSObject
+@interface LoginModel : Model
 
 @property NSString* user;
 

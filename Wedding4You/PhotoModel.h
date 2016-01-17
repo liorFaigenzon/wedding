@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Photo.h"
+#import "Model.h"
 #import <UIKit/UIKit.h>
 
 @protocol PhotoProtocol <NSObject>
@@ -17,7 +18,7 @@
 -(Photo*)getPhoto:(NSString*)ptoId;
 -(NSArray*)getPhotosForWedding:(NSString*)wdId;
 -(UIImage*)getImage:(NSString*)imageName;
--(void)saveImage:(UIImage*)image withName:(NSString*)imageName;
+-(NSError*)saveImage:(UIImage*)image withName:(NSString*)imageName;
 
 @end
 
@@ -29,7 +30,7 @@
 @end
 
 
-@interface PhotoModel : NSObject{
+@interface PhotoModel : Model{
     id<PhotoProtocol> photoImpl;
 }
 

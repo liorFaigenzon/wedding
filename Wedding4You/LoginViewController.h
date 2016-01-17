@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndic;
 @property (weak, nonatomic) IBOutlet UIImageView *testImage;
 
-- (IBAction)Login:(id)sender;
 //- (IBAction)Register:(id)sender;
+- (IBAction)login:(id)sender;
 
 @end

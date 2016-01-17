@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "Greeting.h"
 #import "GreetingSql.h"
+#import "Model.h"
 #import <UIKit/UIKit.h>
 
 @protocol GreetingProtocol <NSObject>
@@ -26,7 +27,7 @@
 
 @end
 
-@interface GreetingModel : NSObject
+@interface GreetingModel : Model
 {
     id<GreetingProtocol> greetingParseImpl;
     ModelSql<ModelSqlProtocol>* SqlImpl;

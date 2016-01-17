@@ -41,7 +41,7 @@ static NSString* GREETING_US_ID = @"US_ID";
         // Bind all greeting attributes
         sqlite3_bind_text(statment, 1, [grt.grtId UTF8String],-1,NULL);
         sqlite3_bind_text(statment, 2, [grt.title UTF8String],-1,NULL);
-        sqlite3_bind_text(statment, 3, [[self getStringFromDate:grt.date] UTF8String],-1,NULL);
+        sqlite3_bind_text(statment, 3, [[Utilities getStringFromDate:grt.date] UTF8String],-1,NULL);
         sqlite3_bind_text(statment, 4, [grt.greeting UTF8String],-1,NULL);
         sqlite3_bind_text(statment, 5, [grt.wdId UTF8String],-1,NULL);
         sqlite3_bind_text(statment, 6, [grt.usId UTF8String],-1,NULL);
@@ -83,7 +83,7 @@ static NSString* GREETING_US_ID = @"US_ID";
             // Get greeting details
             NSString* grtId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,0)];
             NSString* title = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,1)];
-            NSDate* date = [self getDateFromString:[NSString stringWithFormat:@"%s",sqlite3_column_text(statment,2)]];
+            NSDate* date = [Utilities getDateFromString:[NSString stringWithFormat:@"%s",sqlite3_column_text(statment,2)]];
             NSString* greeting = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,3)];
             NSString* wdId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,4)];
             NSString* usId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,5)];
@@ -109,7 +109,7 @@ static NSString* GREETING_US_ID = @"US_ID";
             // Get greeting details
             NSString* grtId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,0)];
             NSString* title = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,1)];
-            NSDate* date = [self getDateFromString:[NSString stringWithFormat:@"%s",sqlite3_column_text(statment,2)]];
+            NSDate* date = [Utilities getDateFromString:[NSString stringWithFormat:@"%s",sqlite3_column_text(statment,2)]];
             NSString* greeting = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,3)];
             NSString* wdId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,4)];
             NSString* usId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,5)];

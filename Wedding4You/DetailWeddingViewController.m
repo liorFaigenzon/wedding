@@ -7,6 +7,8 @@
 //
 
 #import "DetailWeddingViewController.h"
+#import "WeddingModel.h"
+#import "Utilities.h"
 
 @interface DetailWeddingViewController ()
 
@@ -17,6 +19,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //[self navigationItem].title = [NSString stringWithFormat:@"%@ %@'s wedding", [self wedding].usCouple.fName, [self wedding].usCouple.lName];
+    
+    // Load wedding details to properties
+    [self marriedCouple].text = [NSString stringWithFormat:@"%@ %@", [self wedding].usCouple.fName, [self wedding].usCouple.lName];
+    [self date].text = [Utilities getDateStringFromDate:[self wedding].date];
+    _imageName = [self wedding].imageName;
+    
+    // Fetch the image by name
+    _image.image = nil;
+    [[self activityIndic] startAnimating];
+    if([self imageName] != nil && ![[self imageName] isEqualToString:@""]){
+        [[WeddingModel instance] getImage:[self wedding] block:^(UIImage *image) {
+            _activityIndic.hidden = YES;
+            if (image != nil) {
+                [self image].image = image;
+                [[self activityIndic] stopAnimating];
+            }else{
+                [self image].image = [UIImage imageNamed:@"wedding.jpg"];
+            }
+        }];
+    }else{
+        [self image].image = [UIImage imageNamed:@"wedding.jpg"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

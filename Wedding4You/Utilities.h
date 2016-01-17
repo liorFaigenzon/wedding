@@ -10,4 +10,8 @@
 
 @interface Utilities : NSObject
 
++(NSString*)getStringFromDate:(NSDate*)date;
++(NSString*)getDateStringFromDate:(NSDate*)date;
++(NSDate*)getDateFromString:(NSString*)date;
+
 @end

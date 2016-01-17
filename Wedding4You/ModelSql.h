@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 #import "Greeting.h"
+#import "Utilities.h"
 
 @protocol ModelSqlProtocol <NSObject>
 
@@ -33,8 +34,5 @@
 -(void)setGreetingsLastUpdateDate:(NSString*)date;
 -(NSString*)getGreetingsLastUpdateDate;
 -(void)updateGreetings:(NSArray*)greetings;
-
-+(NSString*)getStringFromDate:(NSDate*)date;
-+(NSDate*)getDateFromString:(NSString*)date;
 
 @end

@@ -87,29 +87,4 @@
     return array;
 }
 
--(UIImage*)getImage:(NSString*)imageName{
-    PFQuery* query = [PFQuery queryWithClassName:@"Images"];
-    [query whereKey:@"imageName" equalTo:imageName];
-    NSArray* res = [query findObjects];
-    UIImage* image = nil;
-    if (res.count == 1) {
-        PFObject* imObj = [res objectAtIndex:0];
-        PFFile* file = imObj[@"file"];
-        NSData* data = [file getData];
-        image = [UIImage imageWithData:data];
-    }
-    return image;
-}
-
--(void)saveImage:(UIImage*)image withName:(NSString*)imageName{
-    NSData* imageData = UIImageJPEGRepresentation(image,0);
-    
-    PFFile* file = [PFFile fileWithName:imageName data:imageData];
-    PFObject* fileobj = [PFObject objectWithClassName:@"Images"];
-    fileobj[@"imageName"] = imageName;
-    fileobj[@"file"] = file;
-    [fileobj save];
-}
-
-
 @end

@@ -7,6 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import "Comment.h"
+#import "Model.h"
 #import <UIKit/UIKit.h>
 
 @protocol CommentProtocol <NSObject>
@@ -25,7 +26,7 @@
 
 @end
 
-@interface CommentModel : NSObject
+@interface CommentModel : Model
 {
     id<CommentProtocol> commentImpl;
 }

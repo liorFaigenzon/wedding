@@ -10,4 +10,11 @@
 
 @interface WeddingTableViewCell : UITableViewCell
 
+@property NSString* wdId;
+@property NSString* imageName;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *dateString;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndic;
+
 @end

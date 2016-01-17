@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface WeddingTableViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndic;
+
+- (IBAction)logout:(id)sender;
 
 @end

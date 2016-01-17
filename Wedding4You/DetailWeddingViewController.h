@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Wedding.h"
 
 @interface DetailWeddingViewController : UIViewController
+
+@property Wedding* wedding;
+
+@property (weak, nonatomic) IBOutlet UILabel *marriedCouple;
+@property (weak, nonatomic) IBOutlet UILabel *date;
+@property NSString* imageName;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndic;
 
 @end

@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B02FA021C49220C0087B8F0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B02FA001C49220C0087B8F0 /* Bolts.framework */; };
+		7B02FA031C49220C0087B8F0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B02FA011C49220C0087B8F0 /* Parse.framework */; };
+		7B02FA061C49231A0087B8F0 /* WeddingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B02FA051C49231A0087B8F0 /* WeddingTableViewController.m */; };
+		7B02FA091C492B950087B8F0 /* WeddingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B02FA081C492B950087B8F0 /* WeddingTableViewCell.m */; };
+		7B02FA0C1C493C860087B8F0 /* DetailWeddingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B02FA0B1C493C860087B8F0 /* DetailWeddingViewController.m */; };
+		7B02FA111C495E630087B8F0 /* no_photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B02FA101C495E630087B8F0 /* no_photo.jpg */; };
+		7B02FA141C4963750087B8F0 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B02FA131C4963750087B8F0 /* Utilities.m */; };
+		7B02FA171C4965930087B8F0 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B02FA161C4965930087B8F0 /* Model.m */; };
+		7B02FA1C1C4970700087B8F0 /* wedding4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B02FA181C4970700087B8F0 /* wedding4.jpg */; };
+		7B02FA1D1C4970700087B8F0 /* wedding3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7B02FA191C4970700087B8F0 /* wedding3.jpeg */; };
+		7B02FA1E1C4970700087B8F0 /* wedding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7B02FA1A1C4970700087B8F0 /* wedding.jpg */; };
+		7B02FA1F1C4970700087B8F0 /* wedding2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 7B02FA1B1C4970700087B8F0 /* wedding2.jpeg */; };
+		7B02FA221C4C15580087B8F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B02FA201C4C15580087B8F0 /* Main.storyboard */; };
 		7B357E381C45330700A452FF /* WeddingSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E371C45330700A452FF /* WeddingSql.m */; };
 		7B357E3B1C45332100A452FF /* GreetingSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E3A1C45332100A452FF /* GreetingSql.m */; };
 		7B357E3E1C45332A00A452FF /* CommentSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E3D1C45332A00A452FF /* CommentSql.m */; };
@@ -14,8 +27,6 @@
 		7B357E441C45335E00A452FF /* ModelSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E431C45335E00A452FF /* ModelSql.m */; };
 		7B357E4A1C453F6C00A452FF /* LastUpdateSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E491C453F6C00A452FF /* LastUpdateSql.m */; };
 		7B357E4D1C458AE000A452FF /* UserSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B357E4C1C458AE000A452FF /* UserSql.m */; };
-		7B357E4F1C46B54700A452FF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E4E1C46B54700A452FF /* Bolts.framework */; };
-		7B357E511C46B54C00A452FF /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E501C46B54C00A452FF /* Parse.framework */; };
 		7B357E531C46B5B100A452FF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B357E521C46B5B100A452FF /* libsqlite3.tbd */; };
 		7B8F0CDD1C38195E00D29D76 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CDC1C38195E00D29D76 /* AudioToolbox.framework */; };
 		7B8F0CDF1C38196B00D29D76 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8F0CDE1C38196B00D29D76 /* CFNetwork.framework */; };
@@ -48,7 +59,6 @@
 		84D507E81C270D020073F025 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507E71C270D020073F025 /* main.m */; };
 		84D507EB1C270D020073F025 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507EA1C270D020073F025 /* AppDelegate.m */; };
 		84D507EE1C270D020073F025 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D507ED1C270D020073F025 /* ViewController.m */; };
-		84D507F11C270D020073F025 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D507EF1C270D020073F025 /* Main.storyboard */; };
 		84D507F31C270D020073F025 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D507F21C270D020073F025 /* Assets.xcassets */; };
 		84D507F61C270D020073F025 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D507F41C270D020073F025 /* LaunchScreen.storyboard */; };
 		84D508011C270D030073F025 /* Wedding4YouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D508001C270D030073F025 /* Wedding4YouTests.m */; };
@@ -73,6 +83,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7B02FA001C49220C0087B8F0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		7B02FA011C49220C0087B8F0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		7B02FA041C49231A0087B8F0 /* WeddingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingTableViewController.h; sourceTree = "<group>"; };
+		7B02FA051C49231A0087B8F0 /* WeddingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingTableViewController.m; sourceTree = "<group>"; };
+		7B02FA071C492B950087B8F0 /* WeddingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingTableViewCell.h; sourceTree = "<group>"; };
+		7B02FA081C492B950087B8F0 /* WeddingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingTableViewCell.m; sourceTree = "<group>"; };
+		7B02FA0A1C493C860087B8F0 /* DetailWeddingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailWeddingViewController.h; sourceTree = "<group>"; };
+		7B02FA0B1C493C860087B8F0 /* DetailWeddingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailWeddingViewController.m; sourceTree = "<group>"; };
+		7B02FA101C495E630087B8F0 /* no_photo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = no_photo.jpg; sourceTree = "<group>"; };
+		7B02FA121C4963750087B8F0 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		7B02FA131C4963750087B8F0 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		7B02FA151C4965930087B8F0 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		7B02FA161C4965930087B8F0 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		7B02FA181C4970700087B8F0 /* wedding4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wedding4.jpg; sourceTree = "<group>"; };
+		7B02FA191C4970700087B8F0 /* wedding3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wedding3.jpeg; sourceTree = "<group>"; };
+		7B02FA1A1C4970700087B8F0 /* wedding.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wedding.jpg; sourceTree = "<group>"; };
+		7B02FA1B1C4970700087B8F0 /* wedding2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wedding2.jpeg; sourceTree = "<group>"; };
+		7B02FA211C4C15580087B8F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B357E361C45330700A452FF /* WeddingSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingSql.h; sourceTree = "<group>"; };
 		7B357E371C45330700A452FF /* WeddingSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingSql.m; sourceTree = "<group>"; };
 		7B357E391C45332100A452FF /* GreetingSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreetingSql.h; sourceTree = "<group>"; };
@@ -87,8 +115,6 @@
 		7B357E491C453F6C00A452FF /* LastUpdateSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastUpdateSql.m; sourceTree = "<group>"; };
 		7B357E4B1C458AE000A452FF /* UserSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSql.h; sourceTree = "<group>"; };
 		7B357E4C1C458AE000A452FF /* UserSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSql.m; sourceTree = "<group>"; };
-		7B357E4E1C46B54700A452FF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		7B357E501C46B54C00A452FF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		7B357E521C46B5B100A452FF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7B8F0CDC1C38195E00D29D76 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		7B8F0CDE1C38196B00D29D76 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -143,7 +169,6 @@
 		84D507EA1C270D020073F025 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84D507EC1C270D020073F025 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		84D507ED1C270D020073F025 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		84D507F01C270D020073F025 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84D507F21C270D020073F025 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D507F51C270D020073F025 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84D507F71C270D020073F025 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,8 +190,8 @@
 				7B8F0CE91C38199D00D29D76 /* StoreKit.framework in Frameworks */,
 				7B8F0CE71C38199400D29D76 /* Security.framework in Frameworks */,
 				7B8F0CE51C38198A00D29D76 /* QuartzCore.framework in Frameworks */,
-				7B357E4F1C46B54700A452FF /* Bolts.framework in Frameworks */,
-				7B357E511C46B54C00A452FF /* Parse.framework in Frameworks */,
+				7B02FA021C49220C0087B8F0 /* Bolts.framework in Frameworks */,
+				7B02FA031C49220C0087B8F0 /* Parse.framework in Frameworks */,
 				7B8F0CE31C38198000D29D76 /* CoreLocation.framework in Frameworks */,
 				7B8F0CE11C38197500D29D76 /* CoreGraphics.framework in Frameworks */,
 				7B8F0CDF1C38196B00D29D76 /* CFNetwork.framework in Frameworks */,
@@ -194,6 +219,11 @@
 		7B357E311C3B111600A452FF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7B02FA181C4970700087B8F0 /* wedding4.jpg */,
+				7B02FA191C4970700087B8F0 /* wedding3.jpeg */,
+				7B02FA1A1C4970700087B8F0 /* wedding.jpg */,
+				7B02FA1B1C4970700087B8F0 /* wedding2.jpeg */,
+				7B02FA101C495E630087B8F0 /* no_photo.jpg */,
 				8437EC371C3B169E001B244F /* ashton.jpeg */,
 			);
 			name = images;
@@ -203,8 +233,8 @@
 			isa = PBXGroup;
 			children = (
 				7B357E521C46B5B100A452FF /* libsqlite3.tbd */,
-				7B357E501C46B54C00A452FF /* Parse.framework */,
-				7B357E4E1C46B54700A452FF /* Bolts.framework */,
+				7B02FA001C49220C0087B8F0 /* Bolts.framework */,
+				7B02FA011C49220C0087B8F0 /* Parse.framework */,
 				7B8F0CEA1C3819A400D29D76 /* SystemConfiguration.framework */,
 				7B8F0CE81C38199D00D29D76 /* StoreKit.framework */,
 				7B8F0CE61C38199400D29D76 /* Security.framework */,
@@ -258,6 +288,8 @@
 				7B8F0D281C383A7700D29D76 /* GreetingModel.m */,
 				7B8F0D2A1C383A8C00D29D76 /* CommentModel.h */,
 				7B8F0D2B1C383A8C00D29D76 /* CommentModel.m */,
+				7B02FA151C4965930087B8F0 /* Model.h */,
+				7B02FA161C4965930087B8F0 /* Model.m */,
 			);
 			name = Methods;
 			sourceTree = "<group>";
@@ -332,10 +364,12 @@
 				84D507EA1C270D020073F025 /* AppDelegate.m */,
 				84D507EC1C270D020073F025 /* ViewController.h */,
 				84D507ED1C270D020073F025 /* ViewController.m */,
-				84D507EF1C270D020073F025 /* Main.storyboard */,
 				84D507F21C270D020073F025 /* Assets.xcassets */,
 				84D507F41C270D020073F025 /* LaunchScreen.storyboard */,
+				7B02FA201C4C15580087B8F0 /* Main.storyboard */,
 				84D507F71C270D020073F025 /* Info.plist */,
+				7B02FA121C4963750087B8F0 /* Utilities.h */,
+				7B02FA131C4963750087B8F0 /* Utilities.m */,
 				84D507E61C270D020073F025 /* Supporting Files */,
 				7B8F0D091C38230900D29D76 /* LoginViewController.h */,
 				7B8F0D0A1C38230900D29D76 /* LoginViewController.m */,
@@ -343,6 +377,12 @@
 				7B8F0D131C3830AD00D29D76 /* MainViewController.m */,
 				7B8F0D301C3860B800D29D76 /* RegisterViewController.h */,
 				7B8F0D311C3860B800D29D76 /* RegisterViewController.m */,
+				7B02FA041C49231A0087B8F0 /* WeddingTableViewController.h */,
+				7B02FA051C49231A0087B8F0 /* WeddingTableViewController.m */,
+				7B02FA071C492B950087B8F0 /* WeddingTableViewCell.h */,
+				7B02FA081C492B950087B8F0 /* WeddingTableViewCell.m */,
+				7B02FA0A1C493C860087B8F0 /* DetailWeddingViewController.h */,
+				7B02FA0B1C493C860087B8F0 /* DetailWeddingViewController.m */,
 			);
 			path = Wedding4You;
 			sourceTree = "<group>";
@@ -440,6 +480,7 @@
 				TargetAttributes = {
 					84D507E21C270D020073F025 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = AMAAGDV9F9;
 					};
 					84D507FB1C270D030073F025 = {
 						CreatedOnToolsVersion = 7.1;
@@ -477,9 +518,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8437EC3A1C3B169E001B244F /* ashton.jpeg in Resources */,
+				7B02FA1D1C4970700087B8F0 /* wedding3.jpeg in Resources */,
+				7B02FA1F1C4970700087B8F0 /* wedding2.jpeg in Resources */,
+				7B02FA1C1C4970700087B8F0 /* wedding4.jpg in Resources */,
 				84D507F61C270D020073F025 /* LaunchScreen.storyboard in Resources */,
 				84D507F31C270D020073F025 /* Assets.xcassets in Resources */,
-				84D507F11C270D020073F025 /* Main.storyboard in Resources */,
+				7B02FA221C4C15580087B8F0 /* Main.storyboard in Resources */,
+				7B02FA111C495E630087B8F0 /* no_photo.jpg in Resources */,
+				7B02FA1E1C4970700087B8F0 /* wedding.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,13 +553,18 @@
 				7B357E381C45330700A452FF /* WeddingSql.m in Sources */,
 				7B357E411C45333900A452FF /* PhotoSql.m in Sources */,
 				7B8F0CFF1C381FF200D29D76 /* Comment.m in Sources */,
+				7B02FA171C4965930087B8F0 /* Model.m in Sources */,
 				7B8F0D2C1C383A8C00D29D76 /* CommentModel.m in Sources */,
 				84D507EE1C270D020073F025 /* ViewController.m in Sources */,
+				7B02FA091C492B950087B8F0 /* WeddingTableViewCell.m in Sources */,
+				7B02FA141C4963750087B8F0 /* Utilities.m in Sources */,
 				7B8F0D081C3821C000D29D76 /* LoginParse.m in Sources */,
+				7B02FA061C49231A0087B8F0 /* WeddingTableViewController.m in Sources */,
 				7B8F0D111C382A9800D29D76 /* LoginModel.m in Sources */,
 				7B8F0D1A1C38397300D29D76 /* PhotoParse.m in Sources */,
 				84D507EB1C270D020073F025 /* AppDelegate.m in Sources */,
 				7B8F0D171C38394200D29D76 /* WeddingParse.m in Sources */,
+				7B02FA0C1C493C860087B8F0 /* DetailWeddingViewController.m in Sources */,
 				7B8F0D2F1C385D2900D29D76 /* User.m in Sources */,
 				7B357E4A1C453F6C00A452FF /* LastUpdateSql.m in Sources */,
 				7B357E441C45335E00A452FF /* ModelSql.m in Sources */,
@@ -568,10 +619,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		84D507EF1C270D020073F025 /* Main.storyboard */ = {
+		7B02FA201C4C15580087B8F0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				84D507F01C270D020073F025 /* Base */,
+				7B02FA211C4C15580087B8F0 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -673,6 +724,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Wedding4You",
@@ -682,6 +735,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lior.Wedding4You;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -689,6 +743,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Wedding4You",
@@ -698,6 +754,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lior.Wedding4You;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

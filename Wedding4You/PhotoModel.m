@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 menachi. All rights reserved.
 //
 
-#import "PhotomODEL.h"
+#import "PhotoModel.h"
 #import "PhotoParse.h"
 
 @implementation PhotoModel  
@@ -138,14 +138,14 @@ static PhotoModel* instance = nil;
     
     dispatch_async(myQueue, ^{
         //save the image to parse
-        [photoImpl saveImage:image withName:pto.imageName];
+        NSError* err = [photoImpl saveImage:image withName:pto.imageName];
         
         //save the image local
         [self savingImageToFile:image fileName:pto.imageName];
         
         dispatch_queue_t mainQ = dispatch_get_main_queue();
         dispatch_async(mainQ, ^{
-            block(nil);
+            block(err);
         });
     } );
 }
@@ -161,7 +161,6 @@ static PhotoModel* instance = nil;
     if (pngData == nil) return nil;
     return [UIImage imageWithData:pngData];
 }
-
 
 -(NSString*)getLocalFilePath:(NSString*)fileName{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);

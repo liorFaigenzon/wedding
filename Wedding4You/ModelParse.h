@@ -11,4 +11,7 @@
 
 @interface ModelParse : NSObject 
 
+-(UIImage*)getImage:(NSString*)imageName;
+-(NSError*)saveImage:(UIImage*)image withName:(NSString*)imageName;
+
 @end

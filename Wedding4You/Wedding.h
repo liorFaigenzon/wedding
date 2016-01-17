@@ -13,7 +13,9 @@
 
 @property NSString* wdId;
 @property User* usCouple;
+@property NSDate* date;
+@property NSString* imageName;
 
--(id)init: (NSString*)wdId usCouple:(User*)couple;
+-(id)init: (NSString*)wdId usCouple:(User*)couple date:(NSDate*)date imageName:(NSString*)imageName;
 
 @end
