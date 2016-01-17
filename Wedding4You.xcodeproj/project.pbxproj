@@ -41,8 +41,6 @@
 		7B8F0D2C1C383A8C00D29D76 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D2B1C383A8C00D29D76 /* CommentModel.m */; };
 		7B8F0D2F1C385D2900D29D76 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D2E1C385D2900D29D76 /* User.m */; };
 		7B8F0D321C3860B800D29D76 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B8F0D311C3860B800D29D76 /* RegisterViewController.m */; };
-		841BB2F01C48409C00A504D8 /* WeddingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BB2EF1C48409C00A504D8 /* WeddingsTableViewController.m */; };
-		841BB2F31C4840B600A504D8 /* WeddingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841BB2F21C4840B600A504D8 /* WeddingTableViewCell.m */; };
 		842317651C443C9C00DF6FA1 /* GreetingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842317641C443C9C00DF6FA1 /* GreetingViewController.m */; };
 		842317681C443D0B00DF6FA1 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842317671C443D0B00DF6FA1 /* CommentViewController.m */; };
 		842375F81C4C0CFC00D30952 /* GreetingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842375F71C4C0CFB00D30952 /* GreetingDetailViewController.m */; };
@@ -171,10 +169,6 @@
 		7B8F0D2E1C385D2900D29D76 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		7B8F0D301C3860B800D29D76 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		7B8F0D311C3860B800D29D76 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		841BB2EE1C48409C00A504D8 /* WeddingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingsTableViewController.h; sourceTree = "<group>"; };
-		841BB2EF1C48409C00A504D8 /* WeddingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingsTableViewController.m; sourceTree = "<group>"; };
-		841BB2F11C4840B600A504D8 /* WeddingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingTableViewCell.h; sourceTree = "<group>"; };
-		841BB2F21C4840B600A504D8 /* WeddingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingTableViewCell.m; sourceTree = "<group>"; };
 		842317631C443C9C00DF6FA1 /* GreetingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreetingViewController.h; sourceTree = "<group>"; };
 		842317641C443C9C00DF6FA1 /* GreetingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreetingViewController.m; sourceTree = "<group>"; };
 		842317661C443D0B00DF6FA1 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
@@ -400,8 +394,6 @@
 				842988E61C456D0900A964EA /* PhotosCollectionViewController.m */,
 				842988D51C4569DC00A964EA /* GreetingsTableViewController.h */,
 				842988D61C4569DC00A964EA /* GreetingsTableViewController.m */,
-				841BB2EE1C48409C00A504D8 /* WeddingsTableViewController.h */,
-				841BB2EF1C48409C00A504D8 /* WeddingsTableViewController.m */,
 			);
 			name = Tables;
 			sourceTree = "<group>";
@@ -415,8 +407,6 @@
 				842988E01C456CE000A964EA /* PhotoCollectionViewCell.h */,
 				842988D71C4569DC00A964EA /* GreetingTableViewCell.h */,
 				842988D81C4569DC00A964EA /* GreetingTableViewCell.m */,
-				841BB2F11C4840B600A504D8 /* WeddingTableViewCell.h */,
-				841BB2F21C4840B600A504D8 /* WeddingTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -652,7 +642,6 @@
 				842988F21C45AB6500A964EA /* ModelSql.m in Sources */,
 				842988F31C45AB6500A964EA /* LastUpdateSql.h in Sources */,
 				842988F41C45AB6500A964EA /* LastUpdateSql.m in Sources */,
-				841BB2F31C4840B600A504D8 /* WeddingTableViewCell.m in Sources */,
 				84D854371C4AAD6B00134390 /* APPViewController.m in Sources */,
 				7B357E381C45330700A452FF /* WeddingSql.m in Sources */,
 				7B357E411C45333900A452FF /* PhotoSql.m in Sources */,
@@ -673,7 +662,6 @@
 				7B8F0D321C3860B800D29D76 /* RegisterViewController.m in Sources */,
 				842317681C443D0B00DF6FA1 /* CommentViewController.m in Sources */,
 				7B8F0D051C38214300D29D76 /* ModelParse.m in Sources */,
-				841BB2F01C48409C00A504D8 /* WeddingsTableViewController.m in Sources */,
 				842988E81C456D0900A964EA /* PhotosCollectionViewController.m in Sources */,
 				7B8F0D141C3830AD00D29D76 /* MainViewController.m in Sources */,
 				842988E21C456CE000A964EA /* PhotoCollectionViewCell .m in Sources */,
