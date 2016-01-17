@@ -212,9 +212,6 @@
                                 <rect key="frame" x="28" y="55" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="greeting"/>
-                                <connections>
-                                    <segue destination="m7g-4g-rlV" kind="modal" id="mhx-vi-uHQ"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fY0-Qr-3M9" userLabel="WEDDING">
                                 <rect key="frame" x="40" y="143" width="46" height="30"/>
@@ -230,9 +227,6 @@
                                 <rect key="frame" x="110" y="169" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="pHOTO"/>
-                                <connections>
-                                    <segue destination="JfV-kF-mbB" kind="push" id="Dzr-Y3-3Ay"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nfI-VV-L3k" userLabel="NewPhoto">
                                 <rect key="frame" x="89" y="314" width="46" height="30"/>
