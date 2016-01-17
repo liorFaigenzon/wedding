@@ -65,7 +65,7 @@
         PFUser* pfusr = [obj objectForKey:@"createdBy"];
         
         // Create comment object
-        comment = [[Comment alloc] init:obj[@"objectId"] title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:greetingObj.objectId usId:pfusr.objectId];
+        comment = [[Comment alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:greetingObj.objectId usId:pfusr.objectId];
     }
     return comment;
 }
@@ -83,7 +83,7 @@
         PFUser* pfusr = [obj objectForKey:@"createdBy"];
         
         // Create comment object
-        comment = [[Comment alloc] init:obj[@"objectId"] title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:grtId usId:pfusr.objectId];
+        comment = [[Comment alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:grtId usId:pfusr.objectId];
         [array addObject:comment];
     }
     return array;

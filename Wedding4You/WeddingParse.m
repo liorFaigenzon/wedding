@@ -69,7 +69,7 @@
         User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
         
         //  Create wedding object
-        Wedding* wedding = [[Wedding alloc] init:obj[@"wdId"] usCouple:usr date:obj[@"date"] imageName:obj[@"imageName"]];
+        Wedding* wedding = [[Wedding alloc] init:obj.objectId usCouple:usr date:obj[@"date"] imageName:obj[@"imageName"]];
         [array addObject:wedding];
     }
     
@@ -91,7 +91,7 @@
         User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
         
         // Creating wedding object with this user
-        wedding = [[Wedding alloc] init:obj[@"wdId"] usCouple:usr date:obj[@"date"] imageName:obj[@"imageName"]];
+        wedding = [[Wedding alloc] init:obj.objectId usCouple:usr date:obj[@"date"] imageName:obj[@"imageName"]];
     }
     return wedding;
 }

@@ -9,6 +9,8 @@
 #import "WeddingTableViewController.h"
 #import "DetailWeddingViewController.h"
 #import "WeddingTableViewCell.h"
+#import "GreetingsTableViewController.h"
+#import "PhotosCollectionViewController.h"
 #import "WeddingModel.h"
 #import "LoginModel.h"
 #import "GreetingModel.h"
@@ -16,6 +18,8 @@
 #import "Greeting.h"
 #import "Comment.h"
 #import "CommentModel.h"
+#import "PhotoModel.h"
+#import "Photo.h"
 
 @interface WeddingTableViewController () {
     NSArray* data;
@@ -36,63 +40,6 @@
         [[self activityIndic] stopAnimating];
         [self activityIndic].hidden = YES;
     }];
-    
-    /*
-    Wedding* wd = [[Wedding alloc] init:nil usCouple:nil date:[Utilities getDateFromString:@"2016-05-19 20:00:00"] imageName:nil];
-    NSArray* guests = [NSArray arrayWithObjects:@"T7TGFelzuj", @"0dT4ALBdYJ", nil];
-    [[WeddingModel instance] addWedding:wd block:^(NSError * err) {
-        //[[WeddingModel instance] saveImage:wd image:nil block:^(NSError * err) {
-        [[WeddingModel instance] addWeddingGuests:guests toWedding:wd block:^(NSError * err2) {
-            
-        //}];
-        }];
-        
-        
-        Greeting* grt = [[Greeting alloc] init:nil title:@"Gretting no 2" date:[NSDate date] greeting:@"This is a greeting content" wdId:wd.wdId usId:nil];
-        [[GreetingModel instance] addGreeting:grt block:^(NSError * err) {
-            NSLog(@"added");
-            
-            Comment* cmt = [[Comment alloc] init:nil title:@"Comment no 1" date:[NSDate date] comment:@"This is the first blabla comment" grtId:grt.grtId usId:nil];
-            [[CommentModel instance] addComment:cmt block:^(NSError * err) {
-                NSLog(@"added");
-            }];
-            
-            Comment* cmt2 = [[Comment alloc] init:nil title:@"Comment no 1" date:[NSDate date] comment:@"This is the second blablabla" grtId:grt.grtId usId:nil];
-            [[CommentModel instance] addComment:cmt2 block:^(NSError * err) {
-                NSLog(@"added");
-            }];
-        }];
-        
-        Greeting* grt2 = [[Greeting alloc] init:nil title:@"Gretting no 3" date:[NSDate date] greeting:@"This is another greeting content" wdId:wd.wdId usId:nil];
-        [[GreetingModel instance] addGreeting:grt2 block:^(NSError * err) {
-            NSLog(@"added");
-            
-            Comment* cmt = [[Comment alloc] init:nil title:@"Comment no 1" date:[NSDate date] comment:@"This is the first comment" grtId:grt2.grtId usId:nil];
-            [[CommentModel instance] addComment:cmt block:^(NSError * err) {
-                NSLog(@"added");
-            }];
-            
-            Comment* cmt2 = [[Comment alloc] init:nil title:@"Comment no 1" date:[NSDate date] comment:@"This is the second comment" grtId:grt2.grtId usId:nil];
-            [[CommentModel instance] addComment:cmt2 block:^(NSError * err) {
-                NSLog(@"added");
-            }];
-        }];
-        
-        Greeting* grt3 = [[Greeting alloc] init:nil title:@"Gretting no 4" date:[NSDate date] greeting:@"This is the 3rd greeting content" wdId:wd.wdId usId:nil];
-        [[GreetingModel instance] addGreeting:grt3 block:^(NSError * err) {
-            NSLog(@"added");
-            
-            Comment* cmt = [[Comment alloc] init:nil title:@"Comment no 1" date:[NSDate date] comment:@"This is the first comment" grtId:grt3.grtId usId:nil];
-            [[CommentModel instance] addComment:cmt block:^(NSError * err) {
-                NSLog(@"added");
-            }];
-            
-            Comment* cmt2 = [[Comment alloc] init:nil title:@"Comment no 1" date:[NSDate date] comment:@"This is the second comment" grtId:grt3.grtId usId:nil];
-            [[CommentModel instance] addComment:cmt2 block:^(NSError * err) {
-                NSLog(@"added");
-            }];
-        }];
-    }];*/
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -190,15 +137,22 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"detailWeddingSegue"]) {
-        UITabBarController* tabVC = segue.destinationViewController;
-        DetailWeddingViewController* detailVC = [tabVC.viewControllers objectAtIndex:0];
-        //WeddingTableViewCell *cell = (WeddingTableViewCell*)sender;
-        
         // Get wedding of selected cell
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Wedding* wedding = [data objectAtIndex:indexPath.row];
+        
+        UITabBarController* tabVC = segue.destinationViewController;
+        
+        DetailWeddingViewController* detailVC = [tabVC.viewControllers objectAtIndex:0];
         [tabVC navigationItem].title = [NSString stringWithFormat:@"%@ %@'s wedding", wedding.usCouple.fName, wedding.usCouple.lName];
         detailVC.wedding = wedding;
+        
+        GreetingsTableViewController* greetingsVC = [tabVC.viewControllers objectAtIndex:1];
+        greetingsVC.wdId = wedding.wdId;
+        
+        PhotosCollectionViewController* photosVC = [tabVC.viewControllers objectAtIndex:2];
+        photosVC.wdId = wedding.wdId;
+        //WeddingTableViewCell *cell = (WeddingTableViewCell*)sender;
     }
 }
 
