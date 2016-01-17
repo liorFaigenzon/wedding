@@ -8,6 +8,7 @@
 
 #import "PhotoModel.h"
 #import "PhotoParse.h"
+#import "ModelSql.h"
 
 @implementation PhotoModel  
 

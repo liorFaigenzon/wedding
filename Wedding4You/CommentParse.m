@@ -14,10 +14,11 @@
 -(NSError*)addComment:(Comment*)cmt{
     NSError* err = nil;
     PFObject* obj = [PFObject objectWithClassName:@"Comments"];
-    //obj[@"cmtId"] = cmt.cmtId;
     obj[@"title"] = cmt.title;
     obj[@"date"] = cmt.date;
     obj[@"comment"] = cmt.comment;
+    obj[@"createdBy"] = cmt.usId;
+    obj[@"greeting"] = cmt.grtId;
     [obj setObject:[[PFQuery queryWithClassName:@"Greetings"] getObjectWithId:cmt.grtId] forKey:@"greeting"];
     [obj setObject:[PFUser currentUser] forKey:@"createdBy"];
     
@@ -83,7 +84,7 @@
         PFUser* pfusr = [obj objectForKey:@"createdBy"];
         
         // Create comment object
-        comment = [[Comment alloc] init:obj[@"objectId"] title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:grtId usId:pfusr.objectId];
+        comment = [[Comment alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:grtId usId:pfusr.objectId];
         [array addObject:comment];
     }
     return array;
