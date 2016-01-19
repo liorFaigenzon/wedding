@@ -144,7 +144,8 @@
         UITabBarController* tabVC = segue.destinationViewController;
         
         DetailWeddingViewController* detailVC = [tabVC.viewControllers objectAtIndex:0];
-        [tabVC navigationItem].title = [NSString stringWithFormat:@"%@ %@'s wedding", wedding.usCouple.fName, wedding.usCouple.lName];
+        //[tabVC navigationItem].title = [NSString stringWithFormat:@"%@ %@'s wedding", wedding.usCouple.fName, wedding.usCouple.lName];
+        [tabVC navigationItem].title = @"Wedding";
         detailVC.wedding = wedding;
         
         GreetingsTableViewController* greetingsVC = [tabVC.viewControllers objectAtIndex:1];
@@ -152,6 +153,7 @@
         
         PhotosCollectionViewController* photosVC = [tabVC.viewControllers objectAtIndex:2];
         photosVC.wdId = wedding.wdId;
+        [tabVC navigationItem].rightBarButtonItem = self.editButtonItem;
         //WeddingTableViewCell *cell = (WeddingTableViewCell*)sender;
     }
 }

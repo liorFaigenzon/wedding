@@ -76,6 +76,21 @@
     return array;
 }
 
+-(NSString*)getWeddingId:(NSString *)wdId{
+    NSString* UserId = nil;
+    
+    // Get wedding with id parameter
+    PFQuery* query = [PFQuery queryWithClassName:@"Greetings"];
+    [query whereKey:@"objectId" equalTo:wdId];
+    NSArray* res = [query findObjects];
+    if (res.count == 1) {
+        PFObject* obj = [res objectAtIndex:0];
+        UserId = obj[@"couple"];
+    }
+    
+    return UserId;
+}
+
 -(Wedding*)getWedding:(NSString *)wdId{
     Wedding* wedding = nil;
     

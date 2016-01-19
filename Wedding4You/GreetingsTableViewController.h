@@ -14,5 +14,7 @@
 @property NSString* wdId;
 @property (nonatomic, strong) NSArray* data;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnAdd;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndic;
+
 @end

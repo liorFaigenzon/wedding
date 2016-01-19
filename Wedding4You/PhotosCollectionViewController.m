@@ -18,8 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.activityIndic stopAnimating];
-    
-    [[PhotoModel instance] getAsynch:[self wdId] block:^(NSArray * photos) {
+ 
+    //[[PhotoModel instance] getAsynch:[self wdId] block:^(NSArray * photos) {
+    [[PhotoModel instance] getAsynch:@"cv1pwjXc6w" block:^(NSArray * photos) {
         self.data = photos;
         [self.collectionView reloadData];
         [self.activityIndic stopAnimating];
@@ -37,19 +38,14 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"detailPhotogSegue"]) {
-        PhotoViewController* newSVC = segue.destinationViewController;
-        
-        //CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-       // NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-        
-        //Photo* pto = nil;
-        //PhotoCollectionViewCell *cell = (PhotoCollectionViewCell*)sender;
-        //[[PhotoModel instance] getPhoto:cell.ptoId block:^(Photo* pto)
-       // {
-        //    newSVC.workPhoto =pto;
-        //}];
-        newSVC.workPhoto = self.data[0];
-        newSVC.delegate = self;
+        NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
+        PhotoViewController *destViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
+        destViewController.workPhoto = self.data[indexPath.row];
+       
+        //destViewController.workPhoto = self.data[0];
+        destViewController.delegate = self;
+        [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
     }
     
     //if ([segue.identifier isEqualToString:@"detailPhotogSegue"]) {
@@ -69,25 +65,32 @@
     Photo* pto = [self.data objectAtIndex:indexPath.row];
     cell.imageName = pto.imageName;
     cell.ptoId = pto.ptoId;
+    cell.image.image = [UIImage imageNamed:pto.imageName];
     
-    // Fetch the image by name
-    cell.image.image = nil;
-    [cell.activityIndic startAnimating];
-    if(pto.imageName != nil && ![pto.imageName isEqualToString:@""]){
-        [[PhotoModel instance] getImage:pto block:^(UIImage *image) {
-            if ([cell.imageName isEqualToString:pto.imageName]){
-                cell.activityIndic.hidden = YES;
-                if (image != nil) {
-                    cell.image.image = image;
-                    [cell.activityIndic stopAnimating];
-                }else{
-                    cell.image.image = [UIImage imageNamed:@"no_photo.jpg"];
-                }
-            }
-        }];
-    }else{
-        cell.image.image = [UIImage imageNamed:@"no_photo.jpg"];
+    if (cell.image.image == nil)
+    {
+         cell.image.image = [UIImage imageNamed:@"no_photo.jpg"];
     }
+    
+   
+    // Fetch the image by name
+    //cell.image.image = nil;
+    //[cell.activityIndic startAnimating];
+    //if(pto.imageName != nil && ![pto.imageName isEqualToString:@""]){
+     //   [[PhotoModel instance] getImage:pto block:^(UIImage *image) {
+      //      if ([cell.imageName isEqualToString:pto.imageName]){
+     //           cell.activityIndic.hidden = YES;
+     //           if (image != nil) {
+     //               cell.image.image = image;
+     //               [cell.activityIndic stopAnimating];
+      //          }else{
+      //              cell.image.image = [UIImage imageNamed:@"no_photo.jpg"];
+      //          }
+      //      }
+       // }];
+    //}else{
+   //    cell.image.image = [UIImage imageNamed:@"no_photo.jpg"];
+    //}
     
     return cell;
 }

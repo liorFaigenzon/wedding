@@ -38,6 +38,7 @@
 */
 
 - (IBAction)register:(id)sender {
+     [self.btnAdd setEnabled:NO];
     [self.activityIndic startAnimating];
     self.activityIndic.hidden = NO;
     
@@ -47,6 +48,8 @@
         self.activityIndic.hidden = YES;
         if (res) {
             [self.navigationController popViewControllerAnimated:YES];
+        }else{
+         [self.btnAdd setEnabled:YES];
         }
     }];
 }

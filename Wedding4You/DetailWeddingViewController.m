@@ -20,7 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //[self navigationItem].title = [NSString stringWithFormat:@"%@ %@'s wedding", [self wedding].usCouple.fName, [self wedding].usCouple.lName];
-    
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background.jpeg"]];
     // Load wedding details to properties
     [self marriedCouple].text = [NSString stringWithFormat:@"%@ %@", [self wedding].usCouple.fName, [self wedding].usCouple.lName];
     [self date].text = [Utilities getDateStringFromDate:[self wedding].date];

@@ -13,6 +13,7 @@
 
 @property NSString* wdId;
 @property (nonatomic, strong) NSArray* data;
+
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndic;
 
 @end

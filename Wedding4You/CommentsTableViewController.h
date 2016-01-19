@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSArray* data;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndic;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btnAdd;
 
 
 @end

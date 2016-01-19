@@ -11,6 +11,7 @@
 #import "GreetingTableViewCell.h"
 #import "GreetingViewController.h"
 #import "CommentsTableViewController.h"
+#import "GreetingDetailViewController.h"
 
 @implementation GreetingsTableViewController
 
@@ -20,11 +21,16 @@
     
     [[GreetingModel instance] getAsynch:[self wdId] block:^(NSArray *greetings) {
         self.data = greetings;
+        
         [self.tableView reloadData];
         [self.activityIndic stopAnimating];
         self.activityIndic.hidden = YES;
     }];
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    //if (self.wdId ==)
+    //{
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    //}
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -35,12 +41,22 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // If row is deleted, remove it from the list.
    if (editingStyle == UITableViewCellEditingStyleDelete) {
+       
+       if(self.btnAdd.enabled == TRUE)
+       {
+           
+           [self.btnAdd setEnabled:NO];
+           self.activityIndic.hidden = NO;
+           [self.activityIndic stopAnimating];
+           [self.btnAdd setEnabled:YES];
        [[GreetingModel instance] deleteGreeting:(Greeting*)[self.data objectAtIndex:indexPath.row] block:^(NSError *xxx)
        {
            self.data = [[GreetingModel instance] getGreetingsforWedding:[self wdId]];
            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
+           [self.activityIndic stopAnimating];
+           [self.btnAdd setEnabled:YES];
        }];
+       }
     }
 }
 
@@ -79,6 +95,10 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+   
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"NewGreetingSegue"]) {
        GreetingViewController* newSVC = segue.destinationViewController;
@@ -86,12 +106,9 @@
     }
     
     if ([segue.identifier isEqualToString:@"detailGreetingSegue"]) {
-        //DetailsGreetingController* DetailSVC = segue.destinationViewController;
-        //GreetingTableViewCell *cell = (GreetingTableViewCell*)sender;
-        
-        //Greeting* st = [[greetingImpl instance] getGreeting:cell.Id];
-
-        //DetailSVC.DetailGreeting = st;
+        GreetingDetailViewController* DetailSVC = segue.destinationViewController;
+        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+        DetailSVC.greetingToShow = self.data[path.row];
     }
     
     if ([segue.identifier isEqualToString:@"showComments"]) {
@@ -103,12 +120,20 @@
 }
 
 -(void)onSave:(Greeting *)std{
+
+        [self.btnAdd setEnabled:NO];
+        self.activityIndic.hidden = NO;
+
+     std.wdId = self.wdId;
     [[GreetingModel instance] addGreeting:std block:^(NSError *xxx)
     {
         self.data = [[GreetingModel instance] getGreetingsforWedding:[self wdId]];
 
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([self.data count] - 1) inSection:0];
         [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+        [self.activityIndic stopAnimating];
+        [self.btnAdd setEnabled:YES];
     }];
     
    

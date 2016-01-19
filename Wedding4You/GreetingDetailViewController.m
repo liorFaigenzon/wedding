@@ -8,6 +8,8 @@
 
 #import "GreetingDetailViewController.h"
 #import "CommentsTableViewController.h"
+
+
 @interface GreetingDetailViewController ()
 
 @end
@@ -16,28 +18,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //GreetingDetailViewController* parent = self.sourceViewController;
-    /*
-    UIScrollView* scrollView = [[UIScrollView alloc] init];
     
-    CommentsTableViewController* child = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"CommentTableViewController"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setFormatterBehavior:NSDateFormatterBehavior10_4];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle:NSDateFormatterNoStyle];
+    NSString *result = [formatter stringFromDate:(NSDate *)self.greetingToShow.date];
     
-    //connect between the parent VC to the Child VC
-    
-    
-    //set the displa of the child view inside his parent
-    CGRect frame = child.view.frame;
-    frame.origin.x = 0;
-    frame.origin.y = 0;
-    child.view.frame =frame;
-    scrollView.frame = frame;
-    
-    [self addChildViewController:child];
-   [self.ViewContainer addSubview:scrollView];
-   [scrollView addSubview:child.view];
-    */
-
+    self.titleGRT.text = [NSString stringWithFormat:@"%@ by /%@", self.greetingToShow.title, self.greetingToShow.usId];
+    self.dateGRT.text =result;
+    self.greetingGRT.text =self.greetingToShow.greeting;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,14 +35,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"GreetingDetailSegue"]) {
+        UINavigationController *nav = [segue destinationViewController];
+        CommentsTableViewController *firmyVC = (CommentsTableViewController *)nav.topViewController;
+        firmyVC.grtId = self.greetingToShow.grtId;
+    }
 }
-*/
+
 
 @end

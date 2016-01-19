@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *lNameF;
 @property (weak, nonatomic) IBOutlet UITextField *phoneF;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndic;
+@property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 
 - (IBAction)register:(id)sender;
 @end

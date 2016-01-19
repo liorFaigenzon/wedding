@@ -8,6 +8,7 @@
 
 #import "LoginParse.h"
 #import <Parse/Parse.h>
+#import "WeddingParse.h"
 
 
 @implementation LoginParse
@@ -16,6 +17,15 @@
     PFUser* user = [PFUser currentUser];
     if (user != nil) {
         return user.username;
+    }else{
+        return nil;
+    }
+}
+
+-(NSString*)getCurrentId{
+    PFUser* user = [PFUser currentUser];
+    if (user != nil) {
+        return user.objectId;
     }else{
         return nil;
     }

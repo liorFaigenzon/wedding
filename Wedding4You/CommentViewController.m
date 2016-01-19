@@ -33,7 +33,7 @@
 
 
 - (IBAction)onSave:(id)sender {
-    Comment* comment = [[Comment alloc] init:@"new" title:self.iTitle.text date:[NSDate date] comment:self.iComment.text grtId:@"A65KUSpgEE" usId:@"0dT4ALBdYJ"];
+    Comment* comment = [[Comment alloc] init:@"new" title:self.iTitle.text date:[NSDate date] comment:self.iComment.text grtId:@"new" usId:@"0dT4ALBdYJ"];
     [self.delegate onSave:comment];
     [self.navigationController popViewControllerAnimated:YES];
 }

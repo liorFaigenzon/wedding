@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Greeting.h"
 
 @interface GreetingDetailViewController : UIViewController
 
+
+@property  Greeting* greetingToShow;
 @property (weak, nonatomic) IBOutlet UIView *ViewContainer;
+@property (weak, nonatomic) IBOutlet UILabel *dateGRT;
+@property (weak, nonatomic) IBOutlet UILabel *titleGRT;
+@property (weak, nonatomic) IBOutlet UITextView *greetingGRT;
 
 @end

@@ -22,6 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    [self.view addSubview:backgroundView];
+    
     // Do any additional setup after loading the view.
     self.activityIndic.hidden = YES;
     NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];

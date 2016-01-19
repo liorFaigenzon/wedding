@@ -15,5 +15,6 @@
 -(BOOL)signup:(NSString*)user pwd:(NSString*)pwd usDetails:(User*)usDeatils;
 -(void)logout;
 -(NSString*)getCurrentUser;
+-(NSString*)getCurrentId;
 
 @end

@@ -138,7 +138,8 @@ static PhotoModel* instance = nil;
     
     dispatch_async(myQueue, ^{
         //save the image to parse
-        NSError* err = [photoImpl saveImage:image withName:pto.imageName];
+        NSError* err = [photoImpl addPhoto:pto];
+        //NSError* err = [photoImpl saveImage:image withName:pto.imageName];
         
         //save the image local
         [self savingImageToFile:image fileName:pto.imageName];

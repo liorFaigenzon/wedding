@@ -7,15 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "APPViewController.h"
 #import "Photo.h"
-
+#import "UserPhoto.h"
+//@interface NewPhotoViewController : UIViewController <getPhotoDelegate>
 @interface NewPhotoViewController : UIViewController <getPhotoDelegate>
 
 @property Photo* workPhoto;
+@property NSString* wdId;
+@property NSString* usId;
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UITextField* title;
+@property (strong, nonatomic) IBOutlet UITextField* uititle;
 @property (strong, nonatomic) IBOutlet UITextView* descriptionPt;
 
 
