@@ -27,7 +27,8 @@
         
         // Get user id
         PFUser* userObj = [obj objectForKey:@"createdBy"];
-        cmt.usId = userObj.objectId;
+        cmt.createdBy = [[User alloc] init];
+        cmt.createdBy.usId = userObj.objectId;
     }
     
     return err;
@@ -62,10 +63,11 @@
         PFObject* greetingObj = [obj objectForKey:@"greeting"];
         
         // Fetch user details
-        PFUser* pfusr = [obj objectForKey:@"createdBy"];
+        PFUser* pfusr = [[obj objectForKey:@"createdBy"] fetch];
+        User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
         
         // Create comment object
-        comment = [[Comment alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:greetingObj.objectId usId:pfusr.objectId];
+        comment = [[Comment alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:greetingObj.objectId createdBy:usr];
     }
     return comment;
 }
@@ -80,10 +82,11 @@
     NSArray* res = [query findObjects];
     for (PFObject* obj in res) {
         // Fetch user details
-        PFUser* pfusr = [obj objectForKey:@"createdBy"];
+        PFUser* pfusr = [[obj objectForKey:@"createdBy"] fetch];
+        User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
         
         // Create comment object
-        comment = [[Comment alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:grtId usId:pfusr.objectId];
+        comment = [[Comment alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] comment:obj[@"comment"] grtId:grtId createdBy:usr];
         [array addObject:comment];
     }
     return array;

@@ -9,9 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "Photo.h"
 #import "UserPhoto.h"
+
+@protocol newPhotoDelegate <NSObject>
+
+-(void)onSave:(Photo*)pto uiImage:(UIImage*)uiImage;
+
+@end
+
 //@interface NewPhotoViewController : UIViewController <getPhotoDelegate>
 @interface NewPhotoViewController : UIViewController <getPhotoDelegate>
 
+@property id<newPhotoDelegate> delegate;
 @property Photo* workPhoto;
 @property NSString* wdId;
 @property NSString* usId;
@@ -19,10 +27,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UITextField* uititle;
 @property (strong, nonatomic) IBOutlet UITextView* descriptionPt;
-
-
-
--(id)init:(NSString*)ptoId title:(NSString*)title date:(NSDate*)date descriptionPt:(NSString*)descriptionPt imageName:(NSString*)imageName wdId:(NSString*)wdId usId:(NSString*)usId;
 
 - (IBAction)savePhoto:(id)sender;
 

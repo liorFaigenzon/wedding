@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.activityIndic stopAnimating];
-    [[PhotoModel instance] getAsynch:@"XKUGRs9a47" block:^(NSArray * photos) {
+    [[PhotoModel instance] getAsynch:@"XZgP5TbE2n" block:^(NSArray * photos) {
         self.data = photos;
          self.collectionView.allowsSelection = YES;
         [self.collectionView reloadData];
@@ -37,7 +37,7 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"detailPhotogSegue"]) {
-        PhotoViewController* newSVC = segue.destinationViewController;
+        //PhotoViewController* newSVC = segue.destinationViewController;
        
         //CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
        // NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
@@ -105,8 +105,8 @@
     
     [self.delegate onSave:cell.imageName uiImage:cell.image.image];
     
-    [self dismissViewControllerAnimated:NO completion:nil];
-    //[self.navigationController popViewControllerAnimated:YES];
+    //[self dismissViewControllerAnimated:NO completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 @end

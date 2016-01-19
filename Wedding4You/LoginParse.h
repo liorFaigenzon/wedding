@@ -16,5 +16,6 @@
 -(void)logout;
 -(NSString*)getCurrentUser;
 -(NSString*)getCurrentId;
+-(User*)getCurrentUserDetails;
 
 @end

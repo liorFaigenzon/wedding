@@ -46,7 +46,7 @@
    
 
 - (IBAction)onSave:(id)sender {
-    Greeting* greeting = [[Greeting alloc] init:@"new" title:self.iTitle.text date:[NSDate date] greeting:self.iGreeting.text wdId:@"96smXQDaUo" usId:@"0dT4ALBdYJ"];
+    Greeting* greeting = [[Greeting alloc] init:nil title:self.iTitle.text date:[NSDate date] greeting:self.iGreeting.text wdId:[self wdId] createdBy:nil];
 
     [self.delegate onSave:greeting];
     [self.navigationController popViewControllerAnimated:YES];

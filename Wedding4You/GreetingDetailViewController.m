@@ -25,7 +25,7 @@
     [formatter setTimeStyle:NSDateFormatterNoStyle];
     NSString *result = [formatter stringFromDate:(NSDate *)self.greetingToShow.date];
     
-    self.titleGRT.text = [NSString stringWithFormat:@"%@ by /%@", self.greetingToShow.title, self.greetingToShow.usId];
+    self.titleGRT.text = [NSString stringWithFormat:@"%@ by /%@", self.greetingToShow.title, self.greetingToShow.createdBy.fName];
     self.dateGRT.text =result;
     self.greetingGRT.text =self.greetingToShow.greeting;
 }

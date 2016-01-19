@@ -44,7 +44,7 @@ static NSString* GREETING_US_ID = @"US_ID";
         sqlite3_bind_text(statment, 3, [[Utilities getStringFromDate:grt.date] UTF8String],-1,NULL);
         sqlite3_bind_text(statment, 4, [grt.greeting UTF8String],-1,NULL);
         sqlite3_bind_text(statment, 5, [grt.wdId UTF8String],-1,NULL);
-        sqlite3_bind_text(statment, 6, [grt.usId UTF8String],-1,NULL);
+        sqlite3_bind_text(statment, 6, [grt.createdBy.usId UTF8String],-1,NULL);
         
         if(sqlite3_step(statment) == SQLITE_DONE){
             return;
@@ -87,8 +87,9 @@ static NSString* GREETING_US_ID = @"US_ID";
             NSString* greeting = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,3)];
             NSString* wdId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,4)];
             NSString* usId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,5)];
+            User* usr = [[User alloc] init:usId fname:nil lName:nil phone:nil];
             
-            grt = [[Greeting alloc] init:grtId title:title date:date greeting:greeting wdId:wdId usId:usId];
+            grt = [[Greeting alloc] init:grtId title:title date:date greeting:greeting wdId:wdId createdBy:usr];
         }
     }else{
         NSLog(@"ERROR: getGreeting failed %s",sqlite3_errmsg(database));
@@ -113,8 +114,9 @@ static NSString* GREETING_US_ID = @"US_ID";
             NSString* greeting = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,3)];
             NSString* wdId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,4)];
             NSString* usId = [NSString stringWithFormat:@"%s",sqlite3_column_text(statment,5)];
+            User* usr = [[User alloc] init:usId fname:nil lName:nil phone:nil];
             
-            Greeting* grt = [[Greeting alloc] init:grtId title:title date:date greeting:greeting wdId:wdId usId:usId];
+            Greeting* grt = [[Greeting alloc] init:grtId title:title date:date greeting:greeting wdId:wdId createdBy:usr];
             [data addObject:grt];
         }
     }else{

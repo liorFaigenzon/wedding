@@ -25,10 +25,28 @@
     [formatter setTimeStyle:NSDateFormatterNoStyle];
     NSString *result = [formatter stringFromDate:(NSDate *)self.workPhoto.date];
     
-    self.ltitle.text = self.workPhoto.title;
-    self.descriptionPt.text = self.workPhoto.descriptionPt;
+    Photo* pto = self.workPhoto;
+    self.ltitle.text = pto.title;
+    self.descriptionPt.text = pto.descriptionPt;
     self.date.text = result;
-    self.image.image = [UIImage imageNamed:self.workPhoto.imageName];
+    //self.image.image = [UIImage imageNamed:pto.imageName];
+    
+    // Fetch the image by name
+    _image.image = nil;
+    [[self activityIndic] startAnimating];
+    if(pto.imageName != nil && ![pto.imageName isEqualToString:@""]){
+        [[PhotoModel instance] getImage:pto block:^(UIImage *image) {
+            _activityIndic.hidden = YES;
+            if (image != nil) {
+                [self image].image = image;
+                [[self activityIndic] stopAnimating];
+            }else{
+                [self image].image = [UIImage imageNamed:@"no_photo.jpg"];
+            }
+        }];
+    }else{
+        [self image].image = [UIImage imageNamed:@"no_photo.jpg"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

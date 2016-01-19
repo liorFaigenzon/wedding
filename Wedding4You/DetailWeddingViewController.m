@@ -60,4 +60,7 @@
 }
 */
 
+- (IBAction)back:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
 @end

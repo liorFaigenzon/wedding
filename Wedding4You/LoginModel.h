@@ -13,6 +13,7 @@
 @interface LoginModel : Model
 
 @property NSString* user;
+@property User* userDetails;
 
 +(LoginModel*)instance;
 -(void)login:(NSString*)user pwd:(NSString*)pwd block:(void(^)(BOOL))block;

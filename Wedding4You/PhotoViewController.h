@@ -10,22 +10,14 @@
 #import "Photo.h"
 #import "PhotoModel.h"
 
-@protocol NewPhotoDelegate <NSObject>
-
--(void)onSave:(Photo*)newPhoto;
-
-@end
-
 @interface PhotoViewController : UIViewController
 
-@property id<NewPhotoDelegate> delegate;
-
 @property Photo* workPhoto;
-
 @property (weak, nonatomic) IBOutlet UILabel* ltitle;
 @property (weak, nonatomic) IBOutlet UITextView* descriptionPt;
 @property (weak, nonatomic) IBOutlet UILabel* date;
 @property (weak, nonatomic) IBOutlet UIImageView* image;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndic;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)onSave:(id)sender;

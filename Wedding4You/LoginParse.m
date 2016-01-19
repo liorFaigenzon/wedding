@@ -22,6 +22,15 @@
     }
 }
 
+-(User*)getCurrentUserDetails{
+    PFUser* user = [PFUser currentUser];
+    if (user != nil) {
+        return [[User alloc] init:user.objectId fname:user[@"fname"] lName:user[@"lname"] phone:user[@"phone"]];
+    }else{
+        return nil;
+    }
+}
+
 -(NSString*)getCurrentId{
     PFUser* user = [PFUser currentUser];
     if (user != nil) {

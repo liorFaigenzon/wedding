@@ -27,7 +27,8 @@
         
         // Get user id
         PFUser* userObj = [obj objectForKey:@"createdBy"];
-        grt.usId = userObj.objectId;
+        grt.createdBy = [[User alloc] init];
+        grt.createdBy.usId = userObj.objectId;
     }
     
     return err;
@@ -60,10 +61,11 @@
         PFObject* weddingObj = [obj objectForKey:@"wedding"];
         
         // Get user details
-        PFUser* userObj = [obj objectForKey:@"createdBy"];
+        PFUser* pfusr = [[obj objectForKey:@"createdBy"] fetch];
+        User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
         
         // Create greeting object
-        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId usId:userObj.objectId];
+        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId createdBy:usr];
     }
     
     return greeting;
@@ -80,10 +82,11 @@
     
     for (PFObject* obj in res) {
         // Fetch user details
-        PFUser* userObj = [obj objectForKey:@"createdBy"];
+        PFUser* pfusr = [[obj objectForKey:@"createdBy"] fetch];
+        User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
         
         // Create wedding object
-        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:wdId usId:userObj.objectId];
+        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:wdId createdBy:usr];
         [array addObject:greeting];
     }
     return array;
@@ -106,10 +109,11 @@
         PFObject* weddingObj = [obj objectForKey:@"wedding"];
         
         // Fetch user details
-        PFUser* pfusr = [obj objectForKey:@"createdBy"];
+        PFUser* pfusr = [[obj objectForKey:@"createdBy"] fetch];
+        User* usr = [[User alloc] init:pfusr.objectId fname:pfusr[@"fname"] lName:pfusr[@"lname"] phone:pfusr[@"phone"]];
         
         // Create wedding object
-        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId usId:pfusr.objectId];
+        greeting = [[Greeting alloc] init:obj.objectId title:obj[@"title"] date:obj[@"date"] greeting:obj[@"greeting"] wdId:weddingObj.objectId createdBy:usr];
         [array addObject:greeting];
     }
     return array;

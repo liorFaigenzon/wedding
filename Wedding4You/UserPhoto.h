@@ -24,6 +24,4 @@
 @property (nonatomic, strong) NSArray* data;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndic;
 
-- (IBAction)onSave:(id)sender;
-
 @end

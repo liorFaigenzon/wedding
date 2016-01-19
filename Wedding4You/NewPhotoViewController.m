@@ -31,8 +31,7 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"GetPhotoSegue"]) {
-        UINavigationController *nav = [segue destinationViewController];
-        UserPhoto *firmyVC = (UserPhoto *)nav.topViewController;
+        UserPhoto *firmyVC = [segue destinationViewController];
         firmyVC.delegate = self;
     }
     
@@ -47,29 +46,39 @@
 }
 
 -(void)onSave:(NSString *)imageName uiImage:(UIImage *)uiImage{
-    self.imageView.image  =uiImage;
+    self.imageView.image = uiImage;
     
-    NSError* xxx  = nil;
-    self.workPhoto =[[Photo alloc] init:@"n" title:self.uititle.text date:[NSDate date] descriptionPt:self.descriptionPt.text imageName:imageName wdId:@"cv1pwjXc6w" usId:@"T7TGFelzuj"];
+    self.workPhoto =[[Photo alloc] init:nil title:self.uititle.text date:[NSDate date] descriptionPt:self.descriptionPt.text imageName:imageName wdId:[self wdId] usId:nil];
     //.text imageName:imageName wdId:self.wdId usId:self.usId];
- 
-    
-   
-    
-
-     
 }
 
 - (IBAction)savePhoto:(id)sender {
+    Photo* pto = self.workPhoto;
     //self.workPhoto.imageName = self.imageView.
-    NSError* xxx  = nil;
-    self.workPhoto.title = self.uititle.text;
-    self.workPhoto.descriptionPt = self.descriptionPt.text;
-    [[PhotoModel instance] saveImage:(Photo *)self.workPhoto image:(UIImage *)self.imageView.image block:^(NSError *xxx)
-     {
-         
-     }];
- 
+    pto.title = self.uititle.text;
+    pto.descriptionPt = self.descriptionPt.text;
     
+    UIImage* image = (UIImage *)self.imageView.image;
+    [[PhotoModel instance] addPhoto:pto block:^(NSError * err) {
+        [[PhotoModel instance] saveImage:pto image:image block:^(NSError *err)
+         {
+             if (err != nil)
+                 NSLog(@"Error:%@", err.description);
+             else
+                 [[self delegate] onSave:pto uiImage:image];
+         }];
+    }];
+    
+    // Load photo on photos collection screen
+    [self.navigationController popViewControllerAnimated:YES];
+ 
+    /*Photo* pto1 = [[Photo alloc] init:nil title:@"kiril" date:[NSDate date] descriptionPt:@"this is kigelman and refaeli" imageName:@"k1.jpg" wdId:wd.wdId usId:nil];
+    [[PhotoModel instance] addPhoto:pto1 block:^(NSError * err) {
+        NSLog(@"added");
+        
+        [[PhotoModel instance] saveImage:pto1 image:[UIImage imageNamed:@"k1.jpg"] block:^(NSError * err) {
+            NSLog(@"saved");
+        }];
+    }];*/
 }
 @end

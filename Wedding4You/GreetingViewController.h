@@ -18,9 +18,7 @@
 @interface GreetingViewController : UIViewController
 
 @property id<NewGreetingDelegate> delegate;
-
-@property Greeting* workGreeting;
-
+@property NSString* wdId;
 @property (weak, nonatomic) IBOutlet UITextField *iTitle;
 @property (weak, nonatomic) IBOutlet UITextView *iGreeting;
 

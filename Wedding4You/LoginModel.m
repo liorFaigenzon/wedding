@@ -42,6 +42,7 @@ static LoginModel* instance = nil;
         
         if (res) {
             self.user = user;
+            self.userDetails = [parseModelImpl getCurrentUserDetails];
         }
         //end of long operation - update display in the main Q
         dispatch_queue_t mainQ = dispatch_get_main_queue();

@@ -20,8 +20,7 @@
 
 @property id<NewCommentDelegate> delegate;
 
-@property Comment* workComment;
-
+@property NSString* grtId;
 @property (weak, nonatomic) IBOutlet UITextField *iTitle;
 @property (weak, nonatomic) IBOutlet UITextView *iComment;
 

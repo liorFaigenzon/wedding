@@ -80,7 +80,7 @@
     [formatter setTimeStyle:NSDateFormatterNoStyle];
     NSString *result = [formatter stringFromDate:(NSDate *)com.date];
     
-    cell.title.text = [NSString stringWithFormat:@"%@ by /%@", com.title, com.usId];
+    cell.title.text = [NSString stringWithFormat:@"%@ by /%@", com.title, com.createdBy.fName];
     cell.date.text = result;
     cell.comment.text = com.comment;
     
@@ -91,6 +91,7 @@
     if ([segue.identifier isEqualToString:@"NewCommentSegue"]) {
         CommentViewController* newSVC = segue.destinationViewController;
         newSVC.delegate = self;
+        newSVC.grtId = [self grtId];
     }
     
     if ([segue.identifier isEqualToString:@"detailCommentSegue"]) {
@@ -108,11 +109,17 @@
     [self.btnAdd setEnabled:NO];
      self.activityIndic.hidden = NO;
     [self.activityIndic startAnimating];
-    [[CommentModel instance] addComment:std block:^(NSError *xxx)
+    [[CommentModel instance] addComment:std block:^(NSError *err)
      {
          self.data = [[CommentModel instance] getCommentsForGreeting:[self grtId]];
-         
          NSIndexPath *indexPath = [NSIndexPath indexPathForRow:([self.data count] - 1) inSection:0];
+         
+         // Scroll down
+         if ([self.data count] > 2) {
+             NSIndexPath *beforeLastIndexPath = [NSIndexPath indexPathForRow:([self.data count] - 2) inSection:0];
+             [self.tableView scrollToRowAtIndexPath:beforeLastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+         }
+         
          [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
          
          [self.activityIndic stopAnimating];

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PhotoViewController.h"
+#import "NewPhotoViewController.h"
 
-@interface PhotosCollectionViewController :UICollectionViewController <NewPhotoDelegate,UICollectionViewDelegate, UICollectionViewDataSource>
+@interface PhotosCollectionViewController :UICollectionViewController <newPhotoDelegate,UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property NSString* wdId;
 @property (nonatomic, strong) NSArray* data;

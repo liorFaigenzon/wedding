@@ -12,6 +12,7 @@
 #import "GreetingViewController.h"
 #import "CommentsTableViewController.h"
 #import "GreetingDetailViewController.h"
+#import "LoginModel.h"
 
 @implementation GreetingsTableViewController
 
@@ -27,7 +28,7 @@
         self.activityIndic.hidden = YES;
     }];
     
-    //if (self.wdId ==)
+    //if ()
     //{
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
     //}
@@ -44,18 +45,19 @@
        
        if(self.btnAdd.enabled == TRUE)
        {
-           
            [self.btnAdd setEnabled:NO];
            self.activityIndic.hidden = NO;
            [self.activityIndic stopAnimating];
            [self.btnAdd setEnabled:YES];
-       [[GreetingModel instance] deleteGreeting:(Greeting*)[self.data objectAtIndex:indexPath.row] block:^(NSError *xxx)
-       {
-           self.data = [[GreetingModel instance] getGreetingsforWedding:[self wdId]];
-           [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-           [self.activityIndic stopAnimating];
-           [self.btnAdd setEnabled:YES];
-       }];
+           
+           // Delete greeting
+           [[GreetingModel instance] deleteGreeting:(Greeting*)[self.data objectAtIndex:indexPath.row] block:^(NSError *xxx)
+            {
+                self.data = [[GreetingModel instance] getGreetingsforWedding:[self wdId]];
+                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.activityIndic stopAnimating];
+                [self.btnAdd setEnabled:YES];
+            }];
        }
     }
 }
@@ -88,7 +90,7 @@
     NSString *result = [formatter stringFromDate:(NSDate *)grt.date];
     
     cell.grtId = grt.grtId;
-    cell.title.text = [NSString stringWithFormat:@"%@ by /%@", grt.title, grt.usId];
+    cell.title.text = [NSString stringWithFormat:@"%@ by /%@", grt.title, grt.createdBy.fName];
     cell.date.text = result;
     cell.greeting.text = grt.greeting;
     
@@ -101,7 +103,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"NewGreetingSegue"]) {
-       GreetingViewController* newSVC = segue.destinationViewController;
+        GreetingViewController* newSVC = segue.destinationViewController;
+        newSVC.wdId = [self wdId];
         newSVC.delegate = self;
     }
     
